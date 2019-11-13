@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="66ef255e-53de-47fd-bbe7-e76ac1edb4b4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	t_personales.nombre,t_personales.apellidos, 
+	t_consultas.fecha,t_consultas.peso, t_consultas.TA,t_consultas.cita,t_consultas.fechacita,
+	t_recetas.medicamento,t_recetas.tratamiento,
+	c_medicamentos.nombre AS nommedic,
+	c_tratamientos.nombre AS nomtratam
+FROM
+	t_personales
+INNER JOIN
+	t_consultas 
+ON
+	t_consultas.expediente = t_personales.expediente
+INNER JOIN 
+	t_recetas 
+ON
+	t_consultas.id_consultas = t_recetas.id_consultas AND t_consultas.id_consultas = $P{parameter1}
+INNER JOIN
+	c_medicamentos
+ON
+	c_medicamentos.clave = t_recetas.medicamento
+INNER JOIN
+	c_tratamientos
+ON
+	c_tratamientos.clave = t_recetas.tratamiento;]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="peso" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cita" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechacita" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="medicamento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tratamiento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nommedic" class="java.lang.String"/>
+	<field name="nomtratam" class="java.lang.String"/>
+	<background>
+		<band height="572">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement mode="Transparent" x="209" y="135" width="356" height="257" uuid="bd22ac5b-bf95-48e1-84ab-e721b6b897c3"/>
+				<imageExpression><![CDATA["C:\\Sistema MedicoLAPTOP\\SistemaMedicoLAPTOP\\src\\Imagenes\\simbolo_medicina_transparente.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<line>
+				<reportElement x="15" y="64" width="711" height="1" uuid="94a87575-c4c3-4ca3-a491-f27bd7c42521"/>
+			</line>
+			<image>
+				<reportElement x="30" y="2" width="65" height="62" uuid="e4922874-4384-44cf-8f29-e12c94faf272"/>
+				<imageExpression><![CDATA["C:\\Sistema MedicoLAPTOP\\SistemaMedicoLAPTOP\\src\\Imagenes\\upaep.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="244" y="2" width="293" height="23" uuid="d2d1e015-3fbc-40e0-afb0-0f0ed71b1e04"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Dr. Rene Jimenez Cano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="25" width="159" height="18" forecolor="#0066CC" uuid="7ed27007-ffc6-45a2-b448-b4d242333bd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Malgun Gothic Semilight" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEDICO GENERAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="45" width="598" height="20" uuid="8d12da72-cdac-471f-87d5-54f6d6cde6d6"/>
+				<text><![CDATA[UNIVERSIDAD POPULAR DEL ESTADO DE PUEBLA          CED. PROF. -------       CED. ESPEC. ------]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="138" y="14" width="327" height="20" uuid="f8fb23b3-4d10-4d5e-bebe-62ddeea97e18"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}+' '+$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="652" y="14" width="100" height="20" uuid="c08d3572-f770-4ab4-81c1-972c27a018c5"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="70" y="14" width="68" height="20" uuid="8f029b88-b2ab-4f9d-9499-0998f1d43d31"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PACIENTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="589" y="14" width="58" height="20" uuid="0afa878c-79f1-4c0d-831b-c0eb34c422a5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="652" y="0" width="100" height="20" uuid="3a686916-f47c-4924-8fb0-5c8db6f64258"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{peso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="652" y="20" width="100" height="20" uuid="ed6b77e9-a669-47e6-8703-96d8299e75bd"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="589" y="20" width="58" height="20" uuid="b77e86ba-0ccb-45e5-ad80-924241042a16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRESION:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="589" y="0" width="58" height="20" uuid="594e538b-5dc0-4147-80f0-976d1a3bceb3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PESO:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="128" y="0" width="450" height="20" uuid="94b35f1f-81c1-43cc-a4a7-c6aa9f6aa9d6"/>
+				<textFieldExpression><![CDATA[$F{nommedic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="20" width="489" height="20" uuid="12b4bcbe-c4df-4382-bd0b-0103515b715e"/>
+				<textFieldExpression><![CDATA[$F{nomtratam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="112" y="0" width="16" height="20" uuid="4e287361-fd24-4265-bfe5-3f50af3dea8e"/>
+				<text><![CDATA[-.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="83" y="0" width="29" height="20" uuid="e5a9aa3b-fc66-44c9-959b-9bd9e29aea2b"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="77" splitType="Stretch">
+			<textField>
+				<reportElement x="652" y="32" width="85" height="20" uuid="9fa53928-a514-4030-a1f2-1eaa156093eb"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechacita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="565" y="32" width="87" height="20" uuid="cb740baa-f306-42af-b0d4-e3b21bb2b72a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROXIMA CITA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="12" width="216" height="20" uuid="a59ccc57-6dba-4557-aac3-adab83f308f1"/>
+				<text><![CDATA[25 ORIENTE #1804, LAS HADAS PUEBLA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="32" width="319" height="20" uuid="3fba5cf8-57b0-4539-b497-ecce1f1601fa"/>
+				<text><![CDATA[LUNES A VIERNES:  10:00 HRS. - 14 HRS. y 16:00 - 19:30 HRS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="52" width="319" height="20" uuid="c0a29b34-13fb-4f6b-94fa-c5d1a699de0a"/>
+				<text><![CDATA[                  SABADO:  10:00 HRS. - 14 HRS.	 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="12" width="335" height="20" uuid="bed5d1cb-6003-4b91-bbd9-8278f587abae"/>
+				<text><![CDATA[TEL: 222 1548907	CASA: 222 5651306	CEL: 2211678546]]></text>
+			</staticText>
+			<line>
+				<reportElement x="15" y="11" width="707" height="1" uuid="e937bce4-1eae-4222-8c2e-74d44c0089c8"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE index
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/index_1_0.dtd">
+<index version="1.0">
+        <indexitem text="Ventana principal de ayuda."    target="aplicacion"/>
+        <indexitem text="Alta de usuarios."    target="ventana_principal"/>
+        <indexitem text="Proximas citas medicas."    target="ventana_secundaria"/>
+        <indexitem text="Nueva consulta medica."    target="ventana_terciaria"/>
+        <indexitem text="Altas de medicamentos."    target="ventana_cuaternaria"/>
+        
+        <indexitem text="AntecendentesHeredofamiliares."    target="ventana_quintinaria"/>
+        <indexitem text="Chat."    target="ventana_sextiaria"/>
+        <indexitem text="Cobros de consultas."    target="ventana_seventinaria"/>
+        
+</index>

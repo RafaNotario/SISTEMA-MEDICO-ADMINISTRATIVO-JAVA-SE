@@ -1,0 +1,8 @@
+    limpiar();
+    CE uno = new CE();
+    uno.setVisible(true);
+    PanelPrincipal.setLayout(new GridLayout(1,1));
+    PanelPrincipal.add(uno);
+    PanelPrincipal.validate();
+    PanelPrincipal.setVisible(true);
+    PanelPrincipal.setEnabled(true);

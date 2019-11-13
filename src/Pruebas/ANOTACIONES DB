@@ -1,0 +1,5 @@
+//RESPALDO DE BASE DE DATOS
+    mysqldump -u root -p --routines=TRUE db_doctores | gzip > respDbDoctores.sql.gz
+
+//CARGAR DB EN MYSQL 
+    mysql -u root -p admin_tff < respadmin_tff.sql
