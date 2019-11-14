@@ -3,3 +3,16 @@
 
 //CARGAR DB EN MYSQL 
     mysql -u root -p admin_tff < respadmin_tff.sql
+
+GIT 
+Puedes ver todos los estados con el comando
+ > git reflog 
+el resultado sera una lista de estados con la primera 
+columna siendo el codigo para su respectivo estado.
+
+Luego con el comando 
+ > git reset --hard {poner codigo de la lista} 
+puedes volver al estado que tu desees.
+por ejemplo para volver al estado HEAD@{2} el comando seria:
+
+git reset --hard fbebd80

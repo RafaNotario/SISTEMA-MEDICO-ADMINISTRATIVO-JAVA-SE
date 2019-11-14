@@ -1,5 +1,5 @@
 
-package sistema1;
+package Pruebas;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltStrings.align;
 import java.sql.Connection;
@@ -12,15 +12,15 @@ import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Checkbox;
-//import sistema1.ConexionDBOriginal;
+import sistema1.ConexionDBOriginal;
 
 public class JPanelHistoriaClinica extends javax.swing.JPanel {
 
     
     ConexionDBOriginal con2 = new ConexionDBOriginal();
     
-    String text1 = "<html><body><p>*Marcar todas las que apliquen y especificar <br>quien la ha padecido. </p></body></html>";
-    String text2 = "<html><body><p>*Marcar todas las que apliquen y especificar. </p></body></html>";
+    String text1 = "<html><body><p>*Marcar todas las que <br>apliquen y especificar <br>quien la ha padecido. </p></body></html>";
+    String text2 = "<html><body><p>*Marcar todas las que <br>apliquen y especificar. </p></body></html>";
     public String expediente = null;
     int param=0;
     
@@ -36,6 +36,9 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         cargaTexto(jLabel5, text2);
         this.param=exped;
         llenacombo();
+        
+                ;
+        
     }
 
     /**
@@ -51,14 +54,9 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         LavDental = new javax.swing.ButtonGroup();
         Habitacion = new javax.swing.ButtonGroup();
         Inmunizaciones = new javax.swing.ButtonGroup();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtexpediente = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
         jLabeText1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         hepatopatia = new javax.swing.JCheckBox();
         endocrinas = new javax.swing.JCheckBox();
@@ -70,7 +68,58 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         mentales = new javax.swing.JCheckBox();
         cardiopatia = new javax.swing.JCheckBox();
         asma = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtactuales = new javax.swing.JTextField();
+        actuales = new javax.swing.JCheckBox();
+        quirurgicas = new javax.swing.JCheckBox();
+        txtquirurgicas = new javax.swing.JTextField();
+        transfusionales = new javax.swing.JCheckBox();
+        txttransfusionales = new javax.swing.JTextField();
+        alergias = new javax.swing.JCheckBox();
+        txtalergias = new javax.swing.JTextField();
+        traumaticas = new javax.swing.JCheckBox();
+        txttraumaticas = new javax.swing.JTextField();
+        previas = new javax.swing.JCheckBox();
+        txtprevias = new javax.swing.JTextField();
+        adicciones = new javax.swing.JCheckBox();
+        txtadicciones = new javax.swing.JTextField();
+        otorsPErs = new javax.swing.JCheckBox();
+        txtotorsPErs = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        deportes = new javax.swing.JCheckBox();
+        Baño3erdia = new javax.swing.JCheckBox();
+        inmunizpendientes = new javax.swing.JCheckBox();
+        Bañoirregular = new javax.swing.JCheckBox();
+        BañoDiario = new javax.swing.JCheckBox();
+        habiturbana = new javax.swing.JCheckBox();
+        habitrural = new javax.swing.JCheckBox();
+        habittodos = new javax.swing.JCheckBox();
+        jLabel11 = new javax.swing.JLabel();
+        habitletrina = new javax.swing.JCheckBox();
+        txtAñosTabaq = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtDiaTabaq = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        tabaquismo = new javax.swing.JCheckBox();
+        txtrecAlcohol = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txtAñosAlcohol = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        txtDescInmuniz = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        alcoholismo = new javax.swing.JCheckBox();
+        txtdeportes = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        inmunizComplete = new javax.swing.JCheckBox();
+        txtalimentacion = new javax.swing.JTextField();
+        BotonGuardar = new javax.swing.JLabel();
         Diabetes = new javax.swing.JCheckBox();
+        jLabel9 = new javax.swing.JLabel();
+        txtexpediente = new javax.swing.JTextField();
         JCBDiabetes = new javax.swing.JComboBox<>();
         JCBHepatopatia = new javax.swing.JComboBox<>();
         JCBAsma = new javax.swing.JComboBox<>();
@@ -81,98 +130,30 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         JCBCardiopatia = new javax.swing.JComboBox<>();
         JCBMentales = new javax.swing.JComboBox<>();
         JCBAlergicas = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtotrosHF = new javax.swing.JTextArea();
         jSeparator4 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txttraumaticas = new javax.swing.JTextField();
-        txtprevias = new javax.swing.JTextField();
-        txtadicciones = new javax.swing.JTextField();
-        txtotorsPErs = new javax.swing.JTextField();
-        traumaticas = new javax.swing.JCheckBox();
-        previas = new javax.swing.JCheckBox();
-        adicciones = new javax.swing.JCheckBox();
-        otorsPErs = new javax.swing.JCheckBox();
-        txtalergias = new javax.swing.JTextField();
-        txttransfusionales = new javax.swing.JTextField();
-        txtquirurgicas = new javax.swing.JTextField();
-        txtactuales = new javax.swing.JTextField();
-        actuales = new javax.swing.JCheckBox();
-        quirurgicas = new javax.swing.JCheckBox();
-        transfusionales = new javax.swing.JCheckBox();
-        alergias = new javax.swing.JCheckBox();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        habiturbana = new javax.swing.JCheckBox();
-        habitrural = new javax.swing.JCheckBox();
-        habittodos = new javax.swing.JCheckBox();
-        habitletrina = new javax.swing.JCheckBox();
-        jLabel13 = new javax.swing.JLabel();
-        Baño3erdia = new javax.swing.JCheckBox();
-        inmunizpendientes = new javax.swing.JCheckBox();
-        Bañoirregular = new javax.swing.JCheckBox();
-        BañoDiario = new javax.swing.JCheckBox();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        txtDescInmuniz = new javax.swing.JTextField();
-        inmunizComplete = new javax.swing.JCheckBox();
-        deportes = new javax.swing.JCheckBox();
-        jLabel17 = new javax.swing.JLabel();
-        txtdeportes = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        txtalimentacion = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtAñosTabaq = new javax.swing.JTextField();
-        txtDiaTabaq = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        tabaquismo = new javax.swing.JCheckBox();
-        txtrecAlcohol = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        txtAñosAlcohol = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        alcoholismo = new javax.swing.JCheckBox();
-        BotonGuardar = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel19 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jtxtAnotaciones = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(245, 244, 243));
         setMinimumSize(new java.awt.Dimension(50, 50));
         setPreferredSize(new java.awt.Dimension(550, 925));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane3.setPreferredSize(new java.awt.Dimension(910, 658));
-
-        jPanel1.setBackground(new java.awt.Color(245, 244, 243));
-        jPanel1.setPreferredSize(new java.awt.Dimension(910, 820));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("c) ANTECEDENTES PERSONALES NO PATOLÓGICOS");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 360, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setText("HISTORIA CLINICA");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 200, 40));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("EXPEDIENTE:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 100, 30));
-        jPanel1.add(txtexpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 70, 30));
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Aun no hay historial.");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 140, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 200, 40));
 
         jLabeText1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabeText1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabeText1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabeText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 330, 40));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("a) ANTECEDENTES HEREDOFAMILIARES");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 270, 30));
+        add(jLabeText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 290, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exit.png"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -181,62 +162,279 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                 jLabel3MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, 30));
 
         hepatopatia.setBackground(new java.awt.Color(245, 244, 243));
         hepatopatia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         hepatopatia.setText("HEPATOPATÌA");
-        jPanel1.add(hepatopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 120, 30));
+        add(hepatopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 120, 30));
 
         endocrinas.setBackground(new java.awt.Color(245, 244, 243));
         endocrinas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         endocrinas.setText("ENF. ENDOCRINAS");
-        jPanel1.add(endocrinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 140, 30));
+        add(endocrinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 140, 30));
 
         hipertension.setBackground(new java.awt.Color(245, 244, 243));
         hipertension.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         hipertension.setText("HIPERTENSIÓN");
-        jPanel1.add(hipertension, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 120, 30));
+        add(hipertension, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 120, 30));
 
         nefropatia.setBackground(new java.awt.Color(245, 244, 243));
         nefropatia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         nefropatia.setText("NEFROPATÍA");
-        jPanel1.add(nefropatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, 30));
+        add(nefropatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 120, 30));
 
         cancer.setBackground(new java.awt.Color(245, 244, 243));
         cancer.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cancer.setText("CÁNCER");
-        jPanel1.add(cancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, 30));
+        add(cancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 120, 30));
 
         otrosHF.setBackground(new java.awt.Color(245, 244, 243));
         otrosHF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         otrosHF.setText("OTROS");
-        jPanel1.add(otrosHF, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 90, 30));
+        add(otrosHF, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 90, 30));
 
         alergicas.setBackground(new java.awt.Color(245, 244, 243));
         alergicas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         alergicas.setText("ENF. ALÉRGICAS");
-        jPanel1.add(alergicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 120, 30));
+        add(alergicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 120, 30));
 
         mentales.setBackground(new java.awt.Color(245, 244, 243));
         mentales.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         mentales.setText("ENF. MENTALES");
-        jPanel1.add(mentales, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 120, 30));
+        add(mentales, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 120, 30));
 
         cardiopatia.setBackground(new java.awt.Color(245, 244, 243));
         cardiopatia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cardiopatia.setText("CARDIOPATÍA");
-        jPanel1.add(cardiopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 120, 30));
+        add(cardiopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 120, 30));
 
         asma.setBackground(new java.awt.Color(245, 244, 243));
         asma.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         asma.setText("ASMA");
-        jPanel1.add(asma, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 120, 30));
+        add(asma, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 120, 30));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("a) ANTECEDENTES HEREDOFAMILIARES");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 270, 30));
+
+        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 230, 40));
+        add(txtactuales, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 250, 30));
+
+        actuales.setBackground(new java.awt.Color(245, 244, 243));
+        actuales.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        actuales.setText("ENFERMEDADES ACTUALES");
+        actuales.setNextFocusableComponent(txtactuales);
+        actuales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualesActionPerformed(evt);
+            }
+        });
+        add(actuales, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 180, 30));
+
+        quirurgicas.setBackground(new java.awt.Color(245, 244, 243));
+        quirurgicas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        quirurgicas.setText("QUIRÚRGICAS");
+        quirurgicas.setNextFocusableComponent(txtquirurgicas);
+        add(quirurgicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 180, 30));
+        add(txtquirurgicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 250, 30));
+
+        transfusionales.setBackground(new java.awt.Color(245, 244, 243));
+        transfusionales.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        transfusionales.setText("TRANSFUSIONALES");
+        transfusionales.setNextFocusableComponent(txttransfusionales);
+        add(transfusionales, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 180, 30));
+        add(txttransfusionales, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 250, 30));
+
+        alergias.setBackground(new java.awt.Color(245, 244, 243));
+        alergias.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        alergias.setText("ALERGIAS");
+        alergias.setNextFocusableComponent(txtalergias);
+        add(alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 180, 30));
+        add(txtalergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 250, 30));
+
+        traumaticas.setBackground(new java.awt.Color(245, 244, 243));
+        traumaticas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        traumaticas.setText("TRAUMATICAS");
+        traumaticas.setNextFocusableComponent(txttraumaticas);
+        add(traumaticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 200, 30));
+        add(txttraumaticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 240, 30));
+
+        previas.setBackground(new java.awt.Color(245, 244, 243));
+        previas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        previas.setText("HOSPITALIZACIONES PREVIAS");
+        previas.setNextFocusableComponent(txtprevias);
+        add(previas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 200, 30));
+        add(txtprevias, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 240, 30));
+
+        adicciones.setBackground(new java.awt.Color(245, 244, 243));
+        adicciones.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        adicciones.setText("ADICCIONES");
+        adicciones.setNextFocusableComponent(txtadicciones);
+        add(adicciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 200, 30));
+        add(txtadicciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 240, 30));
+
+        otorsPErs.setBackground(new java.awt.Color(245, 244, 243));
+        otorsPErs.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        otorsPErs.setText("OTROS");
+        otorsPErs.setNextFocusableComponent(txtotorsPErs);
+        add(otorsPErs, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 200, 30));
+        add(txtotorsPErs, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, 240, 30));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("b) ANTECEDENTES PERSONALES PATOLÓGICOS");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 310, 30));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("HÁBITOS PERSONALES:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 160, 30));
+
+        jLabel8.setText("AÑOS");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 590, 50, 30));
+
+        deportes.setBackground(new java.awt.Color(245, 244, 243));
+        deportes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        deportes.setText("DEPORTES (ACT. FISICA)");
+        deportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deportesActionPerformed(evt);
+            }
+        });
+        add(deportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 200, 30));
+
+        Baño3erdia.setBackground(new java.awt.Color(245, 244, 243));
+        Baño.add(Baño3erdia);
+        Baño3erdia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Baño3erdia.setText("C/3ER DIA");
+        add(Baño3erdia, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 90, 30));
+
+        inmunizpendientes.setBackground(new java.awt.Color(245, 244, 243));
+        Inmunizaciones.add(inmunizpendientes);
+        inmunizpendientes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        inmunizpendientes.setText("PENDIENTES");
+        inmunizpendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inmunizpendientesActionPerformed(evt);
+            }
+        });
+        add(inmunizpendientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 110, 30));
+
+        Bañoirregular.setBackground(new java.awt.Color(245, 244, 243));
+        Baño.add(Bañoirregular);
+        Bañoirregular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Bañoirregular.setText("IRREGULAR");
+        add(Bañoirregular, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 90, 30));
+
+        BañoDiario.setBackground(new java.awt.Color(245, 244, 243));
+        Baño.add(BañoDiario);
+        BañoDiario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        BañoDiario.setText("DIARIO");
+        add(BañoDiario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 80, 30));
+
+        habiturbana.setBackground(new java.awt.Color(245, 244, 243));
+        Habitacion.add(habiturbana);
+        habiturbana.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        habiturbana.setText("URBANA");
+        add(habiturbana, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 80, 30));
+
+        habitrural.setBackground(new java.awt.Color(245, 244, 243));
+        Habitacion.add(habitrural);
+        habitrural.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        habitrural.setText("RURAL");
+        add(habitrural, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 80, 30));
+
+        habittodos.setBackground(new java.awt.Color(245, 244, 243));
+        Habitacion.add(habittodos);
+        habittodos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        habittodos.setText("TODOS LOS SERVICIOS");
+        add(habittodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 160, 30));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("INMUNIZACIONES");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 130, 30));
+
+        habitletrina.setBackground(new java.awt.Color(245, 244, 243));
+        Habitacion.add(habitletrina);
+        habitletrina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        habitletrina.setText("LETRINA");
+        add(habitletrina, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 80, 30));
+        add(txtAñosTabaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 50, 30));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setText("BAÑO");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 50, 30));
+        add(txtDiaTabaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 590, 60, 30));
+
+        jLabel12.setText("CIGARROS X DÍA");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 110, 30));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("HABITACIÓN");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 100, 30));
+
+        tabaquismo.setBackground(new java.awt.Color(245, 244, 243));
+        tabaquismo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tabaquismo.setText("TABAQUISMO");
+        add(tabaquismo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 590, 110, 30));
+        add(txtrecAlcohol, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, 60, 30));
+
+        jLabel14.setText("BEB/FRECUENCIA");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 590, 110, 30));
+        add(txtAñosAlcohol, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 590, 50, 30));
+
+        jLabel15.setText("AÑOS");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 590, 50, 30));
+
+        txtDescInmuniz.setText("Especifique");
+        add(txtDescInmuniz, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 520, 180, 30));
+
+        jLabel17.setText("VECES/DÍA");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 550, 60, 30));
+
+        alcoholismo.setBackground(new java.awt.Color(245, 244, 243));
+        alcoholismo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        alcoholismo.setText("ALCOHOLISMO");
+        add(alcoholismo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 130, 30));
+
+        txtdeportes.setText("Especifique");
+        add(txtdeportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, 90, 30));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("ALIMENTACION");
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 550, 120, 30));
+
+        inmunizComplete.setBackground(new java.awt.Color(255, 255, 255));
+        Inmunizaciones.add(inmunizComplete);
+        inmunizComplete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        inmunizComplete.setText("COMPLETAS");
+        inmunizComplete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inmunizCompleteActionPerformed(evt);
+            }
+        });
+        add(inmunizComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 520, 110, 30));
+        add(txtalimentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 50, 30));
+
+        BotonGuardar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BotonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save32x32.png"))); // NOI18N
+        BotonGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonGuardarMouseClicked(evt);
+            }
+        });
+        add(BotonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 570, 50, 50));
 
         Diabetes.setBackground(new java.awt.Color(245, 244, 243));
         Diabetes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Diabetes.setText("DIABETES");
-        jPanel1.add(Diabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 120, 30));
+        add(Diabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 120, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("EXPEDIENTE:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 100, 30));
+        add(txtexpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 70, 30));
 
         JCBDiabetes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -248,266 +446,44 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                 JCBDiabetesActionPerformed(evt);
             }
         });
-        jPanel1.add(JCBDiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, 30));
+        add(JCBDiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 130, 30));
 
-        jPanel1.add(JCBHepatopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 130, 30));
+        add(JCBHepatopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 130, 30));
 
-        jPanel1.add(JCBAsma, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 150, 30));
+        add(JCBAsma, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 150, 30));
 
-        jPanel1.add(JCBEndocrinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 130, 30));
+        add(JCBEndocrinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 130, 30));
 
-        jPanel1.add(JCBHipertension, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 130, 30));
+        add(JCBHipertension, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 130, 30));
 
-        jPanel1.add(JCBNefropatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 130, 30));
+        add(JCBNefropatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 130, 30));
 
-        jPanel1.add(JCBCancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 150, 30));
+        add(JCBCancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 150, 30));
 
-        jPanel1.add(JCBCardiopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 130, 30));
+        add(JCBCardiopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 100, 130, 30));
 
-        jPanel1.add(JCBMentales, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, 130, 30));
+        add(JCBMentales, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 130, 130, 30));
 
-        jPanel1.add(JCBAlergicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 150, 30));
+        add(JCBAlergicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 150, 30));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Aun no hay historial.");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 140, 30));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
+
+        jSeparator3.setBackground(new java.awt.Color(204, 204, 0));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 860, 10));
 
         txtotrosHF.setColumns(20);
         txtotrosHF.setRows(5);
         jScrollPane1.setViewportView(txtotrosHF);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 450, 50));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 450, 50));
 
         jSeparator4.setBackground(new java.awt.Color(204, 204, 0));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 860, 10));
-
-        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 300, 40));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("b) ANTECEDENTES PERSONALES PATOLÓGICOS");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 310, 30));
-        jPanel1.add(txttraumaticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 240, 30));
-        jPanel1.add(txtprevias, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 240, 30));
-        jPanel1.add(txtadicciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 240, 30));
-        jPanel1.add(txtotorsPErs, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 390, 240, 30));
-
-        traumaticas.setBackground(new java.awt.Color(245, 244, 243));
-        traumaticas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        traumaticas.setText("TRAUMATICAS");
-        traumaticas.setNextFocusableComponent(txttraumaticas);
-        jPanel1.add(traumaticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 200, 30));
-
-        previas.setBackground(new java.awt.Color(245, 244, 243));
-        previas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        previas.setText("HOSPITALIZACIONES PREVIAS");
-        previas.setNextFocusableComponent(txtprevias);
-        jPanel1.add(previas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 200, 30));
-
-        adicciones.setBackground(new java.awt.Color(245, 244, 243));
-        adicciones.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        adicciones.setText("ADICCIONES");
-        adicciones.setNextFocusableComponent(txtadicciones);
-        jPanel1.add(adicciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 200, 30));
-
-        otorsPErs.setBackground(new java.awt.Color(245, 244, 243));
-        otorsPErs.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        otorsPErs.setText("OTROS");
-        otorsPErs.setNextFocusableComponent(txtotorsPErs);
-        jPanel1.add(otorsPErs, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 200, 30));
-        jPanel1.add(txtalergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 250, 30));
-        jPanel1.add(txttransfusionales, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 250, 30));
-        jPanel1.add(txtquirurgicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 250, 30));
-        jPanel1.add(txtactuales, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 250, 30));
-
-        actuales.setBackground(new java.awt.Color(245, 244, 243));
-        actuales.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        actuales.setText("ENFERMEDADES ACTUALES");
-        actuales.setNextFocusableComponent(txtactuales);
-        actuales.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(actuales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 180, 30));
-
-        quirurgicas.setBackground(new java.awt.Color(245, 244, 243));
-        quirurgicas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        quirurgicas.setText("QUIRÚRGICAS");
-        quirurgicas.setNextFocusableComponent(txtquirurgicas);
-        jPanel1.add(quirurgicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 180, 30));
-
-        transfusionales.setBackground(new java.awt.Color(245, 244, 243));
-        transfusionales.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        transfusionales.setText("TRANSFUSIONALES");
-        transfusionales.setNextFocusableComponent(txttransfusionales);
-        jPanel1.add(transfusionales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 180, 30));
-
-        alergias.setBackground(new java.awt.Color(245, 244, 243));
-        alergias.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        alergias.setText("ALERGIAS");
-        alergias.setNextFocusableComponent(txtalergias);
-        jPanel1.add(alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 180, 30));
-
-        jSeparator3.setBackground(new java.awt.Color(204, 204, 0));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 860, 10));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("d) ANOTACIONES/OBSERVACIONES");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, 360, 30));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setText("HÁBITOS PERSONALES:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 160, 30));
-
-        habiturbana.setBackground(new java.awt.Color(245, 244, 243));
-        Habitacion.add(habiturbana);
-        habiturbana.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        habiturbana.setText("URBANA");
-        jPanel1.add(habiturbana, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 80, 30));
-
-        habitrural.setBackground(new java.awt.Color(245, 244, 243));
-        Habitacion.add(habitrural);
-        habitrural.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        habitrural.setText("RURAL");
-        jPanel1.add(habitrural, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 80, 30));
-
-        habittodos.setBackground(new java.awt.Color(245, 244, 243));
-        Habitacion.add(habittodos);
-        habittodos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        habittodos.setText("TODOS LOS SERVICIOS");
-        jPanel1.add(habittodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 160, 30));
-
-        habitletrina.setBackground(new java.awt.Color(245, 244, 243));
-        Habitacion.add(habitletrina);
-        habitletrina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        habitletrina.setText("LETRINA");
-        jPanel1.add(habitletrina, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 470, 80, 30));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setText("HABITACIÓN");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 100, 30));
-
-        Baño3erdia.setBackground(new java.awt.Color(245, 244, 243));
-        Baño.add(Baño3erdia);
-        Baño3erdia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Baño3erdia.setText("C/3ER DIA");
-        jPanel1.add(Baño3erdia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 90, 30));
-
-        inmunizpendientes.setBackground(new java.awt.Color(245, 244, 243));
-        Inmunizaciones.add(inmunizpendientes);
-        inmunizpendientes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        inmunizpendientes.setText("PENDIENTES");
-        inmunizpendientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inmunizpendientesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(inmunizpendientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, 110, 30));
-
-        Bañoirregular.setBackground(new java.awt.Color(245, 244, 243));
-        Baño.add(Bañoirregular);
-        Bañoirregular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Bañoirregular.setText("IRREGULAR");
-        jPanel1.add(Bañoirregular, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 90, 30));
-
-        BañoDiario.setBackground(new java.awt.Color(245, 244, 243));
-        Baño.add(BañoDiario);
-        BañoDiario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        BañoDiario.setText("DIARIO");
-        jPanel1.add(BañoDiario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 80, 30));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setText("INMUNIZACIONES");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 130, 30));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setText("BAÑO");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 50, 30));
-
-        txtDescInmuniz.setText("Especifique");
-        jPanel1.add(txtDescInmuniz, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 180, 30));
-
-        inmunizComplete.setBackground(new java.awt.Color(255, 255, 255));
-        Inmunizaciones.add(inmunizComplete);
-        inmunizComplete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        inmunizComplete.setText("COMPLETAS");
-        inmunizComplete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inmunizCompleteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(inmunizComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, 110, 30));
-
-        deportes.setBackground(new java.awt.Color(245, 244, 243));
-        deportes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        deportes.setText("DEPORTES (ACT. FISICA)");
-        deportes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deportesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(deportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 200, 30));
-
-        jLabel17.setText("VECES/DÍA");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 550, 60, 30));
-
-        txtdeportes.setText("Especifique");
-        jPanel1.add(txtdeportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, 90, 30));
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel18.setText("ALIMENTACION");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 550, 120, 30));
-        jPanel1.add(txtalimentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 50, 30));
-
-        jLabel8.setText("AÑOS");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 590, 50, 30));
-        jPanel1.add(txtAñosTabaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 50, 30));
-        jPanel1.add(txtDiaTabaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 590, 60, 30));
-
-        jLabel12.setText("CIGARROS X DÍA");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 110, 30));
-
-        tabaquismo.setBackground(new java.awt.Color(245, 244, 243));
-        tabaquismo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        tabaquismo.setText("TABAQUISMO");
-        jPanel1.add(tabaquismo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 590, 110, 30));
-        jPanel1.add(txtrecAlcohol, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, 60, 30));
-
-        jLabel14.setText("BEB/FRECUENCIA");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 590, 110, 30));
-        jPanel1.add(txtAñosAlcohol, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 590, 50, 30));
-
-        jLabel15.setText("AÑOS");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 590, 50, 30));
-
-        alcoholismo.setBackground(new java.awt.Color(245, 244, 243));
-        alcoholismo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        alcoholismo.setText("ALCOHOLISMO");
-        jPanel1.add(alcoholismo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 130, 30));
-
-        BotonGuardar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BotonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save32x32.png"))); // NOI18N
-        BotonGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BotonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BotonGuardarMouseClicked(evt);
-            }
-        });
-        jPanel1.add(BotonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 570, 50, 50));
-
-        jSeparator5.setBackground(new java.awt.Color(204, 204, 0));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 860, 10));
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setText("c) ANTECEDENTES PERSONALES NO PATOLÓGICOS");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 360, 30));
-
-        jtxtAnotaciones.setColumns(20);
-        jtxtAnotaciones.setRows(5);
-        jScrollPane2.setViewportView(jtxtAnotaciones);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 690, 790, 110));
-
-        jScrollPane3.setViewportView(jPanel1);
-
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 860, 10));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -535,7 +511,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
 //                JOptionPane.showMessageDialog(null, "ln-525. Ya existe!!!"+param);
             String query2="UPDATE h_clinica SET expediente =?,diabetes =?,hepatopatia =?,asma =?,endocrinas =?,hipertension =?,nefropatia =?,cancer =?,"
                 +"cardiopatia =?,mentales =?,alergicas =?,otrosHF =?,actuales =?,quirurgicas =?,transfusionales =?,alergias =?,traumaticas =?,hospitalizaciones =?,adicciones =?,otrosPer =?,baño =?,"
-                +"habitacion =?,alimentacion =?,deportes =?,inmunizaciones =?,descinmunizaciones =?,alcoholismo =?,frecuencia =?,añosAlc =?,tabaquismo =?,cigdia =?,añosTabaq =?,anotacion=? WHERE expediente = '"+param+"'";
+                +"habitacion =?,alimentacion =?,deportes =?,inmunizaciones =?,descinmunizaciones =?,alcoholismo =?,frecuencia =?,añosAlc =?,tabaquismo =?,cigdia =?,añosTabaq =? WHERE expediente = '"+param+"'";
             try{
                 cn.setAutoCommit(false);
 //                System.out.println(query2);
@@ -724,8 +700,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                         pps.setString(31, "/");
                         pps.setString(32, "/");
                     }
-                    
-                    pps.setString(33, jtxtAnotaciones.getText());
                         
                     pps.executeUpdate();
                     
@@ -765,8 +739,8 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                 
             pps = cn.prepareStatement("INSERT INTO h_clinica (expediente,diabetes,hepatopatia,asma,endocrinas,hipertension,nefropatia,cancer,"
                 +"cardiopatia,mentales,alergicas,otrosHF,actuales,quirurgicas,transfusionales,alergias,traumaticas,hospitalizaciones,adicciones,otrosPer,baño,"
-                +"habitacion,alimentacion,deportes,inmunizaciones,descinmunizaciones,alcoholismo,frecuencia,añosAlc,tabaquismo,cigdia,añosTabaq,anotacion) "
-                +"VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                +"habitacion,alimentacion,deportes,inmunizaciones,descinmunizaciones,alcoholismo,frecuencia,añosAlc,tabaquismo,cigdia,añosTabaq) "
+                +"VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                     
                     
                     pps.setString(1, txtexpediente.getText());
@@ -952,14 +926,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                         pps.setString(31, "/");
                         pps.setString(32, "/");
                     }
-    //VARIABLE DE ANOTACIONES
-                    String anot = "";
-                    anot = jtxtAnotaciones.getText();
-                    if(anot.isEmpty()){
-                    pps.setString(33, "/");
-                    }else{
-                        pps.setString(33, anot);
-                    }
                         
                     pps.executeUpdate();
 
@@ -1029,7 +995,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
 //        System.out.println("sentencia"+sql);
         Statement st = null;
         ResultSet rs = null;
-        String aux ="",aux2="",aux3="",aux4="",anotac="";
+        String aux ="",aux2="",aux3="",aux4="";
         int i = 1;
         
         try {
@@ -1038,14 +1004,13 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
             
             cn.setAutoCommit(false);
             
-            while(rs.next() && i<=34)//tenia 34 antes de quitar lavado dental
+            while(rs.next() && i<=33)//tenia 34 antes de quitar lavado dental
             {
                 aux=rs.getString(1);
                 txtexpediente.setText(rs.getString(2));
                 
     //+++   ENFERMEDADES HEREDO FAMILIARES           
                 aux2=rs.getString(3);//diabetes
-                    JOptionPane.showMessageDialog(null, aux2);
                 if(!aux2.equals("/"))
                 {
                     Diabetes.setSelected(true);
@@ -1392,10 +1357,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                     txtDiaTabaq.setText(aux3);
                     txtAñosTabaq.setText(aux4);
                 }
-                
-                    jtxtAnotaciones.setText(rs.getString(34));
-                
-                    
 /*                    for(int x = 1;x <= rs.getMetaData().getColumnCount(); x++)
                         System.out.println("Datos -> "+rs.getString(x));
 */
@@ -1546,7 +1507,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
     public javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1555,14 +1515,10 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextArea jtxtAnotaciones;
     private javax.swing.JCheckBox mentales;
     private javax.swing.JCheckBox nefropatia;
     private javax.swing.JCheckBox otorsPErs;

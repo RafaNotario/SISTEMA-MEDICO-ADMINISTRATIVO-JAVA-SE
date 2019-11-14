@@ -30,20 +30,23 @@ public class Reportes {
     //Connection cn = con.conexion();
     ConexionDBOriginal con2 = new ConexionDBOriginal();
     
-    public void ReportePaciente(){
+    public void ReportePaciente(String param){
     Connection cn = con2.conexion();
-    String  var = "C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/Reportes/recetaCreada.jasper";
+    String  var = "C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/Reportes/pacienteInfo.jasper";
 //C:\Sistema Medico\SistemaMedico\src\Reportes
 
     JasperReport reporte = null;
         try {
+            Map parametro = new HashMap();
+            parametro.put("parameter1",param);
             reporte = (JasperReport) JRLoader.loadObjectFromFile(var);
-            JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
+            JasperPrint jp = JasperFillManager.fillReport(reporte, parametro, cn);
             JasperViewer jv = new JasperViewer(jp,false);
-
+            
+            //AJUSTAR EL ZOOM AL 75%
             jv.setZoomRatio(new Float(0.7500));
             jv.setVisible(true);
-            jv.setTitle("Receta");
+            jv.setTitle("Datos de paciente");
             
             
         } catch (JRException ex) {

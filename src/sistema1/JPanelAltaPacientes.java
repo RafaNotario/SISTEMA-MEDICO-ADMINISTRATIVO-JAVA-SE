@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import Reportes.Reportes;
 
 /**
  *
@@ -31,7 +32,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     
     Funciones fn = new Funciones();
     JPanelConsulta JPC = new JPanelConsulta();
-    
+    Reportes rp = new Reportes();
 //conexionDB con = new conexionDB();
     DefaultTableModel dtm;
 
@@ -105,6 +106,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         MenuTabaDatos.setComponentPopupMenu(MenuTabaDatos);
 
@@ -338,6 +340,14 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
             }
         });
         add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 50, 50));
+
+        jButton1.setText("IMPRIMIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 110, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jDateChooser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooser1MouseClicked
@@ -677,6 +687,15 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     }
     }//GEN-LAST:event_jTable1MousePressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nom = txtNombre.getText();
+        if(nom.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campo Nombre vacio");
+        }else{
+            rp.ReportePaciente(txtExped.getText());        
+        }            
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void limpiarCampos(){
         txtExped.setText(Integer.toString(ultimoRegistro()));
         txtNombre.setText("");
@@ -918,6 +937,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     private javax.swing.JPopupMenu MenuTabaDatos;
     private javax.swing.JMenuItem VerConsulta;
     private javax.swing.JMenuItem VerTodo;
+    private javax.swing.JButton jButton1;
     public javax.swing.JComboBox<String> jComboBox1;
     public com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;

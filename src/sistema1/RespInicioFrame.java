@@ -95,7 +95,6 @@ jLabel2.setVisible(false);
         jRadioApellido = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
         jPanTrabajo = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -310,15 +309,6 @@ jLabel2.setVisible(false);
         jScrollPane2.setViewportView(jTable1);
 
         jPanTabla.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 440, 550));
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3.setText("REPORTE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanTabla.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
 
         add(jPanTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
 
@@ -608,11 +598,6 @@ jLabel2.setVisible(false);
         jPanTrabajo.setEnabled(true);
         
     }//GEN-LAST:event_jLabel2CDxFCMouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        rp.ReportePaciente();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void HeredofamiliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeredofamiliarMouseClicked
         int fila = jTable1.getSelectedRow();
@@ -1161,7 +1146,6 @@ jLabel2.setVisible(false);
     private javax.swing.JLabel Pruebas;
     public javax.swing.JLabel RECETAnew;
     private javax.swing.JMenuItem TodasConsul;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;

@@ -16,7 +16,7 @@ import sistema1.RespInicioFrame;
 
 public class interfaz extends javax.swing.JFrame {
     int x,y;
-
+    
     public interfaz() {
         this.setUndecorated(true);
         initComponents();
@@ -161,6 +161,11 @@ public class interfaz extends javax.swing.JFrame {
         jPasswordField1.setBackground(new java.awt.Color(0, 153, 153));
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 180, 30));
 
         jTextFieldUusario.setBackground(new java.awt.Color(0, 153, 153));
@@ -242,6 +247,13 @@ public class interfaz extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonIniciarsesionActionPerformed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER) {
+            jButtonIniciarsesion.doClick();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments

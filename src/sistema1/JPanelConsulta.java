@@ -130,6 +130,10 @@ public class JPanelConsulta extends javax.swing.JPanel {
         txtEstatura = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtImc = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(245, 244, 243));
         setPreferredSize(new java.awt.Dimension(455, 658));
@@ -149,11 +153,11 @@ public class JPanelConsulta extends javax.swing.JPanel {
                 jComboConsultaActionPerformed(evt);
             }
         });
-        add(jComboConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 90, 40));
+        add(jComboConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 90, 40));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel23.setText("CITA:");
-        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 40, 40));
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 40, 40));
 
         txtPresion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         add(txtPresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
@@ -317,37 +321,79 @@ public class JPanelConsulta extends javax.swing.JPanel {
         });
         add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 30, 40));
 
-        dateChooserCombo1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED,
-            (java.awt.Color)null,
-            (java.awt.Color)null,
-            (java.awt.Color)null,
-            (java.awt.Color)null));
-    dateChooserCombo1.setCalendarPreferredSize(new java.awt.Dimension(340, 230));
-    dateChooserCombo1.setFormat(2);
-    dateChooserCombo1.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 13));
-    dateChooserCombo1.setNavigateFont(new java.awt.Font("Tahoma", java.awt.Font.BOLD, 13));
-    add(dateChooserCombo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 120, 40));
-    add(txtIDConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 50, 30));
+        dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
+            new datechooser.view.appearance.ViewAppearance("custom",
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
+                    new java.awt.Color(0, 0, 255),
+                    true,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 255),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(128, 128, 128),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.LabelPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.LabelPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
+                    new java.awt.Color(255, 0, 0),
+                    false,
+                    false,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                (datechooser.view.BackRenderer)null,
+                false,
+                true)));
+    dateChooserCombo1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED,
+        (java.awt.Color)null,
+        (java.awt.Color)null,
+        (java.awt.Color)null,
+        (java.awt.Color)null));
+dateChooserCombo1.setCalendarPreferredSize(new java.awt.Dimension(340, 230));
+dateChooserCombo1.setFormat(2);
+dateChooserCombo1.setWeekStyle(datechooser.view.WeekDaysStyle.FULL);
+dateChooserCombo1.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 13));
+dateChooserCombo1.setNavigateFont(new java.awt.Font("Tahoma", java.awt.Font.BOLD, 13));
+add(dateChooserCombo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 120, 40));
+add(txtIDConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 50, 30));
 
-    jLabel2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-    jLabel2.setText("NOTA MEDICA:");
-    add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, 20));
+jLabel2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+jLabel2.setText("NOTA MEDICA:");
+add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, 20));
 
-    jTxtAreaNotaMedica.setColumns(20);
-    jTxtAreaNotaMedica.setRows(5);
-    jScrollPane2.setViewportView(jTxtAreaNotaMedica);
+jTxtAreaNotaMedica.setColumns(20);
+jTxtAreaNotaMedica.setRows(5);
+jScrollPane2.setViewportView(jTxtAreaNotaMedica);
 
-    add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 340, 50));
+add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 340, 50));
 
-    jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-    jLabel3.setText("TALLA(cm)");
-    add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 70, 40));
+jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+jLabel3.setText("TALLA(cm)");
+add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 70, 40));
 
-    txtEstatura.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    txtEstatura.addFocusListener(new java.awt.event.FocusAdapter() {
-        public void focusLost(java.awt.event.FocusEvent evt) {
-            txtEstaturaFocusLost(evt);
-        }
+txtEstatura.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+txtEstatura.addFocusListener(new java.awt.event.FocusAdapter() {
+    public void focusLost(java.awt.event.FocusEvent evt) {
+        txtEstaturaFocusLost(evt);
+    }
     });
     add(txtEstatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 60, 40));
 
@@ -357,6 +403,22 @@ public class JPanelConsulta extends javax.swing.JPanel {
 
     txtImc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     add(txtImc, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 40, 50, 40));
+
+    jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "09", "10", "11", "12", "13", "14", "16", "17", "18", "19" }));
+    add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 50, 40));
+
+    jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "05", "15", "25", "35", "45", "55" }));
+    add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 40));
+
+    jLabel5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+    jLabel5.setText("M:M");
+    add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 30, 40));
+
+    jLabel6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+    jLabel6.setText("H:H");
+    add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 30, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboConsultaActionPerformed
@@ -994,6 +1056,8 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
     private javax.swing.ButtonGroup buttonGroup1;
     public datechooser.beans.DateChooserCombo dateChooserCombo1;
     private javax.swing.JButton jButPDF;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboConsulta;
     private javax.swing.JComboBox<String> jComboMedicamento;
     private javax.swing.JComboBox<String> jComboTratamiento;
@@ -1011,6 +1075,8 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabelAbreReceta;
     private javax.swing.JLabel jLabelGuardaConsulta;
     public javax.swing.JLabel jLabelGuardaReceta;
