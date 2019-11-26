@@ -3,6 +3,72 @@
 
 //CARGAR DB EN MYSQL 
     mysql -u root -p admin_tff < respadmin_tff.sql
+   mysql -u root -p pruebaDBbDoctores <  respDbDoctoresNOROUTINES.sql
+//QUERY RECETAS
+SELECT
+	t_personales.nombre,t_personales.apellidos, 
+	t_consultas.fecha,t_consultas.peso, t_consultas.TA,t_consultas.cita,t_consultas.fechacita,
+	t_recetas.medicamento,t_recetas.tratamiento,
+	c_medicamentos.nombre AS nommedic,
+	c_tratamientos.nombre AS nomtratam
+FROM
+	t_personales
+INNER JOIN
+	t_consultas 
+ON
+	t_consultas.expediente = t_personales.expediente
+INNER JOIN 
+	t_recetas 
+ON
+	t_consultas.id_consultas = t_recetas.id_consultas AND t_consultas.id_consultas = $P{parameter1}
+INNER JOIN
+	c_medicamentos
+ON
+	c_medicamentos.clave = t_recetas.medicamento
+INNER JOIN
+	c_tratamientos
+ON
+	c_tratamientos.clave = t_recetas.tratamiento;
+
+//QUERY REPORT HEREDOFAMILIARES
+
+SELECT
+     h_clinica.expediente,h_clinica.diabetes,h_clinica.hepatopatia,
+     h_clinica.asma,h_clinica.endocrinas,h_clinica.hipertension,
+     h_clinica.nefropatia,h_clinica.cancer,h_clinica.cardiopatia,
+     h_clinica.mentales,h_clinica.alergicas,h_clinica.otrosHF,
+     h_clinica.actuales,
+     h_clinica.quirurgicas,
+     h_clinica.transfusionales,
+     h_clinica.alergias,
+     h_clinica.traumaticas,
+     h_clinica.hospitalizaciones,
+     h_clinica.adicciones,
+     h_clinica.otrosPer,
+     h_clinica.baño,
+     h_clinica.habitacion,
+     h_clinica.alimentacion,
+     h_clinica.deportes,
+     h_clinica.inmunizaciones,
+     h_clinica.descinmunizaciones,
+     h_clinica.alcoholismo,
+     h_clinica.frecuencia,
+     h_clinica.añosAlc,
+     h_clinica.tabaquismo,
+     h_clinica.cigdia,
+     h_clinica.añosTabaq,
+     h_clinica.anotacion,
+     t_personales.expediente,
+     t_personales.nombre,
+     t_personales.apellidos,
+     t_personales.edad
+FROM
+	h_clinica
+INNER JOIN
+	t_personales 
+ON
+	h_clinica.expediente = t_personales.expediente AND h_clinica.expediente =10724
+
 
 GIT 
 Puedes ver todos los estados con el comando

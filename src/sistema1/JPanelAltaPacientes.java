@@ -341,6 +341,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         });
         add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 50, 50));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setText("IMPRIMIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

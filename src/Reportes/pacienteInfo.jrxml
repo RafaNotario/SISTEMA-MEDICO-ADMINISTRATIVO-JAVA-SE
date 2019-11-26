@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3a8ae73-2cc3-4ff3-8fac-6329e595995b">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportPaciente" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3a8ae73-2cc3-4ff3-8fac-6329e595995b">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="parameter1" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT *
+		<![CDATA[SELECT CAST(expediente AS INT),fecha,nombre,apellidos,edad,estadocivil,calle,poblacion,telefono,celular
+,pareja,tiempopareja,gestas,partos,abortos,cesareas
 FROM 
 t_personales 
 WHERE
 expediente = $P{parameter1};]]>
 	</queryString>
-	<field name="expediente" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="CAST(expediente AS INT)" class="java.lang.Long"/>
 	<field name="fecha" class="java.sql.Date">
 		<fieldDescription><![CDATA[fue modificada por la migracion]]></fieldDescription>
 	</field>
@@ -99,13 +98,6 @@ expediente = $P{parameter1};]]>
 				</textElement>
 				<text><![CDATA[fecha]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="119" y="0" width="119" height="20" uuid="a1c73951-c56b-46ca-94b0-937c9baa4f39"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{expediente}]]></textFieldExpression>
-			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="119" y="21" width="119" height="20" uuid="affcfe7c-c1d1-4b7d-a15a-b2df214b4472"/>
 				<textElement>
@@ -312,6 +304,13 @@ expediente = $P{parameter1};]]>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cesareas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="1" width="119" height="20" uuid="d8f9d039-04b2-45e9-bab2-8eb6f4fcf1b1"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CAST(expediente AS INT)}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

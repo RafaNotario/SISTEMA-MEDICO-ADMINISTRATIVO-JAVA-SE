@@ -13,10 +13,8 @@ import javax.swing.JOptionPane;
 import sistema1.Inicio;
 import sistema1.RespInicioFrame;
 
-
 public class interfaz extends javax.swing.JFrame {
-    int x,y;
-    
+    int x,y;   
     public interfaz() {
         this.setUndecorated(true);
         initComponents();
@@ -24,8 +22,7 @@ public class interfaz extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Shape forma= new RoundRectangle2D.Double(0,0,this.getBounds().width, this.getBounds().height,27,27);
         AWTUtilities.setWindowShape(this, forma);
-    }
-    
+    }    
    
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/iconHos.png"));
@@ -55,6 +52,8 @@ public class interfaz extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jTextFieldUusario = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -74,19 +73,19 @@ public class interfaz extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("MEDICINA FAMILIAR");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 320, 30));
+        jLabel2.setText("MEDICINA DEL ENFERMO EN ESTADO CRITICO");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 580, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("UNIVERSIDAD POPULAR DEL ESTADO DE PUEBLA          CED. PROF. -------       CED. ESPEC. ------");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 580, 30));
+        jLabel3.setText("Postgraduado Centro Médico Nacional de Occidente IMSS");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 490, 30));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Dr. Rene Jimenez Cano");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 400, 70));
+        jLabel4.setText("Dr. Armando Velázquez Merino");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 510, 70));
 
         jButtonIniciarsesion.setBackground(new java.awt.Color(153, 153, 153));
         jButtonIniciarsesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -115,7 +114,7 @@ public class interfaz extends javax.swing.JFrame {
 
         jLabelicono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelicono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/simbolo_medicina_recortada.png"))); // NOI18N
-        jPanel1.add(jLabelicono, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 150, 200));
+        jPanel1.add(jLabelicono, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 150, 200));
 
         jLabelusuario.setBackground(new java.awt.Color(255, 255, 255));
         jLabelusuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -176,6 +175,16 @@ public class interfaz extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 580, 20));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("UNIVERSIDAD DE GUADALAJARA          CED. PROF. 3503456       CED. ESPEC.6926261");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 580, 30));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Certificado por el Consejo Mexicano de Medicina  Critica");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 490, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 580));
 
         pack();
@@ -225,21 +234,19 @@ public class interfaz extends javax.swing.JFrame {
         String user = jTextFieldUusario.getText();
         String pass = jPasswordField1.getText();
         if(user.equals("usuario") && pass.equals("123"))
-        {   
-            this.dispose();
-            Inicio in =new Inicio();
-            RespInicioFrame uno = new RespInicioFrame();
-
+        {             
+           Inicio in =new Inicio();
+           RespInicioFrame uno = new RespInicioFrame();
             in.limpiar();
         //    in.jLabelRECETA.setVisible(true);
         //    in.jLabelUSER.setVisible(true);
-            
             uno.setVisible(true);
             in.PanelPrincipal.setLayout(new GridLayout(1,1));
             in.PanelPrincipal.add(uno);
             in.PanelPrincipal.validate();
             in.PanelPrincipal.setVisible(true);
             in.PanelPrincipal.setEnabled(true);
+            this.dispose();
             in.setVisible(true);
                     }else
         {
@@ -296,6 +303,8 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelamarillo;
     private javax.swing.JLabel jLabelicono;
     private javax.swing.JLabel jLabelpass;

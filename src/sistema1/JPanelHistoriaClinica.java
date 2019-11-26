@@ -1,6 +1,7 @@
 
 package sistema1;
 
+import Reportes.Reportes;
 import static com.sun.org.apache.xalan.internal.lib.ExsltStrings.align;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +19,8 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
 
     
     ConexionDBOriginal con2 = new ConexionDBOriginal();
+    Reportes rp = new Reportes();
+    Funciones fn = new Funciones();
     
     String text1 = "<html><body><p>*Marcar todas las que apliquen y especificar <br>quien la ha padecido. </p></body></html>";
     String text2 = "<html><body><p>*Marcar todas las que apliquen y especificar. </p></body></html>";
@@ -138,6 +141,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         jLabel19 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtxtAnotaciones = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(245, 244, 243));
         setMinimumSize(new java.awt.Dimension(50, 50));
@@ -201,6 +205,11 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         nefropatia.setBackground(new java.awt.Color(245, 244, 243));
         nefropatia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         nefropatia.setText("NEFROPATÍA");
+        nefropatia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nefropatiaActionPerformed(evt);
+            }
+        });
         jPanel1.add(nefropatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, 30));
 
         cancer.setBackground(new java.awt.Color(245, 244, 243));
@@ -504,6 +513,15 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jtxtAnotaciones);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 690, 790, 110));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButton1.setText("IMPRIMIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 100, 40));
 
         jScrollPane3.setViewportView(jPanel1);
 
@@ -1015,6 +1033,20 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_actualesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String  var = txtexpediente.getText();
+        
+        if(fn.ValidaHeredofamiliarBool(var)){
+                 rp.reporteHeredofam(var);
+        }else{
+                JOptionPane.showMessageDialog(null, "Aún no existe antecedentes heredofamiliar");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void nefropatiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nefropatiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nefropatiaActionPerformed
+
     void cargaTexto(JLabel lb, String txt){
         lb.setText(txt);
     }
@@ -1045,7 +1077,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                 
     //+++   ENFERMEDADES HEREDO FAMILIARES           
                 aux2=rs.getString(3);//diabetes
-                    JOptionPane.showMessageDialog(null, aux2);
+                   // JOptionPane.showMessageDialog(null, aux2);
                 if(!aux2.equals("/"))
                 {
                     Diabetes.setSelected(true);
@@ -1535,6 +1567,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
     private javax.swing.JCheckBox hipertension;
     private javax.swing.JCheckBox inmunizComplete;
     private javax.swing.JCheckBox inmunizpendientes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabeText1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -690,15 +690,13 @@ jLabel2.setVisible(false);
             jPanel1.add(HC);
             jPanel1.validate();
             jPanel1.setVisible(true);
-            jPanel1.setEnabled(true);
-            
+            jPanel1.setEnabled(true);            
             HC.txtExped.setText(var);
             HC.txtNombre.setText(jTable1.getValueAt(fila, 1).toString());
             HC.txtApPater.setText(jTable1.getValueAt(fila, 2).toString());
         }else{
             JOptionPane.showMessageDialog(null,"Seleccione un paciente.");
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_HistorConsulActionPerformed
 
     private void TodasConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodasConsulActionPerformed
@@ -728,8 +726,7 @@ jLabel2.setVisible(false);
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
     int fila = jTable1.getSelectedRow();
-    String var="";
-        
+    String var="";        
     if(fila >= 0)
     {
         var=jTable1.getValueAt(fila, 0).toString();
@@ -749,7 +746,6 @@ jLabel2.setVisible(false);
         jPanTrabajo.setEnabled(true);
     }else
         JOptionPane.showMessageDialog(null, "No selecciono nada");
-
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
@@ -859,35 +855,30 @@ jLabel2.setVisible(false);
 
     void mostrarTabla1(String var){
         int band = 0;
-        Connection cn = con2.conexion();
-        
+        Connection cn = con2.conexion();       
         DefaultTableModel modelo = new DefaultTableModel()
-        { 
+           { 
             @Override
             public boolean isCellEditable (int fila, int columna) {
                 return false;
             }
-        };
-        
+            };        
         String consul="";
-        
-
             if(atributo.equals("nombre") || atributo.equals("")){
-                consul = "SELECT expediente,nombre,apellidos from t_personales WHERE (CONCAT(nombre,' ',apellidos)) LIKE '"+var+"%' ORDER BY nombre,apellidos ASC";
+                consul = "SELECT expediente,nombre,apellidos from t_personales WHERE (CONCAT(nombre,' ',apellidos)) LIKE '"+var+"%' ORDER BY nombre,apellidos ASC LIMIT 150";
                 modelo.addColumn("EXP");
                 modelo.addColumn("NOMBRE");
                 modelo.addColumn("APELLIDOS");
                 band = 0;
             }else{
                if(atributo.equals("apellidos")){
-            consul = "SELECT expediente,nombre,apellidos from t_personales WHERE (CONCAT(apellidos,' ',nombre)) LIKE '"+var+"%' ORDER BY apellidos ASC";
+            consul = "SELECT expediente,nombre,apellidos from t_personales WHERE (CONCAT(apellidos,' ',nombre)) LIKE '"+var+"%' ORDER BY apellidos ASC LIMIT 150";
             modelo.addColumn("EXP");
             modelo.addColumn("APELLIDOS");
             modelo.addColumn("NOMBRE");
             band = 1;
                }
-         }
-         
+         }      
         
         jTable1.setModel(modelo);
         TableColumnModel columnModel = jTable1.getColumnModel();
@@ -953,7 +944,6 @@ jLabel2.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(RespInicioFrame.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-                
 //             System.out.println("cierra conexion a la base de datos");    
              try {
                     if(rs != null) rs.close();
@@ -963,7 +953,6 @@ jLabel2.setVisible(false);
              }
          }
         num=Integer.parseInt(ultimo);
-        
         return num+1;
     }
     
@@ -989,8 +978,7 @@ jLabel2.setVisible(false);
             }
         } catch (SQLException ex) {
             Logger.getLogger(RespInicioFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-                
+        }finally{                
 //             System.out.println("cierra conexion a la base de datos");    
              try {
                     if(rs != null) rs.close();
@@ -1019,8 +1007,7 @@ jLabel2.setVisible(false);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AltasMedicina.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-                
+        }finally{                
 //             System.out.println("cierra conexion a la base de datos");    
              try {
                     if(rs != null) rs.close();              
@@ -1116,10 +1103,9 @@ jLabel2.setVisible(false);
     
 // METODOS HELP
     private void ponLaAyuda() {
-	try {
+            try {
 	// Carga el fichero de ayuda
-            File fichero = new File("C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/help/help_set.hs");
-            
+            File fichero = new File("C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/help/help_set.hs");           
             URL hsURL = fichero.toURI().toURL();
 	// Crea el HelpSet y el HelpBroker
             HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
@@ -1165,8 +1151,6 @@ jLabel2.setVisible(false);
     private javax.swing.JLabel lblHelp;
     private javax.swing.JTextField txtConsul;
     // End of variables declaration//GEN-END:variables
-
-
 }
 
 //CODIGO UTILIZABLE

@@ -94,4 +94,37 @@ public class Reportes {
         
     }
     
+    //REPORTE HEREDOFAMILIAR
+        public void reporteHeredofam(String param){
+    Connection cn = con2.conexion();
+    String  var = "C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/Reportes/reportHeredoFam.jasper";
+//C:\Sistema Medico\SistemaMedico\src\Reportes
+
+    JasperReport reporte = null;
+        try {
+            Map parametro = new HashMap();
+            parametro.put("parameter1",param);
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(var);
+            JasperPrint jp = JasperFillManager.fillReport(reporte, parametro, cn);
+            JasperViewer jv = new JasperViewer(jp,false);
+            
+            //AJUSTAR EL ZOOM AL 75%
+            jv.setZoomRatio(new Float(0.7500));
+            jv.setVisible(true);
+            jv.setTitle("Datos de paciente");
+            
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+                   // System.out.println( "cierra conexion a la base de datos" );    
+                    try {
+                        if(cn != null) cn.close();
+//                        if(cn !=null) cn.close();
+                    } catch (SQLException ex) {
+                        System.err.println( ex.getMessage() );    
+                    }
+                }
+    }
+    
 }

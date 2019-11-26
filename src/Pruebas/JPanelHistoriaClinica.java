@@ -13,11 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Checkbox;
 import sistema1.ConexionDBOriginal;
+import Reportes.Reportes;
 
 public class JPanelHistoriaClinica extends javax.swing.JPanel {
 
     
     ConexionDBOriginal con2 = new ConexionDBOriginal();
+    
     
     String text1 = "<html><body><p>*Marcar todas las que <br>apliquen y especificar <br>quien la ha padecido. </p></body></html>";
     String text2 = "<html><body><p>*Marcar todas las que <br>apliquen y especificar. </p></body></html>";
@@ -136,6 +138,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtotrosHF = new javax.swing.JTextArea();
         jSeparator4 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(245, 244, 243));
         setMinimumSize(new java.awt.Dimension(50, 50));
@@ -484,6 +487,15 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
 
         jSeparator4.setBackground(new java.awt.Color(204, 204, 0));
         add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 860, 10));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButton1.setText("IMPRIMIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 100, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -980,6 +992,10 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
     private void actualesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_actualesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     void cargaTexto(JLabel lb, String txt){
         lb.setText(txt);
@@ -1496,6 +1512,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
     private javax.swing.JCheckBox hipertension;
     private javax.swing.JCheckBox inmunizComplete;
     private javax.swing.JCheckBox inmunizpendientes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabeText1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

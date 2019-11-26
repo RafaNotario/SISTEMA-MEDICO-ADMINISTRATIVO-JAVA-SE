@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Receta" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6c883b31-a2e2-427c-8c6a-26af958e29bc">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Receta" pageWidth="612" pageHeight="792" whenNoDataType="NoDataSection" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6c883b31-a2e2-427c-8c6a-26af958e29bc">
 	<property name="net.sf.jasperreports.viewer.zoom" value="0.5"/>
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -71,61 +71,54 @@ ON
 	<pageHeader>
 		<band height="71" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="306" y="43" width="390" height="19" isPrintWhenDetailOverflows="true" uuid="5835a01c-c97e-4ae3-b641-e5501db48a60"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="127" y="26" width="315" height="19" isPrintWhenDetailOverflows="true" uuid="5835a01c-c97e-4ae3-b641-e5501db48a60"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None">
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombre}+' '+$F{apellidos}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="714" y="45" width="91" height="20" uuid="28d9b3ad-bbc3-4967-9a81-833668bc4f9f"/>
+				<reportElement x="453" y="26" width="96" height="20" uuid="28d9b3ad-bbc3-4967-9a81-833668bc4f9f"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement x="724" y="14" width="72" height="15" uuid="aace3248-d95c-4943-b21e-a3589bf26563"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="724" y="1" width="72" height="15" uuid="8500807e-93ce-48ed-b6c3-3bea4629c00f"/>
+				<reportElement x="476" y="56" width="72" height="15" uuid="8500807e-93ce-48ed-b6c3-3bea4629c00f"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{peso}]]></textFieldExpression>
 			</textField>
 		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="476" y="0" width="72" height="15" uuid="aace3248-d95c-4943-b21e-a3589bf26563"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TA}]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnHeader>
 	<detail>
 		<band height="35" splitType="Stretch">
 			<textField>
-				<reportElement x="290" y="0" width="481" height="17" uuid="c540a7a2-f521-44c8-a09c-bc1ebe065c03"/>
+				<reportElement x="183" y="0" width="344" height="17" uuid="c540a7a2-f521-44c8-a09c-bc1ebe065c03"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nommedic}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="306" y="15" width="496" height="17" uuid="32176ff9-18a2-41bf-bc72-878f42116480"/>
+				<reportElement x="205" y="17" width="344" height="17" uuid="32176ff9-18a2-41bf-bc72-878f42116480"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nomtratam}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement isPrintRepeatedValues="false" x="170" y="0" width="104" height="17" uuid="9f3ecb87-2801-4c88-82a7-087accaa3fd9"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="274" y="0" width="13" height="17" uuid="cf7f1c17-90d7-4c5f-b2a7-1dab7746e500"/>
@@ -134,12 +127,19 @@ ON
 				</textElement>
 				<text><![CDATA[.-]]></text>
 			</staticText>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="138" y="0" width="45" height="17" uuid="9f3ecb87-2801-4c88-82a7-087accaa3fd9"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
 		<band height="70" splitType="Stretch">
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement x="654" y="21" width="100" height="20" uuid="3df9c8d3-9ba9-442c-91c7-e22266287bca">
+				<reportElement x="376" y="34" width="100" height="20" uuid="3df9c8d3-9ba9-442c-91c7-e22266287bca">
 					<printWhenExpression><![CDATA[new Boolean($F{fechacita} != null)]]></printWhenExpression>
 				</reportElement>
 				<textElement>

@@ -1,8 +1,6 @@
 
 package sistema1;
 
-
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -358,8 +356,7 @@ public String setDateActual(){
     }
     
     
-    public void limpiar(JPanel Pn)
-    {
+    public void limpiar(JPanel Pn){
         Pn.removeAll();
         Pn.validate();
         Pn.repaint();
@@ -581,6 +578,13 @@ public String setDateActual(){
         return imc;
     }
     
+    public static void delaySegundo()
+    {
+        try
+        {
+            Thread.sleep(1000);
+        }catch(InterruptedException e){}
+    }
     
 public static void main(String[] args){
     //int val = diferenciaFechas("2017/01/11","2017/01/30",1);
