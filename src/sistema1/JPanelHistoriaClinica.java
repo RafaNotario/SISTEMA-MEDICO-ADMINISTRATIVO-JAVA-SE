@@ -15,19 +15,16 @@ import javax.swing.JOptionPane;
 import java.awt.Checkbox;
 //import sistema1.ConexionDBOriginal;
 
-public class JPanelHistoriaClinica extends javax.swing.JPanel {
-
-    
+public class JPanelHistoriaClinica extends javax.swing.JPanel {    
     ConexionDBOriginal con2 = new ConexionDBOriginal();
     Reportes rp = new Reportes();
     Funciones fn = new Funciones();
-    
     String text1 = "<html><body><p>*Marcar todas las que apliquen y especificar <br>quien la ha padecido. </p></body></html>";
     String text2 = "<html><body><p>*Marcar todas las que apliquen y especificar. </p></body></html>";
     public String expediente = null;
     int param=0;
     
-    //nuevo para agregar items checklist
+    //nuevo para agregar items checklisst
     private Checkbox checkBox1;
     private Checkbox checkBox2;
     private Checkbox checkBox3;
@@ -770,11 +767,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
              } catch (SQLException ex) {
                  System.err.println( ex.getMessage() );    
              }
-         }
-            
-            
-            
-            
+         }            
             }else{
         
         try {
@@ -959,7 +952,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                         pps.setString(28, "/");
                         pps.setString(29, "/");
                     }
-                    
                     if(tabaquismo.isSelected())
                     {
                         pps.setInt(30, 1);
@@ -978,9 +970,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                     }else{
                         pps.setString(33, anot);
                     }
-                        
                     pps.executeUpdate();
-
                     cn.commit();
                     JOptionPane.showMessageDialog(null, "Datos Guardados");
 
@@ -998,15 +988,13 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
             }                
          }finally{
  //            System.out.println( "cierra conexion a la base de datos" );    
-             try {
-                                
+             try {                   
                  if(pps != null) pps.close();                
                  if(cn !=null) cn.close();
              } catch (SQLException ex) {
                  System.err.println( ex.getMessage() );    
              }
-         } 
-        
+            }         
         }// else
 }
     }//GEN-LAST:event_BotonGuardarMouseClicked
@@ -1325,8 +1313,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                             Bañoirregular.setSelected(true);
                             aux2="";
                         }
-                    }
-                        
+                    }                        
                 }
                 
                 
@@ -1392,8 +1379,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                         txtDescInmuniz.setText("/");
                         aux2=aux3="";
                     }
-                }
-                
+                }                
                 aux2=rs.getString(28);//ALCOHOLISMO
                 aux3=rs.getString(29);//FRECUENCIA ALCOHOLISMO
                 aux4=rs.getString(30);//AÑOS ALCOHOLISMO
@@ -1408,8 +1394,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                     txtrecAlcohol.setText(aux3);
                     txtAñosAlcohol.setText(aux4);
                     aux2=aux3=aux4="";
-                }
-                
+                }                
                 aux2=rs.getString(31);//tabaquismo
                 aux3=rs.getString(32);//tabacos por dia
                 aux4=rs.getString(33);//años de tasbaquismo
@@ -1423,16 +1408,12 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                     tabaquismo.setSelected(false);
                     txtDiaTabaq.setText(aux3);
                     txtAñosTabaq.setText(aux4);
-                }
-                
-                    jtxtAnotaciones.setText(rs.getString(34));
-                
-                    
+                }                
+                    jtxtAnotaciones.setText(rs.getString(34));                    
 /*                    for(int x = 1;x <= rs.getMetaData().getColumnCount(); x++)
                         System.out.println("Datos -> "+rs.getString(x));
 */
-                    }
-            
+           }            
             cn.commit();
         }catch (SQLException ex) {
              System.err.println("ERROR: " + ex.getMessage());
@@ -1513,8 +1494,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
             if(res.next())
                 bad=true;
              else
-                bad=false;
-                
+                bad=false;                
             pstm.close();
             res.close();
         } catch(SQLException e){
@@ -1522,12 +1502,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         }
         return bad;
     }
-    
-    
-    
-
-    
-
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Baño;

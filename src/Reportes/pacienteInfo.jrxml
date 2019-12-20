@@ -6,7 +6,7 @@
 	<parameter name="parameter1" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT CAST(expediente AS INT),fecha,nombre,apellidos,edad,estadocivil,calle,poblacion,telefono,celular
-,pareja,tiempopareja,gestas,partos,abortos,cesareas
+,gestas,partos,abortos,cesareas
 FROM 
 t_personales 
 WHERE
@@ -22,7 +22,7 @@ expediente = $P{parameter1};]]>
 	<field name="apellidos" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="edad" class="java.lang.Integer">
+	<field name="edad" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="estadocivil" class="java.lang.Integer">
@@ -38,12 +38,6 @@ expediente = $P{parameter1};]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="celular" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="pareja" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="tiempopareja" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="gestas" class="java.lang.String">
@@ -228,13 +222,6 @@ expediente = $P{parameter1};]]>
 				</textElement>
 				<text><![CDATA[pareja]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="119" y="201" width="221" height="20" uuid="f6083186-42c2-43fc-9f0a-4befcc8f1e72"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{pareja}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="221" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2479cc1d-1ad1-4cd1-93dd-4e9b9fd4ded7"/>
 				<textElement textAlignment="Center">
@@ -242,13 +229,6 @@ expediente = $P{parameter1};]]>
 				</textElement>
 				<text><![CDATA[tiempopareja]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="119" y="221" width="119" height="20" uuid="7894182c-87e3-430a-91f2-b4d609c61b74"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tiempopareja}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="241" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="04616d10-3dd1-4864-ba83-27ddc244d430"/>
 				<textElement textAlignment="Center">

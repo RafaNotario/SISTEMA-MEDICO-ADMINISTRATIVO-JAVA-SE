@@ -13,27 +13,28 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.util.*;
 
 /**
  *
  * @author Rafa
  */
 public class Funciones {
-
- ///   conexionDB con = new conexionDB();
-//    Connection cn = con.conexion();
     static ConexionDBOriginal con2 = new ConexionDBOriginal();
-//formato para date sql
+///formato para date sql
     SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
     static Scanner teclado = new Scanner(System.in);
     
-    SimpleDateFormat formatoPrueba = new SimpleDateFormat("yyyy/MM/dd");
+    SimpleDateFormat formatoPrueba = new SimpleDateFormat("dd-MM-yyyy");
 
 public String getFecha(JDateChooser jd){
     if(jd.getDate()!= null){
@@ -56,13 +57,18 @@ public Date StringDate(String fecha){//tenia: java.util.Date
 
 public String setDateActual(){
 //        DateFormat df = DateFormat.getDateInstance();
-    Date fechaAct = new Date();
-    
+    Date fechaAct = new Date();    
 //        jDateChooser1.setDate(fechaAct);
         return formato.format(fechaAct);
 }
+public String setDateActualGuion(){
+//        DateFormat df = DateFormat.getDateInstance();
+    Date fechaAct = new Date();    
+//        jDateChooser1.setDate(fechaAct);
+        return formatoPrueba.format(fechaAct);
+}
 
-    private int ultimoRegistroConsulta(){
+private int ultimoRegistroConsulta(){
         Connection cn = con2.conexion();
         String ultimo="",consul="";
         int num=0,i=1;
@@ -77,7 +83,7 @@ public String setDateActual(){
             {
                 consul = rs.getString(1);
                 ultimo = rs.getString(2);
-//                System.out.println(consul+" "+ultimo);
+///                System.out.println(consul+" "+ultimo);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,8 +96,7 @@ public String setDateActual(){
                         System.err.println( ex.getMessage() );    
                     }
                 }
-        num=Integer.parseInt(ultimo);
-        
+        num=Integer.parseInt(ultimo);     
         return num;
     }
 
@@ -241,9 +246,7 @@ public String setDateActual(){
 		} else {
 			diasTipoMes = 30;
 		}
-	}
- 
- 
+        } 
 	//
 	// Calculo de diferencia de año, mes y dia
 	//
@@ -325,7 +328,6 @@ public String setDateActual(){
     
     public void RealizaConsulta(String idConsul){
         Connection cn = con2.conexion();
-
         String consul = "SELECT * FROM consulta WHERE id_Consulta = '"+idConsul+"'";
         
 //        System.out.println("Consulta: "+consul);
@@ -353,15 +355,13 @@ public String setDateActual(){
         } catch (SQLException ex) {
             Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    
+}
+       
     public void limpiar(JPanel Pn){
         Pn.removeAll();
         Pn.validate();
         Pn.repaint();
     }
-    
     
 //METODO ORIGINAL para validar si existe coincidencia en la base de datos mediante un JOptionPane
     public void ValidaExpediente(String exp) {
@@ -395,8 +395,7 @@ public String setDateActual(){
             res = pstm.executeQuery();
             if(res.next()){
 //                JOptionPane.showMessageDialog(null, "si se encontro ->"+exp);
-                bad=true;
-                
+                bad=true;                
             }
             else{
                 bad=false;
@@ -409,8 +408,7 @@ public String setDateActual(){
         }
         return bad;
     }
-    
-    
+        
         public boolean ValidaConsultaBool(String idConsulta) {
         boolean bad= false;
         PreparedStatement pstm=null;
@@ -502,8 +500,7 @@ public String setDateActual(){
             rs.close();
         } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
-        }
-            
+        }            
         return arr;
         }
         
@@ -586,14 +583,267 @@ public String setDateActual(){
         }catch(InterruptedException e){}
     }
     
+    //genera inform de heredofamiliar
+        public String[][] cargaDatosHeredof(String param){//static String[][]
+        Connection cn = con2.conexion();
+        String matrizDefecto[][]=null;
+        String sql = "SELECT * FROM h_clinica WHERE expediente = "+param+"";//
+//        System.out.println("sentencia"+sql);
+        Statement st = null;
+        ResultSet rs = null;
+        String aux ="",aux2="",aux3="",aux4="",anotac="";
+        List<String> contentL=new ArrayList<String>();
+        List<String> indexL=new ArrayList<String>();    
+        try {
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+            cn.setAutoCommit(false);
+            
+           //System.out.println(rs.getMetaData().getColumnCount());        
+           while(rs.next())//tenia 34 antes de quitar lavado dental   ->rs.next() &&
+            {
+                for (int x=1;x<= rs.getMetaData().getColumnCount();x++) {
+                    if(!rs.getString(x).equals("/") && !rs.getString(x).isEmpty()){
+                        //considera tabaquism
+                        indexL.add(Integer.toString(x) );
+                        contentL.add(rs.getString(x));
+                     // System.out.println(x+" -> "+rs.getString(x));
+                    }
+           }
+          }//while         
+            cn.commit();
+            
+        }catch (SQLException ex) {
+             System.err.println("ERROR: " + ex.getMessage());
+             if(cn!=null)
+             {
+                 System.out.println("Rollback");
+                 try {
+                     //deshace todos los cambios realizados en los datos
+                     cn.rollback();
+                 } catch (SQLException ex1) {
+                     System.err.println( "No se pudo deshacer" + ex1.getMessage() );    
+                 }
+             }                
+         }finally{
+//             System.out.println( "cierra conexion a la base de datos" );    
+             try {
+                 if(st != null) st.close();                
+                 if(rs != null) rs.close();                
+                 if(cn !=null) cn.close();               
+//Letrero se cierran   JOptionPane.showMessageDialog(null, "SEcierran");
+             } catch (SQLException ex) {
+                 System.err.println( ex.getMessage() );    
+             }             
+         }       
+        ListIterator<String> itrI=indexL.listIterator();
+        ListIterator<String> itr=contentL.listIterator();
+
+   //     System.out.println("Numero de datos"+indexL.size());
+        matrizDefecto = new String[indexL.size()][2];      
+       
+    int ind = 0;//variable para iterar la matriz
+        while(itr.hasNext() && itrI.hasNext() ){         
+            //System.out.println("index:"+itrI.next()+" value:"+itr.next());            
+            matrizDefecto[ind][0] = itrI.next();
+            matrizDefecto[ind][1] = itr.next();
+             ind++;
+        }/*
+        System.out.println("Número de fila: "+matrizDefecto.length);
+        System.out.println("Número de columnas: "+matrizDefecto[0].length); 
+        
+                for (int x = 0; x < matrizDefecto.length;x++) {//<-filas
+            for (int y = 0; y < matrizDefecto[x].length; y++) {//<-columnas
+	System.out.print("["+matrizDefecto[x][y]+"]");
+            }
+            System.out.println("\n");
+        }
+              */  
+       return matrizDefecto;
+    }//cargaDatos(String)
+    
+        public String generaText(String[][] arre){
+        //A)si existe en index del numero 3 al 13 entonces si hay entacedentes heredofamiliar  sino no
+        //B)si existe index del numero 14 al 21 entonces si hay antecedentes personales patologicos sino no        
+        //C)index =22 frecuencia de baño
+        //D)index= 23 tipo de habitacion
+        //E)index= 24 alimentacion con veces por dia
+        //F)index= 25 deportes si != '/' entonces saca cadena
+        //G)index= 26 inmunizaciones si = 'PENDIENTES' escribir campo index=27
+        //H)index= 28 alcoholismo si =1 entonces imprime index=29(frecuencia semanal), imprime index=30(años que lleva tomando)
+        //I)index= 31 tabaquismo si =1 entonces imprime index=32(cigarros fumados al dia), imprime index=33(años que lleva fumando)
+        //J)index= 34 anotacion si = '/' no imprime nada
+        String cadena = "Los antecedenetes Heredofamiliar del paciente son: ";//System.out.print("["+arre[x][1]+"]");  
+        for (int x=0;x<arre.length;x++) {//<-filas
+            for (int y = 0; y <arre[x].length; y++) {//<-columnas
+                if(y == 0){
+                   if(Integer.parseInt(arre[x][y]) >=3 && Integer.parseInt(arre[x][y]) < 14){
+                       if(Integer.parseInt(arre[x][y]) == 3){
+                           cadena+=" "+arre[x][1]+" con diabetes, ";                      
+                       }//if=3
+                       if(Integer.parseInt(arre[x][y]) == 4){
+                           cadena+=arre[x][1]+" con hepatopatia, ";                      
+                       }//if=4
+                       if(Integer.parseInt(arre[x][y]) == 5){
+                           cadena+=arre[x][1]+" con asma, ";                      
+                       }//if=5
+                       if(Integer.parseInt(arre[x][y]) == 6){
+                           cadena+=arre[x][1]+" con enfermedad endocrina, ";                      
+                       }//if=
+                       if(Integer.parseInt(arre[x][y]) == 7){
+                           cadena+=arre[x][1]+" con hipertension, ";                      
+                       }//if=7
+                       if(Integer.parseInt(arre[x][y]) == 8){
+                           cadena+=arre[x][1]+" con nefropatia, ";                      
+                       }//if=8
+                       if(Integer.parseInt(arre[x][y]) == 9){
+                           cadena+=arre[x][1]+" con cancer, ";                      
+                       }//if=9
+                       if(Integer.parseInt(arre[x][y]) == 10){
+                           cadena+=arre[x][1]+" con cardiopatia, ";                      
+                       }//if=10
+                        if(Integer.parseInt(arre[x][y]) == 11){
+                           cadena+=arre[x][1]+" con enfermedad mental, ";                      
+                       }//if=11
+                        if(Integer.parseInt(arre[x][y]) == 12){
+                           cadena+=arre[x][1]+" con alergias, ";                      
+                       }//if=12
+                        if(Integer.parseInt(arre[x][y]) == 13){
+                           cadena+=arre[x][1]+" como anotaciones";                      
+                       }//if=8                      
+                   }//if 3 <X<14
+                   
+ //ANTECEDENTES PERSONALES PATOLOGICOS
+                    if(Integer.parseInt(arre[x][y]) >=14 && Integer.parseInt(arre[x][y]) < 22){
+                      if(Integer.parseInt(arre[x][y]) == 14){
+                           cadena+=".  Actualmente padece: "+arre[x][1]+", ";                      
+                       }//if=14
+                      if(Integer.parseInt(arre[x][y]) == 15){
+                           cadena+="Enfermedad quirurgica: "+arre[x][1]+", ";                      
+                       }//if=15
+                       if(Integer.parseInt(arre[x][y]) == 16){
+                           cadena+="Enfermedad transfusional: "+arre[x][1]+", ";                      
+                       }//if=16
+                        if(Integer.parseInt(arre[x][y]) == 17){
+                           cadena+="Alergias: "+arre[x][1]+", ";                      
+                       }//if=17
+                         if(Integer.parseInt(arre[x][y]) == 18){
+                           cadena+="Traumaticas: "+arre[x][1]+", ";                      
+                       }//if=18
+                          if(Integer.parseInt(arre[x][y]) == 19){
+                           cadena+="Con hospitalizaciones previas: "+arre[x][1]+", ";                      
+                       }//if=19
+                       if(Integer.parseInt(arre[x][y]) == 20){
+                           cadena+="Con adiiciones: "+arre[x][1]+", ";                      
+                       }//if=20
+                        if(Integer.parseInt(arre[x][y]) == 21){
+                           cadena+="Otros padecimientos: "+arre[x][1]+", ";                      
+                       }//if=21                   
+                    }//IF 14 <= X <22
+                    
+  //ANTECEDENTES PERSONALES
+            if(Integer.parseInt(arre[x][y]) >=26 && Integer.parseInt(arre[x][y]) <= 34 ){
+                 if(Integer.parseInt(arre[x][y]) == 26){
+                           cadena+="Con inmunizaciones : "+arre[x][1]+", ";                      
+                }//if=26    
+                 if(Integer.parseInt(arre[x][y]) == 27){
+                           cadena+="que son : "+arre[x][1]+", ";                      
+                }//if=27
+           if(Integer.parseInt(arre[x][y]) == 28){
+                  if(Integer.parseInt(arre[x][y]) == 28 && Integer.parseInt(arre[x][1]) == 1){
+                           cadena+="con : "+arre[x+1][1]+" años de alcoholismo y frecuencia de: "+arre[x+2][1]+"Bebida semanal, ";                      
+                }else{
+                      cadena+="Sin alcohlismo";
+                  }//if=28
+           } 
+            if(Integer.parseInt(arre[x][y]) == 31){
+                if(Integer.parseInt(arre[x][y]) == 31 && Integer.parseInt(arre[x][1]) == 1){
+                           cadena+="con : "+arre[x+1][1]+" años de tabaquismo y frecuencia de: "+arre[x+2][1]+" Cigarros por día, ";                      
+                }else{
+                      cadena+="Sin tabaquismo";
+                  }//if=31
+            }
+                     if(Integer.parseInt(arre[x][y]) == 34){
+                           cadena+="\n ANOTACION: "+arre[x][1]+", ";                      
+                }//if=27
+            }//IF 26<= X <= 34  
+                    
+            }//if y =0, solo indices 
+        }//for columnas  
+        }//for filas
+//A)
+        return cadena;
+        //System.out.println(cadena);
+    }
+
+//para obtener fecha con letras
+        public String fechLetra(){
+            String cadenaLet = "";
+           Calendar now = Calendar.getInstance();
+           // System.out.println("Fecha actual : " + ( now.get(Calendar.MONTH) + 1)+ "-"+ now.get(Calendar.DATE)+ "-"+ now.get(Calendar.YEAR));
+            String[] strDays = new String[]{
+	"Domingo",
+	"Lunes",
+                      "Martes",
+	"Miercoles",
+	"Jueves",
+	"Viernes",
+	"Sabado"};
+            
+            String[] strMonths =  new String[]{
+                "Enero",
+                "Febrero",
+                "Marzo",
+                "Abril",
+                "Mayo",
+                "Junio",
+                "Julio",
+                "Agosto",
+                "Septiembre",
+                "Octubre",
+                "Noviembre",
+                "Diciembre"};          
+        // El dia de la semana inicia en el 1 mientras que el array empieza en el 0
+	//System.out.println("Hoy es : " + strDays[now.get(Calendar.DAY_OF_WEEK) - 1]);
+                      //System.out.println("Mes es: "+strMonths[now.get(Calendar.MONTH)]);
+                      //System.out.println("Año es: "+now.get(Calendar.YEAR));
+                   cadenaLet+= strDays[now.get(Calendar.DAY_OF_WEEK) - 1]+", "+ now.get(Calendar.DATE)+" de "+strMonths[now.get(Calendar.MONTH)]+" de "+now.get(Calendar.YEAR)+".";   
+                   //System.out.println(cadenaLet);
+                   return cadenaLet;
+        }//fin fechLetra
+        
+     public String[] regresaNombreArch(String exped){
+         String nombMay ="C. ",ape ="";
+         String[] arre = new String[2];
+        Connection cn = con2.conexion();
+        String consul = "SELECT expediente,nombre,apellidos FROM t_personales WHERE expediente = '"+exped+"'";        
+        Statement st;
+        try {
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while(rs.next()){
+                ape = rs.getString(3).toUpperCase();
+               nombMay+=rs.getString(2).toUpperCase()+" "+ape;
+               arre[0] = nombMay;
+               arre[1]=ape.replace(" ", "-");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(int x = 0;x<arre.length;x++){
+            System.out.println(arre[x]);
+        }
+       return arre;
+}
+            
+            
 public static void main(String[] args){
     //int val = diferenciaFechas("2017/01/11","2017/01/30",1);
-    String[] array = null;
+    String[][] array = null;
     String var = "";
     int param=0;
     Funciones fn = new Funciones();
     long monts=0,days=0;
-    
  //System.out.println(fn.calcImc("70","171"));
     // monts = getDiffDates(fn.StringDate("2017/01/11"),fn.StringDate("2017/03/10"),1);
     //days = getDiffDates(fn.StringDate("2017/01/11"),fn.StringDate("2017/03/10"),2);

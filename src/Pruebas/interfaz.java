@@ -191,7 +191,7 @@ public class interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelrojoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelrojoMouseClicked
-     this.dispose();   // TODO add your handling code here:
+     System.exit(0);
     }//GEN-LAST:event_jLabelrojoMouseClicked
 
     private void jLabelrojoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelrojoMouseEntered

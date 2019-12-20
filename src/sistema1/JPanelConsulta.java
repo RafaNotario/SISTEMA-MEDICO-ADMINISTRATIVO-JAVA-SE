@@ -27,7 +27,7 @@ import javax.swing.table.TableColumn;
 
 /**
  *
- * @author Rafa
+ * @author a.Rafael Notario Rodriguez rafaelnotariorodriguez@gmail.com
  */
 public class JPanelConsulta extends javax.swing.JPanel {
 
@@ -840,8 +840,7 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
     
     
 
-    void LlenaTabla(String medicamento, String tratamiento){
-        
+    void LlenaTabla(String medicamento, String tratamiento){        
         Object [] fila=new Object[2];
         fila[0]=medicamento;
         fila[1]=tratamiento;
@@ -905,8 +904,7 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
 */
      
      public void RealizaConsulta(String idConsul){
-        String factual="",fproximacita="";
-        
+        String factual="",fproximacita="";        
 //        JOptionPane.showMessageDialog(null, "id_Consulta:"+idConsul);
         Date dt = null;
         Connection cn = con2.conexion();
@@ -1006,8 +1004,7 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
             public boolean isCellEditable (int fila, int columna) {
                 return false;
             }
-        };
-        
+        };        
         String consul = "SELECT medicamento,tratamiento from t_recetas WHERE id_consultas = '"+idConsul+"'"; 
 
         modelo.addColumn("Medicamento");

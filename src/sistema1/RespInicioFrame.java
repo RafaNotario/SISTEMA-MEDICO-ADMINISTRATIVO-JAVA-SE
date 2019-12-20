@@ -48,8 +48,8 @@ public class RespInicioFrame extends javax.swing.JPanel {
     AltasMedicina AMedicine = new AltasMedicina();
     JPanelConsulta ocho = new JPanelConsulta();
     CobrosConsulta Cobros = new CobrosConsulta();
-    
     JPanelHistoriaClinica diez;
+    Valoracion jPanValoracion;
     
     
     
@@ -76,19 +76,23 @@ jLabel2.setVisible(false);
         HistorConsul = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         TodasConsul = new javax.swing.JMenuItem();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jPanelBarraMenu = new javax.swing.JPanel();
         Paciente = new javax.swing.JLabel();
         RECETAnew = new javax.swing.JLabel();
         Chat = new javax.swing.JLabel();
         ALTASmtc = new javax.swing.JLabel();
         jLabel2CDxFC = new javax.swing.JLabel();
-        Heredofamiliar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Pruebas = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblHelp = new javax.swing.JLabel();
         BtnHelp = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        txtValoracion = new javax.swing.JLabel();
+        Heredofamiliar = new javax.swing.JLabel();
         jPanTabla = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         txtConsul = new javax.swing.JTextField();
@@ -118,6 +122,12 @@ jLabel2.setVisible(false);
         });
         jPopupMenu1.add(TodasConsul);
 
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
         setBackground(new java.awt.Color(255, 255, 204));
         setMinimumSize(new java.awt.Dimension(1350, 700));
         setPreferredSize(new java.awt.Dimension(1920, 975));
@@ -137,7 +147,7 @@ jLabel2.setVisible(false);
                 PacienteMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(Paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 60, 50));
+        jPanelBarraMenu.add(Paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 60, 50));
 
         RECETAnew.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RECETAnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consultaBN.png"))); // NOI18N
@@ -149,7 +159,7 @@ jLabel2.setVisible(false);
                 RECETAnewMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(RECETAnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 60, 50));
+        jPanelBarraMenu.add(RECETAnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 60, 50));
 
         Chat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Chat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/chatBN.png"))); // NOI18N
@@ -173,7 +183,7 @@ jLabel2.setVisible(false);
                 ALTASmtcMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(ALTASmtc, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 60, 50));
+        jPanelBarraMenu.add(ALTASmtc, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 60, 50));
 
         jLabel2CDxFC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2CDxFC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -188,19 +198,7 @@ jLabel2.setVisible(false);
                 jLabel2CDxFCMouseEntered(evt);
             }
         });
-        jPanelBarraMenu.add(jLabel2CDxFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 60, 50));
-
-        Heredofamiliar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Heredofamiliar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Heredofamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/modifyBN.png"))); // NOI18N
-        Heredofamiliar.setToolTipText("Consultar, modificar o ver Antecedentes Heredo Familiares de algun paciente.");
-        Heredofamiliar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Heredofamiliar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HeredofamiliarMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(Heredofamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 60, 50));
+        jPanelBarraMenu.add(jLabel2CDxFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 60, 50));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
@@ -211,7 +209,7 @@ jLabel2.setVisible(false);
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 60, 50));
+        jPanelBarraMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 60, 50));
 
         Pruebas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Pruebas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -268,6 +266,30 @@ jLabel2.setVisible(false);
         });
         jPanelBarraMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 60, 50));
 
+        txtValoracion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtValoracion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtValoracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/stethoscope.png"))); // NOI18N
+        txtValoracion.setToolTipText("Valoración del paciente");
+        txtValoracion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtValoracion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtValoracionMouseClicked(evt);
+            }
+        });
+        jPanelBarraMenu.add(txtValoracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 60, 50));
+
+        Heredofamiliar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Heredofamiliar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Heredofamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/modifyBN.png"))); // NOI18N
+        Heredofamiliar.setToolTipText("Consultar, modificar o ver Antecedentes Heredo Familiares de algun paciente.");
+        Heredofamiliar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Heredofamiliar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HeredofamiliarMouseClicked(evt);
+            }
+        });
+        jPanelBarraMenu.add(Heredofamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 60, 50));
+
         add(jPanelBarraMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanTabla.setBackground(new java.awt.Color(245, 244, 243));
@@ -276,7 +298,7 @@ jLabel2.setVisible(false);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("CONSULTAR POR:");
-        jPanTabla.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 180, 30));
+        jPanTabla.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 30));
 
         txtConsul.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtConsul.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -302,6 +324,9 @@ jLabel2.setVisible(false);
         jTable1.setEditingColumn(0);
         jTable1.setEditingRow(0);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTable1MouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTable1MousePressed(evt);
             }
@@ -343,7 +368,7 @@ jLabel2.setVisible(false);
     private void PacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PacienteMouseClicked
         Connection cn = con2.conexion();    
         int fila = jTable1.getSelectedRow();
-        String param = "";
+        String param = "",sex="";
         
         if(evt.getClickCount() > 1){
             limpiar(jPanTrabajo);
@@ -439,22 +464,29 @@ jLabel2.setVisible(false);
                         AP.txtNombre.setText(rs.getString(3));
                         AP.txtApes.setText(rs.getString(4));
 
-                        AP.txtEdad.setText(rs.getString(5));
+                        //AP.txtEdad.setText(rs.getString(5));
+                       AP.jDateChooser3.setDate(rs.getDate(5));
                         var = fn.DevuelveID(0, rs.getString(6), 1);
                         
 //                      JOptionPane.showMessageDialog(null, "valor para vaciar al ComboBox"+var[1]);
                         AP.jComboBox1.setSelectedItem(var[1]);
                         AP.txtCalle.setText(rs.getString(7));
                         AP.txtpoblacion.setText(rs.getString(8));
-                        
-                        AP.txtTelefono.setText(rs.getString(9));
+                       sex = rs.getString(9);
+                       System.out.println("Sexo = "+sex);
+                        if(sex.equals("F")){
+                            AP.jRadioFeminazi.setSelected(true);
+                            AP.jPanelHConsultas.setVisible(true);
+                        }else{
+                            AP.jRadioMen.setSelected(true);
+                            AP.jPanelHConsultas.setVisible(false);
+                        } 
+                       // AP.txtTelefono.setText(rs.getString(9));
                         AP.txtCel.setText(rs.getString(10));
-                        AP.txtPareja.setText(rs.getString(11));
-                        AP.txtTiempo.setText(rs.getString(12));
-                        AP.txtGestas.setText(rs.getString(13));
-                        AP.txtAbortos.setText(rs.getString(14));
-                        AP.txtPartos.setText(rs.getString(15));
-                        AP.txtCesareas.setText(rs.getString(16));
+                        AP.txtGestas.setText(rs.getString(11));
+                        AP.txtAbortos.setText(rs.getString(12));
+                        AP.txtPartos.setText(rs.getString(13));
+                        AP.txtCesareas.setText(rs.getString(14));
 /*                    for(int x = 1;x <= rs.getMetaData().getColumnCount(); x++)
                         System.out.println("Datos -> "+rs.getString(x));
 */
@@ -749,14 +781,13 @@ jLabel2.setVisible(false);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
-        
-        if (evt.getClickCount() > 1)
-        {
-        Connection cn = con2.conexion();
-            String[] arr = null;
-            String param="";
-            limpiar(jPanTrabajo);
-            jPanel1.setVisible(true);
+if (evt.getClickCount() > 1)
+           {
+           Connection cn = con2.conexion();
+           String[] arr = null;
+           String param="",sex="";
+           limpiar(jPanTrabajo);
+           jPanel1.setVisible(true);
 //            jPanel2.setVisible(true);
         
             jPanTrabajo.setLayout(new GridLayout(1,1));
@@ -789,7 +820,6 @@ jLabel2.setVisible(false);
             try {
                 st = cn.createStatement();
                 rs = st.executeQuery(sql);
-                
                 while(rs.next())
                 {
                     param=rs.getString(1);
@@ -798,45 +828,43 @@ jLabel2.setVisible(false);
                         AP.jDateChooser1.setDate(rs.getDate(2));
                         AP.txtNombre.setText(rs.getString(3));
                         AP.txtApes.setText(rs.getString(4));
-                        
-                        AP.txtEdad.setText(rs.getString(5));
-                        
+                        //AP.txtEdad.setText(rs.getString(5));
+                        AP.jDateChooser3.setDate(rs.getDate(5));
                         arr = fn.DevuelveID(0, rs.getString((6)), 1);
                         AP.jComboBox1.setSelectedItem(arr[1]);
-
                         AP.txtCalle.setText(rs.getString(7));
-                     
                         AP.txtpoblacion.setText(rs.getString(8));
+                        sex = rs.getString(9);
                         
-                        AP.txtTelefono.setText(rs.getString(9));
+                        if(sex.equals("F")){
+                            AP.jRadioFeminazi.setSelected(true);
+                            AP.jPanelHConsultas.setVisible(true);
+                        }else{
+                            AP.jRadioMen.setSelected(true);
+                            AP.jPanelHConsultas.setVisible(false);
+                        } 
                         AP.txtCel.setText(rs.getString(10));
-                        AP.txtPareja.setText(rs.getString(11));
-                        AP.txtTiempo.setText(rs.getString(12));
-                        AP.txtGestas.setText(rs.getString(13));
-                        AP.txtPartos.setText(rs.getString(14));
-                        AP.txtAbortos.setText(rs.getString(15));
-                        AP.txtCesareas.setText(rs.getString(16));
+                        
+                        AP.txtGestas.setText(rs.getString(11));
+                        AP.txtPartos.setText(rs.getString(12));
+                        AP.txtAbortos.setText(rs.getString(13));
+                        AP.txtCesareas.setText(rs.getString(14));
 
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(RespInicioFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }finally{
-                
+            }finally{               
 //             System.out.println("cierra conexion a la base de datos");    
-             try {
-                                
+             try {        
                  if(st != null) st.close();                
                  if(cn !=null) cn.close();
              } catch (SQLException ex) {
                  System.err.println(ex.getMessage()); 
 //                 System.out.println("Error al cerrar la conexon");
              }
-         }
-        
+         }       
             AP.mostrarTabla2(param);
-  
-        //    JOptionPane.showMessageDialog(this, "valor :"+val );
-        }
+           }
     }//GEN-LAST:event_jTable1MousePressed
 
     private void lblHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelpMouseClicked
@@ -848,10 +876,38 @@ jLabel2.setVisible(false);
     }//GEN-LAST:event_BtnHelpActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        System.exit(0);
-        
-            
+        System.exit(0);            
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jTable1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseExited
+
+    private void txtValoracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtValoracionMouseClicked
+        int fila = jTable1.getSelectedRow();////txtValoracion
+        String var="";        
+        if(fila >= 0)
+        {
+        var=jTable1.getValueAt(fila, 0).toString();
+        jPanValoracion = new Valoracion(Integer.parseInt(var));     
+//        if(fn.ValidaHeredofamiliarBool(var))
+  //          diez.jLabel16.setVisible(false);           
+        //diez.txtexpediente.setText(var);
+        limpiar(jPanTrabajo);//limpiamos pane principal
+        //diez.cargaDatos();
+        //diez.llenacombo();
+            //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());     
+        jPanValoracion.setVisible(true);
+        jPanTrabajo.setLayout(new GridLayout(1,1));
+        jPanTrabajo.add(jPanValoracion);
+        jPanTrabajo.validate();
+        jPanTrabajo.setVisible(true);
+        jPanTrabajo.setEnabled(true);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "No selecciono nada");
+        
+    }//GEN-LAST:event_txtValoracionMouseClicked
 
     void mostrarTabla1(String var){
         int band = 0;
@@ -865,14 +921,14 @@ jLabel2.setVisible(false);
             };        
         String consul="";
             if(atributo.equals("nombre") || atributo.equals("")){
-                consul = "SELECT expediente,nombre,apellidos from t_personales WHERE (CONCAT(nombre,' ',apellidos)) LIKE '"+var+"%' ORDER BY nombre,apellidos ASC LIMIT 150";
+                consul = "SELECT expediente,nombre,apellidos from t_personales WHERE (CONCAT(nombre,' ',apellidos)) LIKE '"+var+"%' ORDER BY nombre,apellidos ASC LIMIT 50";
                 modelo.addColumn("EXP");
                 modelo.addColumn("NOMBRE");
                 modelo.addColumn("APELLIDOS");
                 band = 0;
             }else{
                if(atributo.equals("apellidos")){
-            consul = "SELECT expediente,nombre,apellidos from t_personales WHERE (CONCAT(apellidos,' ',nombre)) LIKE '"+var+"%' ORDER BY apellidos ASC LIMIT 150";
+            consul = "SELECT expediente,nombre,apellidos from t_personales WHERE (CONCAT(apellidos,' ',nombre)) LIKE '"+var+"%' ORDER BY apellidos ASC LIMIT 50";
             modelo.addColumn("EXP");
             modelo.addColumn("APELLIDOS");
             modelo.addColumn("NOMBRE");
@@ -923,8 +979,7 @@ jLabel2.setVisible(false);
              } catch (SQLException ex) {
              }
          }
-    }    
-    
+    }       
     
     private int ultimoRegistro(){
         Connection cn = con.conexion();
@@ -1137,6 +1192,9 @@ jLabel2.setVisible(false);
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2CDxFC;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanTabla;
     public javax.swing.JPanel jPanTrabajo;
     private javax.swing.JPanel jPanel1;
@@ -1150,6 +1208,7 @@ jLabel2.setVisible(false);
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblHelp;
     private javax.swing.JTextField txtConsul;
+    private javax.swing.JLabel txtValoracion;
     // End of variables declaration//GEN-END:variables
 }
 

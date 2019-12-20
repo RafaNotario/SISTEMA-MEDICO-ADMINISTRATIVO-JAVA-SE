@@ -6,3 +6,368 @@
     PanelPrincipal.validate();
     PanelPrincipal.setVisible(true);
     PanelPrincipal.setEnabled(true);
+
+
+/*            aux=rs.getString(1);
+                txtexpediente.setText(rs.getString(2));              
+    //+++   ENFERMEDADES HEREDO FAMILIARES           
+                aux2=rs.getString(3);//diabetes
+                   // JOptionPane.showMessageDialog(null, aux2);
+                if(!aux2.equals("/"))
+                {
+                    Diabetes.setSelected(true);
+                    JCBDiabetes.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    Diabetes.setSelected(false);
+                    JCBDiabetes.setSelectedItem("/");
+                    aux2="";
+                }
+                
+                aux2=rs.getString(4);//desde aqui HEPÀTOPATIA
+                if(!aux2.equals("/"))
+                {
+                    hepatopatia.setSelected(true);
+                    JCBHepatopatia.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    hepatopatia.setSelected(false);
+                    JCBHepatopatia.setSelectedItem("/");
+                    aux2="";
+                }
+                
+                aux2=rs.getString(5);   //ASMA
+                if(!aux2.equals("/"))
+                {
+                    asma.setSelected(true);
+                    JCBAsma.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    asma.setSelected(false);
+                    JCBAsma.setSelectedItem("/");
+                    aux2="";
+                }
+                
+                aux2=rs.getString(6);   //endocrinas
+                if(!aux2.equals("/"))
+                {
+                    endocrinas.setSelected(true);
+                    JCBEndocrinas.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    endocrinas.setSelected(false);
+                    JCBEndocrinas.setSelectedItem("/");
+                    aux2="";
+                }
+                
+                aux2=rs.getString(7);   //HIPERTENSION
+                if(!aux2.equals("/"))
+                {
+                    hipertension.setSelected(true);
+                    JCBHipertension.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    JCBHipertension.setSelectedItem("/");
+                    hipertension.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(8);   //NEFROPATIA
+                if(!aux2.equals("/"))
+                {
+                    nefropatia.setSelected(true);
+                    JCBNefropatia.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    JCBNefropatia.setSelectedItem("/");
+                    nefropatia.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(9);   //CANCER
+                if(!aux2.equals("/"))
+                {
+                    cancer.setSelected(true);
+                    JCBCancer.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    JCBCancer.setSelectedItem("/");
+                    cancer.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(10);  //CARDIOPATIA
+                if(!aux2.equals("/"))
+                {
+                    cardiopatia.setSelected(true);
+                    JCBCardiopatia.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    JCBCardiopatia.setSelectedItem("/");
+                    cardiopatia.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(11);  //MENTALES
+                if(!aux2.equals("/"))
+                {
+                    mentales.setSelected(true);
+                    JCBMentales.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    JCBMentales.setSelectedItem("/");
+                    mentales.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(12);  //ALERGICAS
+                if(!aux2.equals("/"))
+                {
+                    alergicas.setSelected(true);
+                    JCBAlergicas.setSelectedItem(aux2);
+                    aux2="";
+                }else{
+                    JCBAlergicas.setSelectedItem("/");
+                    alergicas.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(13);  //otros HEREDO-FAMILIARES
+                if(!aux2.equals("/"))
+                {
+                    otrosHF.setSelected(true);
+                    txtotrosHF.setText(aux2);
+                    aux2="";
+                }else{
+                    txtotrosHF.setText(aux2);
+                    otrosHF.setSelected(false);
+                    aux2="";
+                }
+                
+    // ANTECEDENTES PERSONALES PATOLOGICOS            
+                aux2=rs.getString(14);  // ACTUALES
+                if(!aux2.equals("/"))
+                {
+                    actuales.setSelected(true);
+                    txtactuales.setText(aux2);
+                    aux2="";
+                }else{
+                    txtactuales.setText(aux2);
+                    actuales.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(15);  // QUIRURGICAS
+                if(!aux2.equals("/"))
+                {
+                    quirurgicas.setSelected(true);
+                    txtquirurgicas.setText(aux2);
+                    aux2="";
+                }else{
+                    txtquirurgicas.setText(aux2);
+                    quirurgicas.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(16);  // TRANSFUSIONALES
+                if(!aux2.equals("/"))
+                {
+                    transfusionales.setSelected(true);
+                    txttransfusionales.setText(aux2);
+                    aux2="";
+                }else{
+                    txttransfusionales.setText(aux2);
+                    transfusionales.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(17);  // ALERGIAS
+                if(!aux2.equals("/"))
+                {
+                    alergias.setSelected(true);
+                    txtalergias.setText(aux2);
+                    aux2="";
+                }else{
+                    txtalergias.setText(aux2);
+                    alergias.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(18);  // TRAUMATICAS
+                if(!aux2.equals("/"))
+                {
+                    traumaticas.setSelected(true);
+                    txttraumaticas.setText(aux2);
+                    aux2="";
+                }else{
+                    txttraumaticas.setText(aux2);
+                    traumaticas.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(19);  // HOSPITALIZACIONES
+                if(!aux2.equals("/"))
+                {
+                    previas.setSelected(true);
+                    txtprevias.setText(aux2);
+                    aux2="";
+                }else{
+                    txtprevias.setText(aux2);
+                    previas.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(20);  //
+                if(!aux2.equals("/"))
+                {
+                    adicciones.setSelected(true);
+                    txtadicciones.setText(aux2);
+                    aux2="";
+                }else{
+                    txtadicciones.setText(aux2);
+                    adicciones.setSelected(false);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(21);  //
+                if(!aux2.equals("/"))
+                {
+                    otorsPErs.setSelected(true);
+                    txtotorsPErs.setText(aux2);
+                    aux2="";
+                }else{
+                    txtotorsPErs.setText(aux2);
+                    otorsPErs.setSelected(false);
+                    aux2="";
+                }
+                
+    // PERSONALES NO PATOLOGICOS
+                aux2=rs.getString(22);  // BAÑO
+                if(aux2.equals(BañoDiario.getText()))
+                {
+                    BañoDiario.setSelected(true);
+                    aux2="";
+                }else{
+                    if(aux2.equals(Baño3erdia.getText()))
+                    {
+                        Baño3erdia.setSelected(true);
+                        aux2="";
+                    }else{
+                        if(aux2.equals(Bañoirregular.getText()))
+                        {
+                            Bañoirregular.setSelected(true);
+                            aux2="";
+                        }
+                    }
+                        
+                }
+                
+                
+                aux2=rs.getString(23);  // HABITACIONAL
+                if(aux2.equals(habiturbana.getText()))
+                {
+                    habiturbana.setSelected(true);
+                    aux2="";
+                }else{
+                    if(aux2.equals(habitrural.getText()))
+                    {
+                        habitrural.setSelected(true);
+                        aux2="";
+                    }else{
+                        if(aux2.equals(habittodos.getText()))
+                        {
+                            habittodos.setSelected(true);
+                            aux2="";
+                        }else{
+                            if(aux2.equals(habitletrina.getText()))
+                            {
+                                habitletrina.setSelected(true);
+                                aux2="";
+                            }
+                        }
+                    }
+                }
+                
+                aux2=rs.getString(24);  // ALIMENTACION
+                txtalimentacion.setText(aux2);
+                aux2="";
+                
+                aux2=rs.getString(25);  // DEPORTES
+                if(!aux2.equals("/"))
+                {
+                    deportes.setSelected(true);
+                    txtdeportes.setText(aux2);
+                    aux2="";
+                }else{
+                    deportes.setSelected(false);
+                    txtdeportes.setText(aux2);
+                    aux2="";
+                }
+                
+                aux2=rs.getString(26);  //INMUNIZACIONES
+                aux3=rs.getString(27); //DESC INMUNIZACIONES
+                if(aux2.equals(inmunizComplete.getText()))
+                {
+                    inmunizComplete.setSelected(true);
+                    inmunizpendientes.setSelected(false);
+                    txtDescInmuniz.setText(aux3);
+                    aux2=aux3="";
+                }else{
+                    if(aux2.equals(inmunizpendientes.getText()))
+                    {
+                        inmunizComplete.setSelected(false);
+                        inmunizpendientes.setSelected(true);
+                        txtDescInmuniz.setText(aux3);
+                        aux2=aux3="";
+                    }else{
+                        inmunizComplete.setSelected(false);
+                        inmunizpendientes.setSelected(false);
+                        txtDescInmuniz.setText("/");
+                        aux2=aux3="";
+                    }
+                }
+                
+                aux2=rs.getString(28);//ALCOHOLISMO
+                aux3=rs.getString(29);//FRECUENCIA ALCOHOLISMO
+                aux4=rs.getString(30);//AÑOS ALCOHOLISMO
+                if(aux2.equals("1"))
+                {
+                    alcoholismo.setSelected(true);
+                    txtrecAlcohol.setText(aux3);
+                    txtAñosAlcohol.setText(aux4);
+                    aux2=aux3=aux4="";
+                }else{
+                    alcoholismo.setSelected(false);
+                    txtrecAlcohol.setText(aux3);
+                    txtAñosAlcohol.setText(aux4);
+                    aux2=aux3=aux4="";
+                }
+                
+                aux2=rs.getString(31);//tabaquismo
+                aux3=rs.getString(32);//tabacos por dia
+                aux4=rs.getString(33);//años de tasbaquismo
+                if(aux2.equals("1"))
+                {
+                    tabaquismo.setSelected(true);
+                    txtDiaTabaq.setText(aux3);
+                    txtAñosTabaq.setText(aux4);
+                    aux2=aux3=aux4="";
+                }else{
+                    tabaquismo.setSelected(false);
+                    txtDiaTabaq.setText(aux3);
+                    txtAñosTabaq.setText(aux4);
+                }
+                
+                    jtxtAnotaciones.setText(rs.getString(34));
+*/
+
+ /*    
+        // Este ciclo anidado nos permite pintar
+// la matriz en consola.
+        for (int x = 0; x < matrizDefecto.length;x++) {//<-filas
+            for (int y = 0; y < matrizDefecto[x].length; y++) {//<-columnas
+	System.out.print("["+matrizDefecto[x][y]+"]");
+            }
+            System.out.println("\n");
+        }
+*/ 

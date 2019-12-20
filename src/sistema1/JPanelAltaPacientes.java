@@ -44,6 +44,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         llenacombo();
         txtExped.setText(Integer.toString(ultimoRegistro()));
         jDateChooser1.setDate(cargafecha());
+        jDateChooser3.setDate(cargafecha());
         
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 14));
 
@@ -62,6 +63,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         VerConsulta = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         VerTodo = new javax.swing.JMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
@@ -70,24 +72,11 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         txtApes = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        txtEdad = new javax.swing.JTextField();
         txtCalle = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtCel = new javax.swing.JTextField();
-        txtTiempo = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txtPareja = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        txtAbortos = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        txtCesareas = new javax.swing.JTextField();
-        txtPartos = new javax.swing.JTextField();
-        txtGestas = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -96,17 +85,27 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanelHConsultas = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        txtGestas = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        txtAbortos = new javax.swing.JTextField();
+        txtCesareas = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtPartos = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jPaneDatosMedicine = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
         txtpoblacion = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jRadioFeminazi = new javax.swing.JRadioButton();
+        jRadioMen = new javax.swing.JRadioButton();
 
         MenuTabaDatos.setComponentPopupMenu(MenuTabaDatos);
 
@@ -173,67 +172,23 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 140, 35));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 130, 35));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel8.setText("ESTADO CIVIL:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 100, 30));
-
-        txtEdad.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 60, 35));
+        jLabel8.setText("E. CIVIL:");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 60, 30));
 
         txtCalle.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 330, 35));
 
-        txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 120, 35));
-
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel11.setText("CELULAR:");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 70, 30));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 80, 30));
 
         txtCel.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtCel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 110, 35));
-
-        txtTiempo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 70, 35));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel13.setText("TIEMPO:");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 60, 30));
-
-        txtPareja.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtPareja, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 180, 35));
+        add(txtCel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 120, 35));
         add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 140, -1));
         add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 150, 10));
-
-        txtAbortos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtAbortos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 80, 35));
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel16.setText("ABORTOS:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 80, 30));
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel18.setText("CESAREAS:");
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 80, 30));
-
-        txtCesareas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtCesareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 80, 35));
-
-        txtPartos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtPartos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 80, 35));
-
-        txtGestas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        add(txtGestas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 80, 35));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel15.setText("GESTAS:");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 90, 30));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel12.setText("PAREJA:");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 70, 30));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel10.setText("TELEFONO:");
@@ -244,8 +199,8 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel7.setText("EDAD:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 80, 30));
+        jLabel7.setText("FECHA NACIM:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 90, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel5.setText("APELLIDOS:");
@@ -279,28 +234,39 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         });
         add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 50, 50));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jTable1.setComponentPopupMenu(MenuTabaDatos);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTable1MousePressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 450, 140));
-
         jPanelHConsultas.setBackground(new java.awt.Color(255, 255, 225));
         jPanelHConsultas.setPreferredSize(new java.awt.Dimension(455, 375));
         jPanelHConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(jPanelHConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 450, 90));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel15.setText("GESTAS:");
+        jPanelHConsultas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
+
+        txtGestas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jPanelHConsultas.add(txtGestas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 80, 35));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel16.setText("ABORTOS:");
+        jPanelHConsultas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 80, 30));
+
+        txtAbortos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jPanelHConsultas.add(txtAbortos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 80, 35));
+
+        txtCesareas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jPanelHConsultas.add(txtCesareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 80, 35));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel18.setText("CESAREAS:");
+        jPanelHConsultas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 80, 30));
+
+        txtPartos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jPanelHConsultas.add(txtPartos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 80, 35));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel24.setText("PARTOS:");
+        jPanelHConsultas.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 90, 30));
+
+        add(jPanelHConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 370, 90));
 
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exit.png"))); // NOI18N
@@ -314,11 +280,8 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
 
         jPaneDatosMedicine.setBackground(new java.awt.Color(245, 244, 243));
         jPaneDatosMedicine.setPreferredSize(new java.awt.Dimension(455, 658));
+        jPaneDatosMedicine.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(jPaneDatosMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
-
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel21.setText("AÑOS");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 60, 30));
 
         txtpoblacion.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         add(txtpoblacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 330, 35));
@@ -326,10 +289,6 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel23.setText("CALLE:");
         add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 90, 30));
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel24.setText("PARTOS:");
-        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 90, 30));
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IconReceta.png"))); // NOI18N
@@ -349,6 +308,50 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 110, 40));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTable1.setComponentPopupMenu(MenuTabaDatos);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable1MousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 450, 140));
+        add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+
+        jDateChooser3.setDateFormatString("dd/MM/yyyy");
+        jDateChooser3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jDateChooser3.setPreferredSize(new java.awt.Dimension(87, 20));
+        add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 160, 35));
+
+        buttonGroup1.add(jRadioFeminazi);
+        jRadioFeminazi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioFeminazi.setText("FEMENINO");
+        jRadioFeminazi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioFeminaziActionPerformed(evt);
+            }
+        });
+        add(jRadioFeminazi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 110, 30));
+
+        buttonGroup1.add(jRadioMen);
+        jRadioMen.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioMen.setText("MASCULINO");
+        jRadioMen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioMenActionPerformed(evt);
+            }
+        });
+        add(jRadioMen, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 120, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jDateChooser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooser1MouseClicked
@@ -366,7 +369,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         Connection cn = con2.conexion();
-        String exped,fech,nomb,apes,edad,civil,calle,poblacion,tel,cel,pareja,tiempo,gestas,abortos,partos,cesareas,SQL="";
+        String exped,fech,nomb,apes,fechNac,edad,civil,calle,poblacion,tel="/",cel,gestas,abortos,partos,cesareas,SQL="";
         
         String[] arr = null;
 // Letrero de prueba        JOptionPane.showMessageDialog(null, "fecha: "+fech);
@@ -375,14 +378,19 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         nomb = txtNombre.getText();//nombre
         apes = txtApes.getText();//paterno
         
-        edad=txtEdad.getText();//edad
+        fechNac = fn.getFecha(jDateChooser3);
+      //  edad=txtEdad.getText();//edad
         civil = jComboBox1.getSelectedItem().toString();//civil
         calle =txtCalle.getText();//direccion
         poblacion = txtpoblacion.getText();
-        tel = txtTelefono.getText();//tel
+        
+        if(jRadioFeminazi.isSelected())
+            tel = "F";
+        else{
+            tel="M";
+        }
         cel = txtCel.getText();//cel
-        pareja = txtPareja.getText();//pareja
-        tiempo = txtTiempo.getText();//tiempo
+
         gestas = txtGestas.getText();//gestas
         abortos = txtAbortos.getText();//abortos
         partos = txtPartos.getText();//partos
@@ -399,7 +407,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
             if(fn.ValidaExpedienteBool(exped))
             {
                 SQL="UPDATE t_personales SET expediente='"+exped+"' ,fecha='"+fech+"',nombre='"+nomb+"',apellidos='"+apes+"',edad='"+
-                edad+"',estadocivil='"+arr[0]+"',calle='"+calle+"',poblacion='"+poblacion+"',telefono='"+tel+"',celular='"+cel+"',pareja='"+pareja+"',tiempopareja='"+tiempo+"',gestas='"+
+                fechNac+"',estadocivil='"+arr[0]+"',calle='"+calle+"',poblacion='"+poblacion+"',telefono='"+tel+"',celular='"+cel+"',gestas='"+
                 gestas+"',partos='"+partos+"',abortos='"+abortos+"',cesareas='"+cesareas+"' WHERE expediente = '"+exped+"'";
             
                 try {
@@ -422,7 +430,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
                 }
             }//if
             else{
-                SQL="INSERT INTO t_personales (expediente,fecha,nombre,apellidos,edad,estadocivil,calle,poblacion,telefono,celular,pareja,tiempopareja,gestas,partos,abortos,cesareas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                SQL="INSERT INTO t_personales (expediente,fecha,nombre,apellidos,edad,estadocivil,calle,poblacion,telefono,celular,gestas,partos,abortos,cesareas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
  //               System.out.println(SQL);
             try {
                 pps = cn.prepareStatement(SQL);
@@ -430,7 +438,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
                 pps.setString(2, fech);
                 pps.setString(3, nomb);
                 pps.setString(4, apes);
-                pps.setString(5, edad);
+                pps.setString(5, fechNac);
                 pps.setInt(6, Integer.parseInt(arr[0]));
                 pps.setString(7, calle);
                 pps.setString(8, poblacion);
@@ -445,35 +453,26 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
                 else
                     pps.setString(10, "/");
 
-                if(!pareja.isEmpty())
-                    pps.setString(11, pareja);
-                else
-                    pps.setString(11, "/");
                 
-                if(!tiempo.isEmpty())
-                    pps.setString(12, tiempo);
+                if(!gestas.isEmpty())
+                    pps.setString(11, gestas);
+                else
+                    pps.setString(11,"/");
+                
+                if(!abortos.isEmpty())
+                    pps.setString(12, partos);
                 else
                     pps.setString(12, "/");
                 
-                if(!gestas.isEmpty())
-                    pps.setString(13, gestas);
-                else
-                    pps.setString(13,"/");
-                
-                if(!abortos.isEmpty())
-                    pps.setString(14, partos);
-                else
-                    pps.setString(14, "/");
-                
                 if(!partos.isEmpty())
-                    pps.setString(15, abortos);
+                    pps.setString(13, abortos);
                 else
-                    pps.setString(15, "/");
+                    pps.setString(13, "/");
                 
                 if(!cesareas.isEmpty())
-                    pps.setString(16, cesareas);
+                    pps.setString(14, cesareas);
                 else
-                    pps.setString(16, "/");
+                    pps.setString(14, "/");
 
                 pps.executeUpdate();
 
@@ -536,7 +535,6 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
             } else {
                 JOptionPane.showMessageDialog(null,"No se borro el Expediente:"+var);
             }
-
         }else
             JOptionPane.showMessageDialog(null,"no selecciono nada");
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -641,9 +639,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
             JPC.txtExpCM.setText(var);
 
             JPC.txtfecConsultaActual.setText(fn.setDateActual());
-            cal.setTime(fech);
-
-            
+            cal.setTime(fech);            
             JPC.dateChooserCombo1.setSelectedDate(cal);
         //    JPC.dateChooserCombo3.setSelectedDate(cal);
             
@@ -697,33 +693,36 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         }            
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jRadioFeminaziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioFeminaziActionPerformed
+        if(jRadioFeminazi.isSelected()){
+            jPanelHConsultas.setVisible(true);
+        }
+    }//GEN-LAST:event_jRadioFeminaziActionPerformed
+
+    private void jRadioMenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioMenActionPerformed
+        if(jRadioMen.isSelected()){
+            jPanelHConsultas.setVisible(false);
+        }
+    }//GEN-LAST:event_jRadioMenActionPerformed
+
     public void limpiarCampos(){
         txtExped.setText(Integer.toString(ultimoRegistro()));
         txtNombre.setText("");
         txtApes.setText("");
-        
-        txtTelefono.setText("");
         txtCel.setText("");
         txtCalle.setText("");
-        txtpoblacion.setText("");
-        txtEdad.setText("");
-        txtPareja.setText("");
-        txtTiempo.setText("");
+        txtpoblacion.setText("");       
         txtAbortos.setText("");
         txtCesareas.setText("");
         txtGestas.setText("");
         txtPartos.setText("");
-        txtTiempo.setText("");
-//        jComboBox1.setSelectedIndex(0);
-//        jDateChooser1.getDateEditor().getUiComponent().requestFocusInWindow();
         jDateChooser1.setDate(cargafecha());
+        jDateChooser3.setDate(cargafecha());
         llenacombo();
     }
 
     private Date cargafecha(){
-        //DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaAct = new Date();
-//        jDateChooser1.setDate(fechaAct);
         return fechaAct;
     }
 
@@ -743,11 +742,9 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(JPanelAltaPacientes.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-//                    System.out.println( "cierra conexion a la base de datos");    
                     try {
                         if(st != null) st.close();
                         if(cn != null) cn.close();
-//                        if(cn !=null) cn.close();
                     } catch (SQLException ex) {
                         System.err.println( ex.getMessage() );    
                     }
@@ -761,7 +758,6 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         String sql = "SELECT expediente FROM t_personales ORDER BY expediente DESC LIMIT 1";//SELECT expediente FROM t_personales
         Statement st = null;
         ResultSet rs= null;
-        
         try {
             st = cn.createStatement();
             rs = st.executeQuery(sql);
@@ -836,7 +832,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     public void realizaConsul(String val){
         Connection cn = con2.conexion();
             String[] arr = null;
-            String param="";
+            String param="",sex="";
             
             String sql = "SELECT * FROM t_personales WHERE expediente = '"+val+"'";
             Statement st = null;
@@ -853,24 +849,28 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
                         jDateChooser1.setDate(rs.getDate(2));
                         txtNombre.setText(rs.getString(3));
                         txtApes.setText(rs.getString(4));
-                        
-                        txtEdad.setText(rs.getString(5));
-                        
+                        jDateChooser3.setDate(rs.getDate(5));
                         arr = fn.DevuelveID(0, rs.getString((6)), 1);
                         jComboBox1.setSelectedItem(arr[1]);
 
                         txtCalle.setText(rs.getString(7));
                      
                         txtpoblacion.setText(rs.getString(8));
+                        sex = rs.getString(9);
+                        if(sex.equals("F")){
+                            jRadioFeminazi.setSelected(true);
+                            jPanelHConsultas.setVisible(true);
+                        }else{
+                            jRadioMen.setSelected(true);
+                            jPanelHConsultas.setVisible(false);
+                        }
                         
-                        txtTelefono.setText(rs.getString(9));
                         txtCel.setText(rs.getString(10));
-                        txtPareja.setText(rs.getString(11));
-                        txtTiempo.setText(rs.getString(12));
-                        txtGestas.setText(rs.getString(13));
-                        txtAbortos.setText(rs.getString(14));
-                        txtPartos.setText(rs.getString(15));
-                        txtCesareas.setText(rs.getString(16));
+                        
+                        txtGestas.setText(rs.getString(11));
+                        txtAbortos.setText(rs.getString(12));
+                        txtPartos.setText(rs.getString(13));
+                        txtCesareas.setText(rs.getString(14));
 /*                    for(int x = 1;x <= rs.getMetaData().getColumnCount(); x++)
                         System.out.println("Datos -> "+rs.getString(x));
                         
@@ -938,14 +938,15 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     private javax.swing.JPopupMenu MenuTabaDatos;
     private javax.swing.JMenuItem VerConsulta;
     private javax.swing.JMenuItem VerTodo;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     public javax.swing.JComboBox<String> jComboBox1;
     public com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    public com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -953,7 +954,6 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -965,6 +965,8 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPaneDatosMedicine;
     public javax.swing.JPanel jPanelHConsultas;
+    public javax.swing.JRadioButton jRadioFeminazi;
+    public javax.swing.JRadioButton jRadioMen;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -975,14 +977,10 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     public javax.swing.JTextField txtCalle;
     public javax.swing.JTextField txtCel;
     public javax.swing.JTextField txtCesareas;
-    public javax.swing.JTextField txtEdad;
     public javax.swing.JTextField txtExped;
     public javax.swing.JTextField txtGestas;
     public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtPareja;
     public javax.swing.JTextField txtPartos;
-    public javax.swing.JTextField txtTelefono;
-    public javax.swing.JTextField txtTiempo;
     public javax.swing.JTextField txtpoblacion;
     // End of variables declaration//GEN-END:variables
 }
