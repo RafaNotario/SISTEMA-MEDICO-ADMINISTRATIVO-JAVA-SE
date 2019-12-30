@@ -21,7 +21,7 @@ public class interfaz extends javax.swing.JFrame {
         //jLabelamarillo.setVisible(false);
         this.setLocationRelativeTo(null);
         Shape forma= new RoundRectangle2D.Double(0,0,this.getBounds().width, this.getBounds().height,27,27);
-        AWTUtilities.setWindowShape(this, forma);
+        AWTUtilities.setWindowShape(this, forma);//NeuroBio@.-
     }    
    
     public Image getIconImage() {
@@ -59,7 +59,7 @@ public class interfaz extends javax.swing.JFrame {
         setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -234,7 +234,7 @@ public class interfaz extends javax.swing.JFrame {
         String user = jTextFieldUusario.getText();
         String pass = jPasswordField1.getText();
         if(user.equals("usuario") && pass.equals("123"))
-        {             
+        {            
            Inicio in =new Inicio();
            RespInicioFrame uno = new RespInicioFrame();
             in.limpiar();
@@ -259,7 +259,6 @@ public class interfaz extends javax.swing.JFrame {
         if(evt.getKeyCode() == evt.VK_ENTER) {
             jButtonIniciarsesion.doClick();
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**

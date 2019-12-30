@@ -32,10 +32,11 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
     
     public JPanelHistoriaClinica(int exped) {
         initComponents();
+        llenacombo();
         cargaTexto(jLabeText1, text1);
         cargaTexto(jLabel5, text2);
         this.param=exped;
-        llenacombo();
+        
     }
 
     /**
@@ -202,11 +203,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         nefropatia.setBackground(new java.awt.Color(245, 244, 243));
         nefropatia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         nefropatia.setText("NEFROPATÍA");
-        nefropatia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nefropatiaActionPerformed(evt);
-            }
-        });
         jPanel1.add(nefropatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, 30));
 
         cancer.setBackground(new java.awt.Color(245, 244, 243));
@@ -244,16 +240,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         Diabetes.setText("DIABETES");
         jPanel1.add(Diabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 120, 30));
 
-        JCBDiabetes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                JCBDiabetesMousePressed(evt);
-            }
-        });
-        JCBDiabetes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JCBDiabetesActionPerformed(evt);
-            }
-        });
         jPanel1.add(JCBDiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, 30));
 
         jPanel1.add(JCBHepatopatia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 130, 30));
@@ -326,11 +312,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         actuales.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         actuales.setText("ENFERMEDADES ACTUALES");
         actuales.setNextFocusableComponent(txtactuales);
-        actuales.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualesActionPerformed(evt);
-            }
-        });
         jPanel1.add(actuales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 180, 30));
 
         quirurgicas.setBackground(new java.awt.Color(245, 244, 243));
@@ -463,8 +444,8 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         jPanel1.add(txtalimentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 50, 30));
 
         jLabel8.setText("AÑOS");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 590, 50, 30));
-        jPanel1.add(txtAñosTabaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 50, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 590, 50, 30));
+        jPanel1.add(txtAñosTabaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, 50, 30));
         jPanel1.add(txtDiaTabaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 590, 60, 30));
 
         jLabel12.setText("CIGARROS X DÍA");
@@ -1011,16 +992,6 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         txtDescInmuniz.setText("");
     }//GEN-LAST:event_inmunizpendientesActionPerformed
 
-    private void JCBDiabetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBDiabetesActionPerformed
-    }//GEN-LAST:event_JCBDiabetesActionPerformed
-
-    private void JCBDiabetesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JCBDiabetesMousePressed
-    }//GEN-LAST:event_JCBDiabetesMousePressed
-
-    private void actualesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_actualesActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String  var = txtexpediente.getText();
         
@@ -1031,16 +1002,8 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void nefropatiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nefropatiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nefropatiaActionPerformed
-
     void cargaTexto(JLabel lb, String txt){
         lb.setText(txt);
-    }
-    
-    void limpiarcampos(){
-        
     }
     
     public void cargaDatos(){
@@ -1069,8 +1032,7 @@ public class JPanelHistoriaClinica extends javax.swing.JPanel {
                 if(!aux2.equals("/"))
                 {
                     Diabetes.setSelected(true);
-                    JCBDiabetes.setSelectedItem(aux2);
-                    
+                    JCBDiabetes.setSelectedItem(aux2);                    
 //                    JCBDiabetes.setSelectedIndex(4);
                     aux2="";
                 }else{

@@ -24,14 +24,10 @@ public class BusquedaCitas extends javax.swing.JPanel {
 //    Connection cn = con.conexion();
     String fech = "";
     
-
-    
     public BusquedaCitas() {
         initComponents();
         agregarOyente();
-        
-        
-                }
+}
     
     
     private void agregarOyente() {
@@ -112,13 +108,13 @@ public class BusquedaCitas extends javax.swing.JPanel {
 
         jCalendarProximas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCalendarProximas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        add(jCalendarProximas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 410, 230));
+        add(jCalendarProximas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 430, 250));
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 225));
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("SELECCIONE FECHA:");
-        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 270, 30));
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 270, 30));
 
         txtCitas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         add(txtCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 160, 40));
@@ -141,19 +137,20 @@ public class BusquedaCitas extends javax.swing.JPanel {
         Connection cn = con2.conexion();
 //        System.out.println(var);
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("EXPEDIENTE");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("APELLIDOS");
+        modelo.addColumn("Expediente");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellidos");
+        modelo.addColumn("Hora");
         jTable1.setModel(modelo);
         
-        String consul = "SELECT	t_personales.expediente, t_personales.nombre, t_personales.apellidos FROM t_personales INNER JOIN t_consultas ON t_personales.expediente = t_consultas.expediente AND t_consultas.fechacita = '"+var+"' ORDER BY nombre,apellidos ASC";
-//        System.out.println(consul);
+        String consul = "SELECT t_personales.expediente, t_personales.nombre, t_personales.apellidos,t_consultas.horaCita FROM t_personales INNER JOIN t_consultas ON t_personales.expediente = t_consultas.expediente AND t_consultas.fechacita = '"+var+"' ORDER BY nombre,apellidos ASC";
 
+//      Hacer invisible la primer columna de la tabla
         jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
         jTable1.getColumnModel().getColumn(0).setMinWidth(0);
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
 
-        String datos[] =  new String[3];
+        String datos[] =  new String[4];
         Statement st = null;
         ResultSet rs = null;
         try {
@@ -163,6 +160,8 @@ public class BusquedaCitas extends javax.swing.JPanel {
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                
                 modelo.addRow(datos);
             }
             

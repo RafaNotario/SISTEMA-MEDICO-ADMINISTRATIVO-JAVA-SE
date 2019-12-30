@@ -24,7 +24,7 @@ import Reportes.Reportes;
 
 /**
  *
- * @author JOGUA
+ * @author Anytonio R. Notario
  */
 public class JPanelAltaPacientes extends javax.swing.JPanel {
 
@@ -45,7 +45,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         txtExped.setText(Integer.toString(ultimoRegistro()));
         jDateChooser1.setDate(cargafecha());
         jDateChooser3.setDate(cargafecha());
-        
+        jButton1.setVisible(false);
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 14));
 
     }
@@ -65,7 +65,6 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         VerTodo = new javax.swing.JMenuItem();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         txtExped = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
@@ -102,10 +101,10 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         jRadioFeminazi = new javax.swing.JRadioButton();
         jRadioMen = new javax.swing.JRadioButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         MenuTabaDatos.setComponentPopupMenu(MenuTabaDatos);
 
@@ -135,28 +134,11 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jLabel1.setText("DATOS DEL PACIENTE");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 30));
 
-        jDateChooser1.setDateFormatString("dd-MM-yyyy");
-        jDateChooser1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jDateChooser1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jDateChooser1MouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jDateChooser1MousePressed(evt);
-            }
-        });
-        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 140, 35));
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel3.setText("FECHA:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 50, 30));
 
         txtExped.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtExped.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtExpedKeyPressed(evt);
-            }
-        });
         add(txtExped, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 70, 35));
 
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -167,11 +149,6 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
         add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 130, 35));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -191,7 +168,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 150, 10));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel10.setText("TELEFONO:");
+        jLabel10.setText("SEXO:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 90, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -216,6 +193,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash32px.png"))); // NOI18N
+        jLabel14.setToolTipText("Eliminar Paciente");
         jLabel14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -226,6 +204,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save32x32.png"))); // NOI18N
+        jLabel19.setToolTipText("Gurardar/Actualizar Informacion");
         jLabel19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -292,6 +271,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IconReceta.png"))); // NOI18N
+        jLabel20.setToolTipText("Nueva Consulta");
         jLabel20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -326,11 +306,9 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 450, 140));
-        add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         jDateChooser3.setDateFormatString("dd/MM/yyyy");
         jDateChooser3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jDateChooser3.setPreferredSize(new java.awt.Dimension(87, 20));
         add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 160, 35));
 
         buttonGroup1.add(jRadioFeminazi);
@@ -352,20 +330,11 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
             }
         });
         add(jRadioMen, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 120, 30));
+
+        jDateChooser1.setDateFormatString("dd-MM-yyyy");
+        jDateChooser1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 150, 35));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jDateChooser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooser1MouseClicked
-    }//GEN-LAST:event_jDateChooser1MouseClicked
-
-    private void jDateChooser1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooser1MousePressed
-    }//GEN-LAST:event_jDateChooser1MousePressed
-
-    private void txtExpedKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtExpedKeyPressed
-    }//GEN-LAST:event_txtExpedKeyPressed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         Connection cn = con2.conexion();
@@ -430,7 +399,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
                 }
             }//if
             else{
-                SQL="INSERT INTO t_personales (expediente,fecha,nombre,apellidos,edad,estadocivil,calle,poblacion,telefono,celular,gestas,partos,abortos,cesareas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                SQL="INSERT INTO t_personales (expediente,fecha,nombre,apellidos,edad,estadocivil,calle,poblacion,telefono,celular,gestas,partos,abortos,cesareas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
  //               System.out.println(SQL);
             try {
                 pps = cn.prepareStatement(SQL);
@@ -942,7 +911,6 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     public javax.swing.JComboBox<String> jComboBox1;
     public com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     public com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

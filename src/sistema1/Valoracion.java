@@ -109,6 +109,7 @@ public class Valoracion extends javax.swing.JPanel {
         jTextAnotac.setColumns(20);
         jTextAnotac.setLineWrap(true);
         jTextAnotac.setRows(5);
+        jTextAnotac.setWrapStyleWord(true);
         jScrollPane3.setViewportView(jTextAnotac);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 570, 170));

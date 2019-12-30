@@ -5,6 +5,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import com.toedter.calendar.JDateChooser;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +40,12 @@ public class Funciones {
     static Scanner teclado = new Scanner(System.in);
     
     SimpleDateFormat formatoPrueba = new SimpleDateFormat("dd-MM-yyyy");
-
+//*VARIABLES PARA CALCULOS MONETARIOS
+    private static int DECIMALS = 2;
+    private static int ROUNDING_MODE = BigDecimal.ROUND_HALF_EVEN;
+    private BigDecimal fAmountOne;
+    private BigDecimal fAmountTwo;
+  
 public String getFecha(JDateChooser jd){
     if(jd.getDate()!= null){
         return formato.format(jd.getDate());
@@ -61,6 +71,7 @@ public String setDateActual(){
 //        jDateChooser1.setDate(fechaAct);
         return formato.format(fechaAct);
 }
+
 public String setDateActualGuion(){
 //        DateFormat df = DateFormat.getDateInstance();
     Date fechaAct = new Date();    
@@ -200,7 +211,7 @@ private int ultimoRegistroConsulta(){
  * @param tipo 0=TotalAños; 1=TotalMeses; 2=TotalDías; 3=MesesDelAnio; 4=DiasDelMes
  * @return numero de días, meses o años de diferencia
  */
-    public long getDiffDates(Date fechaInicio, Date fechaFin, int tipo) {
+    public static long getDiffDates(Date fechaInicio, Date fechaFin, int tipo) {
 	// Fecha inicio
 	Calendar calendarInicio = Calendar.getInstance();
 	calendarInicio.setTime(fechaInicio);
@@ -673,7 +684,18 @@ private int ultimoRegistroConsulta(){
         //H)index= 28 alcoholismo si =1 entonces imprime index=29(frecuencia semanal), imprime index=30(años que lleva tomando)
         //I)index= 31 tabaquismo si =1 entonces imprime index=32(cigarros fumados al dia), imprime index=33(años que lleva fumando)
         //J)index= 34 anotacion si = '/' no imprime nada
-        String cadena = "Los antecedenetes Heredofamiliar del paciente son: ";//System.out.print("["+arre[x][1]+"]");  
+        String cadena="Se trata de ",sexo="";//System.out.print("["+arre[x][1]+"]");
+       String[] array = regresaFechaNac(arre[1][1]);
+        long monts = getDiffDates(StringDate(array[0].replace("-", "/") ),StringDate(setDateActual().replace("-", "/")),0);
+        if(array[1].equals("F")){
+            sexo ="Mujer";
+        }else if(array[1].equals("M")){
+            sexo="Hombre";
+        }else{
+            JOptionPane.showMessageDialog(null, "Campo sexo desconocido.");
+        }
+        cadena+=sexo+" de "+ monts+" años de edad. \n";
+        cadena += "\n \t Los antecedentes Heredofamiliar del paciente son: ";//System.out.print("["+arre[x][1]+"]");
         for (int x=0;x<arre.length;x++) {//<-filas
             for (int y = 0; y <arre[x].length; y++) {//<-columnas
                 if(y == 0){
@@ -709,7 +731,7 @@ private int ultimoRegistroConsulta(){
                            cadena+=arre[x][1]+" con alergias, ";                      
                        }//if=12
                         if(Integer.parseInt(arre[x][y]) == 13){
-                           cadena+=arre[x][1]+" como anotaciones";                      
+                           cadena+=arre[x][1]+" como anotaciones. \n";                      
                        }//if=8                      
                    }//if 3 <X<14
                    
@@ -751,20 +773,20 @@ private int ultimoRegistroConsulta(){
                 }//if=27
            if(Integer.parseInt(arre[x][y]) == 28){
                   if(Integer.parseInt(arre[x][y]) == 28 && Integer.parseInt(arre[x][1]) == 1){
-                           cadena+="con : "+arre[x+1][1]+" años de alcoholismo y frecuencia de: "+arre[x+2][1]+"Bebida semanal, ";                      
+                           cadena+="con : "+arre[x+2][1]+" años de alcoholismo y frecuencia de: "+arre[x+1][1]+" Bebida semanal, ";                      
                 }else{
                       cadena+="Sin alcohlismo";
                   }//if=28
            } 
             if(Integer.parseInt(arre[x][y]) == 31){
                 if(Integer.parseInt(arre[x][y]) == 31 && Integer.parseInt(arre[x][1]) == 1){
-                           cadena+="con : "+arre[x+1][1]+" años de tabaquismo y frecuencia de: "+arre[x+2][1]+" Cigarros por día, ";                      
+                           cadena+="con : "+arre[x+2][1]+" años de tabaquismo y frecuencia de: "+arre[x+1][1]+" Cigarros por día, ";                      
                 }else{
                       cadena+="Sin tabaquismo";
                   }//if=31
             }
                      if(Integer.parseInt(arre[x][y]) == 34){
-                           cadena+="\n ANOTACION: "+arre[x][1]+", ";                      
+                           cadena+="\n ANOTACION: "+arre[x][1]+". ";                      
                 }//if=27
             }//IF 26<= X <= 34  
                     
@@ -830,22 +852,70 @@ private int ultimoRegistroConsulta(){
         } catch (SQLException ex) {
             Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for(int x = 0;x<arre.length;x++){
-            System.out.println(arre[x]);
-        }
        return arre;
 }
             
-            
-public static void main(String[] args){
-    //int val = diferenciaFechas("2017/01/11","2017/01/30",1);
-    String[][] array = null;
-    String var = "";
-    int param=0;
-    Funciones fn = new Funciones();
-    long monts=0,days=0;
+     public String[] regresaFechaNac(String exped){
+         String[] fechNac = new String[2];
+        Connection cn = con2.conexion();
+        String consul = "SELECT edad,telefono FROM t_personales WHERE expediente = '"+exped+"'";        
+        Statement st;
+        try {
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while(rs.next()){
+                fechNac[0] = rs.getString(1);
+                fechNac[1]  = rs.getString(2);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return fechNac;    
+}
+     
+     //CALCULO DE DINERO $$ ***
+     private BigDecimal rounded(BigDecimal aNumber){
+            return aNumber.setScale(DECIMALS, ROUNDING_MODE);
+     }
+     
+     public BigDecimal getDifference(BigDecimal aAmountOne, BigDecimal aAmountTwo){
+            fAmountOne = rounded(aAmountOne);
+            fAmountTwo = rounded(aAmountTwo);
+        return fAmountOne.subtract(fAmountTwo);
+    }
+     
+     //LEE ARCHIVO PARA CONFIGURAR CONEXION
+     public static List muestraContenido() throws FileNotFoundException, IOException{
+        String cadena;
+        String ruta="C:/SistemaMedico1366-768/config.txt";
+        List<String> contentL=new ArrayList<String>();
+                
+        int lNumeroLineas = 0;
+        FileReader f = new FileReader(ruta);
+        BufferedReader b = new BufferedReader(f);
+        while((cadena = b.readLine())!=null) {
+            //arr[lNumeroLineas]=cadena;     
+            contentL.add(cadena.trim());
+            lNumeroLineas++;
+        }
+        
+        System.out.println("Lineas: "+lNumeroLineas);
+        b.close();
+        
+         return contentL;      
+    }
+     
+public static void main(String[] args) throws IOException{
+
+  
+//    Funciones fn = new Funciones();
+
+   //     System.out.println("Numero de datos"+indexL.size())
+  // System.out.println("diferencia"+fn.getDifference(amountOne, amountTwo));
  //System.out.println(fn.calcImc("70","171"));
-    // monts = getDiffDates(fn.StringDate("2017/01/11"),fn.StringDate("2017/03/10"),1);
+     //monts = getDiffDates(fn.StringDate(array[0].replace("-", "/") ),fn.StringDate(fn.setDateActual().replace("-", "/")),0)
+//     System.out.println("años: "+monts);   
+//    System.out.println("fecha regresada: "+array[0]+" Sexo: "+array[1]);
     //days = getDiffDates(fn.StringDate("2017/01/11"),fn.StringDate("2017/03/10"),2);
     //System.out.println("Actual: "+ fn.sumaFechaParam("2017/01/11"));
     

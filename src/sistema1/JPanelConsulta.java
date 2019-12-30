@@ -67,7 +67,7 @@ public class JPanelConsulta extends javax.swing.JPanel {
         jLabelAbreReceta.setVisible(false);
         jLabelPDF.setVisible(false);
         
-        dateChooserCombo1.setVisible(false);
+        //dateChooserCombo1.setVisible(false);
         
         dateChooserCombo1.setDateFormat(formatoPrueba);
         
@@ -130,10 +130,12 @@ public class JPanelConsulta extends javax.swing.JPanel {
         txtEstatura = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtImc = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCHoraCita = new javax.swing.JComboBox<>();
+        jCMinutoCita = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTxtCobrar = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(245, 244, 243));
         setPreferredSize(new java.awt.Dimension(455, 658));
@@ -159,14 +161,14 @@ public class JPanelConsulta extends javax.swing.JPanel {
         jLabel23.setText("CITA:");
         add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 40, 40));
 
-        txtPresion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtPresion.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         add(txtPresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel22.setText("T/A");
         add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 30, 40));
 
-        txtPeso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtPeso.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 40, 40));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -180,7 +182,7 @@ public class JPanelConsulta extends javax.swing.JPanel {
         jScrollPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         textADiagn.setColumns(20);
-        textADiagn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        textADiagn.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         textADiagn.setRows(5);
         jScrollPane1.setViewportView(textADiagn);
 
@@ -376,10 +378,11 @@ add(dateChooserCombo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20
 add(txtIDConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 50, 30));
 
 jLabel2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-jLabel2.setText("NOTA MEDICA:");
-add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, 20));
+jLabel2.setText("COBRAR $:");
+add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 90, 40));
 
 jTxtAreaNotaMedica.setColumns(20);
+jTxtAreaNotaMedica.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
 jTxtAreaNotaMedica.setRows(5);
 jScrollPane2.setViewportView(jTxtAreaNotaMedica);
 
@@ -389,7 +392,7 @@ jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
 jLabel3.setText("TALLA(cm)");
 add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 70, 40));
 
-txtEstatura.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+txtEstatura.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
 txtEstatura.addFocusListener(new java.awt.event.FocusAdapter() {
     public void focusLost(java.awt.event.FocusEvent evt) {
         txtEstaturaFocusLost(evt);
@@ -401,16 +404,16 @@ txtEstatura.addFocusListener(new java.awt.event.FocusAdapter() {
     jLabel4.setText("IMC");
     add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 40, 40));
 
-    txtImc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    txtImc.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
     add(txtImc, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 40, 50, 40));
 
-    jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "09", "10", "11", "12", "13", "14", "16", "17", "18", "19" }));
-    add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 50, 40));
+    jCHoraCita.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+    jCHoraCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "09", "10", "11", "12", "13", "14", "16", "17", "18", "19" }));
+    add(jCHoraCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 50, 40));
 
-    jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "05", "15", "25", "35", "45", "55" }));
-    add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 40));
+    jCMinutoCita.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+    jCMinutoCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "05", "15", "25", "35", "45", "55" }));
+    add(jCMinutoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 40));
 
     jLabel5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
     jLabel5.setText("M:M");
@@ -419,6 +422,13 @@ txtEstatura.addFocusListener(new java.awt.event.FocusAdapter() {
     jLabel6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
     jLabel6.setText("H:H");
     add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 30, 40));
+
+    jLabel7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+    jLabel7.setText("NOTA MEDICA:");
+    add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, 20));
+
+    jTxtCobrar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+    add(jTxtCobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 90, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboConsultaActionPerformed
@@ -529,8 +539,9 @@ txtEstatura.addFocusListener(new java.awt.event.FocusAdapter() {
     
     private void jLabelGuardaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGuardaConsultaMouseClicked
         Connection cn = con2.conexion();
-        String datecho,estado="",fur="",fpp="",monto,test,exp,fechaProxCita,SQL,peso,diagnostico;//datecho
+        String datecho,estado="",fur="",fpp="",monto,test,exp,fechaProxCita,SQL,peso,diagnostico,costo=jTxtCobrar.getText();//datecho
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+        String timeCita ="", horaC = jCHoraCita.getSelectedItem().toString(), minC = jCMinutoCita.getSelectedItem().toString();
         
         int citaI = 0;
         
@@ -564,7 +575,7 @@ SQL="UPDATE consulta SET expediente='"+exp+"' ,peso='"+txtPeso.getText()+"',pres
 textADiagn.getText()+"',fechaAct='"+txtfecConsultaActual.getText()+"',estado='"+estado+"',monto='"+monto+"',fur='"+fur+"',fpp='"+fpp+"' WHERE id_Consulta = '"+id_Consulta+"'";
 */             
 //String query = "update users set num_points = ? where first_name = ?";
-String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,TA =?,diagnostico=?,notaMedica=?,cita=?,fechacita=? WHERE id_consultas = '"+id_Consulta+"'";                
+String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,TA =?,diagnostico=?,notaMedica=?,cita=?,fechacita=?,horaCita=?,costo=? WHERE id_consultas = '"+id_Consulta+"'";                
                 try {
             //        cn.setAutoCommit(false);
 //                System.out.println(query2);
@@ -578,14 +589,18 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
                 pps.setString(6, diagnostico);
                 pps.setString(7, jTxtAreaNotaMedica.getText());
                 pps.setInt(8, citaI);
-                
+               
                 if(citaI == 1)
                     pps.setString(9, datecho);
                 else
                     pps.setString(9, null);
-                    
+                pps.setString(10, horaC+":"+minC+":00"); 
               //      cn.commit();
-
+                if(costo.isEmpty()){
+                    pps.setString(11,"650");
+                }else{
+                     pps.setString(11,costo);
+                }
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Datos actualizados");
                 jLabelGuardaReceta.setVisible(true);
@@ -607,7 +622,7 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
             }else{           
             
             try{
-                pps = cn.prepareStatement("INSERT INTO t_consultas (expediente,fecha,peso,estatura,TA,diagnostico,notaMedica,cita,fechacita) VALUES (?,?,?,?,?,?,?,?,?)");
+                pps = cn.prepareStatement("INSERT INTO t_consultas (expediente,fecha,peso,estatura,TA,diagnostico,notaMedica,cita,fechacita,horaCita,costo) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
                 pps.setString(1, exp);
                 pps.setString(2, txtfecConsultaActual.getText());
                 pps.setString(3, peso);
@@ -623,6 +638,13 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
                 else
                     pps.setString(9, null);
                 
+                pps.setString(10, horaC+":"+minC+":00");
+                
+                if(costo.isEmpty()){
+                pps.setString(11,"650");
+                }else{
+                     pps.setString(11,costo);
+                }
                 pps.executeUpdate();                
                 JOptionPane.showMessageDialog(null, "Datos Guardados");
 //                limpiarConsulta();
@@ -904,7 +926,8 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
 */
      
      public void RealizaConsulta(String idConsul){
-        String factual="",fproximacita="";        
+        String factual="",fproximacita="",horaCita = "";  
+        String[] parts = null;
 //        JOptionPane.showMessageDialog(null, "id_Consulta:"+idConsul);
         Date dt = null;
         Connection cn = con2.conexion();
@@ -919,7 +942,7 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
             st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while(rs.next()){
-//            System.out.println(rs.getString(1));
+            System.out.println(rs.getString(1));
                 
             txtExpCM.setText(rs.getString(2));
 //            System.out.println(rs.getString(2));
@@ -960,8 +983,7 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
                 jTxtAreaNotaMedica.setText(notM);            
             }else{
                 jTxtAreaNotaMedica.setText("N/A");
-            }
-                
+            }                
             jComboConsulta.setSelectedIndex(Integer.parseInt(rs.getString(9)));
 //            System.out.println(rs.getString(8));
                 
@@ -980,7 +1002,11 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
             }else{
         //        dateChooserCombo1.setEnabled(false);
             }
-            
+            horaCita=rs.getString(11);
+            parts=horaCita.split(":");
+            jCHoraCita.setSelectedItem(parts[0]);
+            jCMinutoCita.setSelectedItem(parts[1]);
+            jTxtCobrar.setText(rs.getString(12));
    /*         if(!ps.isEmpty() && !est.isEmpty()){
                 txtImc.setText("N/A");
             }else{
@@ -1039,6 +1065,10 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
         txtEstatura.setText("");
         txtImc.setText("");
         jTxtAreaNotaMedica.setText("");
+        jComboConsulta.setSelectedIndex(1);
+        jCHoraCita.setSelectedIndex(0);
+        jCMinutoCita.setSelectedIndex(0);
+        jTxtCobrar.setText("");
     }
      
     public void OcultaBotones(){
@@ -1053,8 +1083,8 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
     private javax.swing.ButtonGroup buttonGroup1;
     public datechooser.beans.DateChooserCombo dateChooserCombo1;
     private javax.swing.JButton jButPDF;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jCHoraCita;
+    private javax.swing.JComboBox<String> jCMinutoCita;
     private javax.swing.JComboBox<String> jComboConsulta;
     private javax.swing.JComboBox<String> jComboMedicamento;
     private javax.swing.JComboBox<String> jComboTratamiento;
@@ -1074,6 +1104,7 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabelAbreReceta;
     private javax.swing.JLabel jLabelGuardaConsulta;
     public javax.swing.JLabel jLabelGuardaReceta;
@@ -1085,6 +1116,7 @@ String query2= "UPDATE t_consultas SET expediente =?,fecha=?,peso=?,estatura=?,T
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTableReceta;
     public javax.swing.JTextArea jTxtAreaNotaMedica;
+    private javax.swing.JTextField jTxtCobrar;
     private javax.swing.JTextArea textADiagn;
     public javax.swing.JTextField txtEstatura;
     public javax.swing.JTextField txtExpCM;

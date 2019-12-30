@@ -32,7 +32,7 @@ public class Reportes {
     
     public void ReportePaciente(String param){
     Connection cn = con2.conexion();
-    String  var = "C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/Reportes/pacienteInfo.jasper";
+    String  var = "C:/SistemaMedico1366-768/src/Reportes/pacienteInfo.jasper";
 //C:\Sistema Medico\SistemaMedico\src\Reportes
 
     JasperReport reporte = null;
@@ -64,7 +64,7 @@ public class Reportes {
     
     public void RecetaParam(String var){
         Connection cn = con2.conexion();
-        String  ruta = "C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/Reportes/reportParameter.jasper";
+        String  ruta = "C:/SistemaMedico1366-768/src/Reportes/reportParameter.jasper";
 //        String  ruta = "C:/Sistema Medico1920/SistemaMedico1920-1080/src/Reportes/ReportParameter.jasper";
         JasperReport reporte = null;
         try {
@@ -97,7 +97,7 @@ public class Reportes {
     //REPORTE HEREDOFAMILIAR
         public void reporteHeredofam(String param){
     Connection cn = con2.conexion();
-    String  var = "C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/Reportes/reportHeredoFam.jasper";
+    String  var = "C:/SistemaMedico1366-768/src/Reportes/reportHeredoFam.jasper";
 //C:\Sistema Medico\SistemaMedico\src\Reportes
 
     JasperReport reporte = null;

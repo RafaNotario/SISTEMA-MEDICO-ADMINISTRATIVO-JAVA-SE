@@ -3,6 +3,7 @@ package sistema1;
 
 import java.awt.GridLayout;
 import java.awt.Point;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,16 +17,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
-
 /**
  *
- * @author JOGUA
+ * @author A. Rafael Notario Rodriguez
  */
 public class CobrosConsulta extends javax.swing.JPanel {
 
     ConexionDBOriginal con2 = new ConexionDBOriginal();
     //Connection cn = con.conexion();
-    
     JPanelConsulta JPC = new JPanelConsulta();
     Funciones fn = new Funciones();
 
@@ -40,8 +39,10 @@ public class CobrosConsulta extends javax.swing.JPanel {
     public CobrosConsulta() {
         initComponents();
         dateChooserCombo2.setDateFormat(formatoPrueba);
-        dateChooserCombo1.setDateFormat(formatoPrueba);
+        dateParam2Fech.setDateFormat(formatoPrueba);
         jPanelCobros.setVisible(false);
+        dateParam2Fech.setVisible(false);
+        JRBEspecif.setSelected(true);
     }
 
     /**
@@ -64,23 +65,24 @@ public class CobrosConsulta extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
+        dateParam2Fech = new datechooser.beans.DateChooserCombo();
         JRBEspecif = new javax.swing.JRadioButton();
         JRBLapso = new javax.swing.JRadioButton();
         dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
-        JRBIdConsul = new javax.swing.JRadioButton();
-        JRBExped = new javax.swing.JRadioButton();
         PanelMedicine = new javax.swing.JPanel();
         jPanelCobros = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         txtPago = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtCambio = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtRecivido = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jCheckBoxBusquedAll = new javax.swing.JCheckBox();
 
         Cobro.setText("Realiza Cobro");
         Cobro.addActionListener(new java.awt.event.ActionListener() {
@@ -100,10 +102,12 @@ public class CobrosConsulta extends javax.swing.JPanel {
         });
         jPopupMenu1.add(datosConsul);
 
-        setBackground(new java.awt.Color(245, 244, 243));
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(910, 660));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 80, 30));
+
+        txtBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 80, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
@@ -113,8 +117,9 @@ public class CobrosConsulta extends javax.swing.JPanel {
                 jLabel2MouseClicked(evt);
             }
         });
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 50, 50));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 50, 50));
 
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -134,43 +139,40 @@ public class CobrosConsulta extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 430, 290));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Busqueda por fecha");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 250, 30));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 430, 290));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("CONSULTAS");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 30));
+        jLabel6.setText("HISTORIAL DE CONSULTAS");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 30));
 
-        dateChooserCombo1.setCalendarPreferredSize(new java.awt.Dimension(340, 230));
-        add(dateChooserCombo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 120, 30));
+        dateParam2Fech.setCalendarPreferredSize(new java.awt.Dimension(340, 230));
+        dateParam2Fech.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 13));
+        add(dateParam2Fech, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 140, 40));
 
         BGIdExped.add(JRBEspecif);
-        JRBEspecif.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        JRBEspecif.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         JRBEspecif.setText("DIA ESPECIFICO");
-        add(JRBEspecif, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 160, 30));
+        JRBEspecif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBEspecifActionPerformed(evt);
+            }
+        });
+        add(JRBEspecif, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 160, 30));
 
         BGIdExped.add(JRBLapso);
-        JRBLapso.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        JRBLapso.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         JRBLapso.setText("LAPSO DE DIAS");
-        add(JRBLapso, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 150, 30));
+        JRBLapso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBLapsoActionPerformed(evt);
+            }
+        });
+        add(JRBLapso, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 150, 30));
 
         dateChooserCombo2.setCalendarPreferredSize(new java.awt.Dimension(340, 230));
-        add(dateChooserCombo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 120, 30));
-
-        BGIdExped.add(JRBIdConsul);
-        JRBIdConsul.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        JRBIdConsul.setText("ID CONSULTA");
-        add(JRBIdConsul, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 110, -1));
-
-        BGIdExped.add(JRBExped);
-        JRBExped.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        JRBExped.setText("EXPEDIENTE");
-        add(JRBExped, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 130, -1));
+        dateChooserCombo2.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 13));
+        add(dateChooserCombo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 140, 40));
 
         PanelMedicine.setPreferredSize(new java.awt.Dimension(455, 660));
         PanelMedicine.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,24 +181,10 @@ public class CobrosConsulta extends javax.swing.JPanel {
         jPanelCobros.setBackground(new java.awt.Color(245, 244, 243));
         jPanelCobros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("DETALLE");
-        jPanelCobros.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 140, 30));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("COBRO");
-        jPanelCobros.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 60, 30));
-
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton1.setText("REALIZADO");
-        jPanelCobros.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 120, 30));
-
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton2.setText("PENDIENTE");
-        jPanelCobros.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 130, 30));
+        jLabel1.setText("REALIZAR COBRO");
+        jPanelCobros.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("PAGAR");
@@ -205,44 +193,89 @@ public class CobrosConsulta extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanelCobros.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 90, 40));
-        jPanelCobros.add(txtPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 70, 30));
+        jPanelCobros.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 90, 40));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setText("CANTIDAD A COBRAR $");
-        jPanelCobros.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, 30));
+        txtPago.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtPago.setForeground(new java.awt.Color(0, 0, 204));
+        jPanelCobros.add(txtPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 100, 40));
 
-        add(jPanelCobros, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 430, 130));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel8.setText("CANTIDAD A COBRAR $");
+        jPanelCobros.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 150, 40));
+
+        txtCambio.setBackground(new java.awt.Color(245, 244, 243));
+        txtCambio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCambio.setForeground(new java.awt.Color(0, 102, 51));
+        jPanelCobros.add(txtCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 100, 40));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel9.setText("MONTO RECIBIDO $:");
+        jPanelCobros.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, 40));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel10.setText("CAMBIO:");
+        jPanelCobros.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 80, 40));
+
+        txtRecivido.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtRecivido.setForeground(new java.awt.Color(0, 0, 204));
+        txtRecivido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtRecividoFocusLost(evt);
+            }
+        });
+        jPanelCobros.add(txtRecivido, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 100, 40));
+
+        add(jPanelCobros, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 430, 170));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Busqueda por fecha");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 250, 30));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Expediente No.");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, 40));
+
+        jCheckBoxBusquedAll.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jCheckBoxBusquedAll.setText("Ver Todas");
+        jCheckBoxBusquedAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxBusquedAllActionPerformed(evt);
+            }
+        });
+        add(jCheckBoxBusquedAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         String var = txtBuscar.getText();
         
-            if(JRBEspecif.isSelected())
+            if(JRBEspecif.isSelected() && !var.equals("/"))
             {
-                txtBuscar.setText("");
-                mostrarTabla2(var,"fechaAct");// TODO add your handling code here:
+                //txtBuscar.setText("");
+                mostrarTabla2(var,"expedienteF1");// TODO add your handling code here:
             }
             
-            if(JRBLapso.isSelected())
+            if(JRBLapso.isSelected() && !var.equals("/"))
             {
-                txtBuscar.setText("");
-                mostrarTabla2(var,"2fechas");
+                //txtBuscar.setText("");
+                mostrarTabla2(var,"expedienteF2");
+            }
+            
+            if(jCheckBoxBusquedAll.isSelected() && var.equals("/")){
+              
+                mostrarTabla2(var,"fecha1All");
             }
 
-            if(JRBExped.isSelected())
+            if(jCheckBoxBusquedAll.isSelected() && dateParam2Fech.isVisible())
             {
-                mostrarTabla2(var,"expediente");// TODO add your handling code here:
-            }
-        
-            if(JRBIdConsul.isSelected())
-            {
-                mostrarTabla2(var,"id_Consulta");// TODO add your handling code here:
-            }
+                mostrarTabla2(var,"fecha2All");// TODO add your handling code here:
+            }        
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void CobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CobroActionPerformed
-        String estado,monto,id;
+jPanelCobros.setVisible(true);
+/*        String estado,monto,id;
         int fila = jTable1.getSelectedRow();
         String var="";
         
@@ -261,35 +294,29 @@ public class CobrosConsulta extends javax.swing.JPanel {
             txtPago.setText(monto);
         }else{
             JOptionPane.showMessageDialog(null,"Seleccione un paciente.");
-        }
+        }*/
     }//GEN-LAST:event_CobroActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Connection cn = con2.conexion();
-        String var=null,var2;
+        String var=txtPago.getText();
         String estado,monto,id;
+        
+        
         int fila = jTable1.getSelectedRow();
         id=jTable1.getValueAt(fila, 0).toString();
         Statement st = null;
-        if(jRadioButton1.isSelected())
-           var = "Realizado";
-        else{
-            if(jRadioButton2.isSelected())
-                var="Pendiente";
-            else
-                JOptionPane.showMessageDialog(null, "No selecciono opcion");
-        }
+
         try
         {
             st = cn.createStatement();
-   /* Modificamos el telefono del contacto con id = 2 */
-            st.executeUpdate("UPDATE consulta SET estado= '"+var+"' WHERE id_Consulta="+id);
+  
+            st.executeUpdate("UPDATE t_consultas SET costo= '"+var+"',status=1 WHERE id_consultas="+id);
             JOptionPane.showMessageDialog(null, "Pago Realizado");
         }catch (Exception e)
         {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al realizar pago");
-            
+            JOptionPane.showMessageDialog(null, "Error al realizar pago");            
         }finally{
 //            System.out.println( "cierra conexion a la base de datos" );    
             try {
@@ -357,6 +384,36 @@ public class CobrosConsulta extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jTable1MousePressed
 
+    private void JRBEspecifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBEspecifActionPerformed
+        if(JRBEspecif.isSelected()){
+            dateParam2Fech.setVisible(false);
+        }
+    }//GEN-LAST:event_JRBEspecifActionPerformed
+
+    private void JRBLapsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBLapsoActionPerformed
+        if(JRBLapso.isSelected()){
+            dateParam2Fech.setVisible(true);
+        }
+    }//GEN-LAST:event_JRBLapsoActionPerformed
+
+    private void txtRecividoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRecividoFocusLost
+        txtCambio.setText("");
+        String reciv = txtRecivido.getText(),cobro=txtPago.getText();
+        if(reciv.isEmpty() || cobro.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campo cantidad o monto vacios\n Verifique Por favor");
+        }else{
+            BigDecimal amountOne = new BigDecimal(reciv);//monto a cobrar
+           BigDecimal amountTwo = new BigDecimal(cobro);//cantidad recivida
+           txtCambio.setText(fn.getDifference(amountOne, amountTwo).toString());
+        }
+    }//GEN-LAST:event_txtRecividoFocusLost
+
+    private void jCheckBoxBusquedAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBusquedAllActionPerformed
+            if(jCheckBoxBusquedAll.isSelected()){
+                txtBuscar.setText("/");
+            }
+    }//GEN-LAST:event_jCheckBoxBusquedAllActionPerformed
+
     void mostrarTabla1(String var){
         Connection cn = con2.conexion();
         DefaultTableModel modelo = new DefaultTableModel();
@@ -407,36 +464,46 @@ public class CobrosConsulta extends javax.swing.JPanel {
     void mostrarTabla2(String var,String campo){
         Connection cn = con2.conexion();
         DefaultTableModel modelo = new DefaultTableModel();
-        TableColumn columna, columna1;
-        String consul="", fech1 = fn.volteaFecha(dateChooserCombo2.getText(),0),fech2 = fn.volteaFecha(dateChooserCombo1.getText(),0);
+        TableColumn columna, columna1,columna2,columna3,columna4;
+        String consul="", fech1 = fn.volteaFecha(dateChooserCombo2.getText(),0),fech2 = fn.volteaFecha(dateParam2Fech.getText(),0);
 
-        modelo.addColumn("Id");
-        modelo.addColumn("Exp");
-        
+        modelo.addColumn("IdConsulta");
+        modelo.addColumn("Expediente");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Monto");
+        modelo.addColumn("Status");
+                
         jTable1.setModel(modelo);
-        columna = jTable1.getColumn("Id");
-        columna1 = jTable1.getColumn("Exp");
+        columna = jTable1.getColumn("IdConsulta");
+        columna1 = jTable1.getColumn("Expediente");
+        columna2 = jTable1.getColumn("Fecha");
+        columna3 = jTable1.getColumn("Monto");
+        columna4 = jTable1.getColumn("Status");
         
-        columna.setPreferredWidth(5);
+        columna.setPreferredWidth(1);
         columna1.setPreferredWidth(5);
+      //  columna2.setPreferredWidth(5);
+        columna3.setPreferredWidth(5);
+        columna4.setPreferredWidth(1);
 
-        if(campo.equals("id_Consulta"))
-            consul = "SELECT id_consultas, expediente FROM t_consultas WHERE id_consultas = '"+var+"'";
-    
-        if(campo.equals("expediente"))
-            consul = "SELECT id_consultas, expediente FROM t_consultas WHERE expediente = '"+var+"'";
-
-        if(campo.equals("fechaAct"))
+        if(campo.equals("expedienteF1"))
         {
-            consul = "SELECT id_consultas, expediente FROM t_consultas WHERE fecha = '"+fech1+"' ";
+            consul = "SELECT id_consultas, expediente,fecha,costo,status FROM t_consultas WHERE expediente = '"+var+"' AND fecha = '"+fech1+"'  ";
         }
-        if(campo.equals("2fechas"))
+        if(campo.equals("expedienteF2"))
         {
-            consul = "SELECT id_consultas, expediente FROM t_consultas WHERE fecha BETWEEN '"+fech1+"' AND '"+fech2+"' ";            
+            consul = "SELECT id_consultas, expediente,fecha,costo,status FROM t_consultas WHERE expediente = '"+var+"' AND fecha BETWEEN '"+fech1+"' AND '"+fech2+"' ";
         }
-        
+        if(campo.equals("fecha1All"))
+        {
+            consul = "SELECT id_consultas, expediente,fecha,costo,status FROM t_consultas WHERE fecha = '"+fech1+"' ";
+        }
+        if(campo.equals("fecha2All"))
+        {
+            consul = "SELECT id_consultas, expediente,fecha,costo,status FROM t_consultas WHERE fecha BETWEEN '"+fech1+"' AND '"+fech2+"' ";            
+        }
 //        System.out.println("Consulta: "+consul);
-        String datos[] =  new String[2];
+        String datos[] =  new String[5];
         Statement st = null;
         ResultSet rs = null;
         try {
@@ -445,7 +512,10 @@ public class CobrosConsulta extends javax.swing.JPanel {
             while(rs.next()){
                 datos[0] =rs.getString(1);
                 datos[1] = rs.getString(2);
-
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                txtPago.setText(datos[3]);
                 modelo.addRow(datos);
             }
             jTable1.setModel(modelo);
@@ -461,40 +531,37 @@ public class CobrosConsulta extends javax.swing.JPanel {
                 System.err.println( ex.getMessage() );    
             }
          }
-    }        
-        
-        
-        
-        
+    }     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BGDias;
     private javax.swing.ButtonGroup BGIdExped;
     private javax.swing.JMenuItem Cobro;
     private javax.swing.JRadioButton JRBEspecif;
-    public javax.swing.JRadioButton JRBExped;
-    private javax.swing.JRadioButton JRBIdConsul;
     private javax.swing.JRadioButton JRBLapso;
-    private javax.swing.JPanel PanelMedicine;
+    public javax.swing.JPanel PanelMedicine;
     private javax.swing.ButtonGroup buttonGroup1;
-    private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
+    private datechooser.beans.DateChooserCombo dateParam2Fech;
     private javax.swing.JMenuItem datosConsul;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBoxBusquedAll;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelCobros;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jTable1;
     public javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtCambio;
     private javax.swing.JTextField txtPago;
+    private javax.swing.JTextField txtRecivido;
     // End of variables declaration//GEN-END:variables
 }

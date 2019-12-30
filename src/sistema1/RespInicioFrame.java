@@ -64,7 +64,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
         //jPanel1.setBounds(100, 100, 700, 100);
 //        cargafecha();
 
-jLabel2.setVisible(false);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -87,7 +87,7 @@ jLabel2.setVisible(false);
         jLabel2CDxFC = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Pruebas = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabCobrosConsul = new javax.swing.JLabel();
         lblHelp = new javax.swing.JLabel();
         BtnHelp = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -194,9 +194,6 @@ jLabel2.setVisible(false);
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2CDxFCMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel2CDxFCMouseEntered(evt);
-            }
         });
         jPanelBarraMenu.add(jLabel2CDxFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 60, 50));
 
@@ -223,17 +220,17 @@ jLabel2.setVisible(false);
         });
         jPanelBarraMenu.add(Pruebas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, 60, 50));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/payMethod.png"))); // NOI18N
-        jLabel2.setToolTipText("Realizar o consultar los cobros pendientes o realizados.");
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabCobrosConsul.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabCobrosConsul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabCobrosConsul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/payMethod.png"))); // NOI18N
+        jLabCobrosConsul.setToolTipText("Realizar o consultar los cobros pendientes o realizados.");
+        jLabCobrosConsul.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabCobrosConsul.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                jLabCobrosConsulMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 50, 50));
+        jPanelBarraMenu.add(jLabCobrosConsul, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 60, 50));
 
         lblHelp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblHelp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -324,9 +321,6 @@ jLabel2.setVisible(false);
         jTable1.setEditingColumn(0);
         jTable1.setEditingRow(0);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jTable1MouseExited(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTable1MousePressed(evt);
             }
@@ -643,8 +637,9 @@ jLabel2.setVisible(false);
             diez.jLabel16.setVisible(false);        
         diez.txtexpediente.setText(var);
         limpiar(jPanTrabajo);//limpiamos pane principal
-        diez.cargaDatos();
         diez.llenacombo();
+        diez.cargaDatos();
+ 
             //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());
         
         diez.setVisible(true);
@@ -690,10 +685,6 @@ jLabel2.setVisible(false);
         mostrarTabla1("");
         jRadioApellido.setSelected(false);
     }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel2CDxFCMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2CDxFCMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2CDxFCMouseEntered
 
     private void HistorConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorConsulActionPerformed
         int fila = jTable1.getSelectedRow();
@@ -753,10 +744,9 @@ jLabel2.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null,"Seleccione un paciente.");
         }
-    // TODO add your handling code here:
     }//GEN-LAST:event_TodasConsulActionPerformed
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void jLabCobrosConsulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabCobrosConsulMouseClicked
     int fila = jTable1.getSelectedRow();
     String var="";        
     if(fila >= 0)
@@ -765,12 +755,13 @@ jLabel2.setVisible(false);
 //        diez = new JPanelHistoriaClinica(Integer.parseInt(var));
 //        diez.txtexpediente.setText(var);
         Cobros.txtBuscar.setText(var);
-        Cobros.JRBExped.setSelected(true);
+      //  Cobros.JRBExped.setSelected(true);
         limpiar(jPanTrabajo);
 //diez.cargaDatos();
 //diez.llenacombo();
 //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());
         Cobros.setVisible(true);
+        limpiar(Cobros.PanelMedicine);
         jPanTrabajo.setLayout(new GridLayout(1,1));
         jPanTrabajo.add(Cobros);
         jPanTrabajo.validate();
@@ -778,10 +769,10 @@ jLabel2.setVisible(false);
         jPanTrabajo.setEnabled(true);
     }else
         JOptionPane.showMessageDialog(null, "No selecciono nada");
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_jLabCobrosConsulMouseClicked
 
     private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
-if (evt.getClickCount() > 1)
+        if (evt.getClickCount() > 1)
            {
            Connection cn = con2.conexion();
            String[] arr = null;
@@ -878,10 +869,6 @@ if (evt.getClickCount() > 1)
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         System.exit(0);            
     }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jTable1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseExited
 
     private void txtValoracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtValoracionMouseClicked
         int fila = jTable1.getSelectedRow();////txtValoracion
@@ -1160,7 +1147,7 @@ if (evt.getClickCount() > 1)
     private void ponLaAyuda() {
             try {
 	// Carga el fichero de ayuda
-            File fichero = new File("C:/Sistema MedicoLAPTOP/SistemaMedicoLAPTOP/src/help/help_set.hs");           
+            File fichero = new File("C:/SistemaMedico1366-768/src/help/help_set.hs");           
             URL hsURL = fichero.toURI().toURL();
 	// Crea el HelpSet y el HelpBroker
             HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
@@ -1187,9 +1174,9 @@ if (evt.getClickCount() > 1)
     private javax.swing.JLabel Pruebas;
     public javax.swing.JLabel RECETAnew;
     private javax.swing.JMenuItem TodasConsul;
+    private javax.swing.JLabel jLabCobrosConsul;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2CDxFC;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;

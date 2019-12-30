@@ -82,3 +82,21 @@ puedes volver al estado que tu desees.
 por ejemplo para volver al estado HEAD@{2} el comando seria:
 
 git reset --hard fbebd80
+
+//CREAR TABLA PAGOS DB
+CREATE TABLE t_cobros(
+	num_cobro INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_consulta INT(11),
+	fechaPago DATE,
+	monto DECIMAL(6,2),
+	status bit(1),
+	FOREIGN KEY (id_consulta) REFERENCES t_consultas(id_consultas)ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `t_consultas` ADD `costo` DECIMAL(6,1) NOT NULL DEFAULT '500' AFTER `fechacita`, ADD `status` BIT(1) NOT NULL DEFAULT b'0' AFTER `costo`;
+
+//** VER Y ELIMINAR CONSTRAINT Y FOREIGN KEY
+
+>SHOW CREATE TABLE nombreTabla
+
+>ALTER TABLE t_cobros DROP FOREIGN KEY t_cobros_ibfk_1;//eliminamos nombre del CONSTRAINT
