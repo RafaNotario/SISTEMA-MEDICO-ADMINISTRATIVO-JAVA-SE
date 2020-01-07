@@ -20,11 +20,14 @@ public class ConexionDBOriginal {
     Connection cn;
     Funciones fn = new Funciones();
     
-    public Connection conexion() {    
+    public Connection conexion() {
+    //JOptionPane.showMessageDialog(null, cargaConfig()+", tam = "+cargaConfig().length());
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
           // cn = DriverManager.getConnection("jdbc:mysql://"+arr[0]+"/"+arr[1],arr[2],arr[3]); //192.168.0.31
-          cn = DriverManager.getConnection("jdbc:mysql://localhost/db_doctores","root","0ehn4TNU5I");
+          
+          cn = DriverManager.getConnection("jdbc:mysql://"+cargaConfig()+"/db_doctores","root","0ehn4TNU5I");//0ehn4TNU5I
 //System.out.println("CONEXION EXITOSA ConexionDBOriginal");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null,ex.getMessage());
@@ -37,20 +40,21 @@ public class ConexionDBOriginal {
         throw new UnsupportedOperationException("No soportado");
     }
     
-    private List cargaConfig() {
+    private String cargaConfig() {//List
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
          String ruta="C:/SistemaMedico1366-768/config.txt";//2700 los 4; solo dos: 1850del, 1450traseros, 
-         List<String> contentL=new ArrayList<String>();
-         String cadena;  
+         //List<String> contentL=new ArrayList<String>();
+         String cadena="",rgresa="";  
         try {
          // Apertura del fichero y creacion de BufferedReader para poder
          // hacer una lectura comoda (disponer del metodo readLine()).     
         fr = new FileReader(ruta);
         br = new BufferedReader(fr);
         while((cadena = br.readLine())!=null) {
-            contentL.add(cadena.trim());
+            //contentL.add(cadena.trim());
+            rgresa=cadena.trim();
         }
         br.close();
         }catch(Exception e){
@@ -68,7 +72,7 @@ public class ConexionDBOriginal {
          }
       }
         
-        return contentL;
+        return rgresa;
     }
     
 }

@@ -85,7 +85,7 @@ public class interfaz extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Dr. Armando Velázquez Merino");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 510, 70));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 510, 70));
 
         jButtonIniciarsesion.setBackground(new java.awt.Color(153, 153, 153));
         jButtonIniciarsesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -113,8 +113,8 @@ public class interfaz extends javax.swing.JFrame {
         jPanel1.add(jLabelrojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 30, 30));
 
         jLabelicono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelicono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/simbolo_medicina_recortada.png"))); // NOI18N
-        jPanel1.add(jLabelicono, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 150, 200));
+        jLabelicono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo-velazquez2.jpg"))); // NOI18N
+        jPanel1.add(jLabelicono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 320, 240));
 
         jLabelusuario.setBackground(new java.awt.Color(255, 255, 255));
         jLabelusuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -238,8 +238,6 @@ public class interfaz extends javax.swing.JFrame {
            Inicio in =new Inicio();
            RespInicioFrame uno = new RespInicioFrame();
             in.limpiar();
-        //    in.jLabelRECETA.setVisible(true);
-        //    in.jLabelUSER.setVisible(true);
             uno.setVisible(true);
             in.PanelPrincipal.setLayout(new GridLayout(1,1));
             in.PanelPrincipal.add(uno);
@@ -248,11 +246,10 @@ public class interfaz extends javax.swing.JFrame {
             in.PanelPrincipal.setEnabled(true);
             this.dispose();
             in.setVisible(true);
-                    }else
+          }else
         {
             JOptionPane.showMessageDialog(null,"Usuario o contraseña incorrecto");
-        }
-        
+        }        
     }//GEN-LAST:event_jButtonIniciarsesionActionPerformed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed

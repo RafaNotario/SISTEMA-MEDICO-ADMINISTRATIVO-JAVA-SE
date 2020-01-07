@@ -141,6 +141,7 @@ public class AltasMedicina extends javax.swing.JPanel {
         ));
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
         jTable1.setComponentPopupMenu(jPopupMenu1);
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jTable1MouseReleased(evt);
@@ -251,11 +252,8 @@ public class AltasMedicina extends javax.swing.JPanel {
         try {
             pps = cn.prepareStatement(sql);        // TODO add your handling code here:
             pps.setString(1,desc);
-            pps.setBoolean(2, true);
-                  
-            
+            pps.setBoolean(2, true);           
             pps.executeUpdate();
-
             JOptionPane.showMessageDialog(null, "Datos Guardados");
 
             mostrarTabla("");
@@ -557,8 +555,6 @@ void mostrarTabla2(String var,String campo){
         jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
         jTable1.getColumnModel().getColumn(0).setMinWidth(0);
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
-
-
         if(var.equals(""))
         {
             consul = "SELECT * FROM "+atributo+" ORDER BY nombre ASC";
@@ -594,7 +590,7 @@ void mostrarTabla2(String var,String campo){
                         System.err.println( ex.getMessage() );    
                     }
                 }
-    }
+    }//termina mostrar tabla2
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -715,5 +711,5 @@ void mostrarTabla2(String var,String campo){
                         System.err.println( ex.getMessage() );    
                     }
                 }
-    }
+    }//cierra mostrar tabla
 }

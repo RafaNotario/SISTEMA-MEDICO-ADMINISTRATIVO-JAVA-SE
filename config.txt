@@ -1,4 +1,1 @@
 localhost
-db_doctores
-root
-0ehn4TNU5I

@@ -50,6 +50,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
     CobrosConsulta Cobros = new CobrosConsulta();
     JPanelHistoriaClinica diez;
     Valoracion jPanValoracion;
+    ExamSanguineos sanguineos;
     
     
     
@@ -63,8 +64,8 @@ public class RespInicioFrame extends javax.swing.JPanel {
 //        jPanelAltaPacientes.setVisible(false);
         //jPanel1.setBounds(100, 100, 700, 100);
 //        cargafecha();
-
-
+    //txtValoracion.setVisible(false);
+    //Heredofamiliar.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -93,6 +94,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtValoracion = new javax.swing.JLabel();
         Heredofamiliar = new javax.swing.JLabel();
+        LabSanguineos = new javax.swing.JLabel();
         jPanTabla = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         txtConsul = new javax.swing.JTextField();
@@ -147,7 +149,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 PacienteMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(Paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 60, 50));
+        jPanelBarraMenu.add(Paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 60, 50));
 
         RECETAnew.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RECETAnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consultaBN.png"))); // NOI18N
@@ -159,7 +161,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 RECETAnewMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(RECETAnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 60, 50));
+        jPanelBarraMenu.add(RECETAnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 60, 50));
 
         Chat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Chat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/chatBN.png"))); // NOI18N
@@ -170,7 +172,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 ChatMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(Chat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 60, 50));
+        jPanelBarraMenu.add(Chat, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 60, 50));
 
         ALTASmtc.setBackground(new java.awt.Color(255, 204, 153));
         ALTASmtc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -183,7 +185,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 ALTASmtcMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(ALTASmtc, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 60, 50));
+        jPanelBarraMenu.add(ALTASmtc, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 60, 50));
 
         jLabel2CDxFC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2CDxFC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -195,7 +197,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 jLabel2CDxFCMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(jLabel2CDxFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 60, 50));
+        jPanelBarraMenu.add(jLabel2CDxFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 60, 50));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
@@ -206,7 +208,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 60, 50));
+        jPanelBarraMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 60, 50));
 
         Pruebas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Pruebas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,7 +220,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 PruebasMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(Pruebas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, 60, 50));
+        jPanelBarraMenu.add(Pruebas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 60, 50));
 
         jLabCobrosConsul.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabCobrosConsul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -242,7 +244,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 lblHelpMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(lblHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 0, 60, 50));
+        jPanelBarraMenu.add(lblHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 60, 50));
 
         BtnHelp.setText("HELP");
         BtnHelp.addActionListener(new java.awt.event.ActionListener() {
@@ -250,7 +252,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 BtnHelpActionPerformed(evt);
             }
         });
-        jPanelBarraMenu.add(BtnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        jPanelBarraMenu.add(BtnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exitBN.png"))); // NOI18N
@@ -261,7 +263,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 jLabel3MouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 60, 50));
+        jPanelBarraMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 60, 50));
 
         txtValoracion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtValoracion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -273,7 +275,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 txtValoracionMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(txtValoracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 60, 50));
+        jPanelBarraMenu.add(txtValoracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 60, 50));
 
         Heredofamiliar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Heredofamiliar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -285,7 +287,19 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 HeredofamiliarMouseClicked(evt);
             }
         });
-        jPanelBarraMenu.add(Heredofamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 60, 50));
+        jPanelBarraMenu.add(Heredofamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 60, 50));
+
+        LabSanguineos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LabSanguineos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabSanguineos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exam_blood32px.png"))); // NOI18N
+        LabSanguineos.setToolTipText("ANALISIS SANGUINEOS");
+        LabSanguineos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        LabSanguineos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LabSanguineosMouseClicked(evt);
+            }
+        });
+        jPanelBarraMenu.add(LabSanguineos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 60, 50));
 
         add(jPanelBarraMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -309,6 +323,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
         jRadioApellido.setText("APELLIDO");
         jPanTabla.add(jRadioApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 100, 30));
 
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -896,6 +911,32 @@ public class RespInicioFrame extends javax.swing.JPanel {
         
     }//GEN-LAST:event_txtValoracionMouseClicked
 
+    private void LabSanguineosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabSanguineosMouseClicked
+        int fila = jTable1.getSelectedRow();////txtValoracion
+        String var="";        
+        if(fila >= 0)
+        {
+        var=jTable1.getValueAt(fila, 0).toString();
+        System.out.println("Param: "+var);
+        sanguineos = new ExamSanguineos(Integer.parseInt(var));     
+//        if(fn.ValidaHeredofamiliarBool(var))
+  //          diez.jLabel16.setVisible(false);           
+        //diez.txtexpediente.setText(var);
+        limpiar(jPanTrabajo);//limpiamos pane principal
+        //diez.cargaDatos();
+        //diez.llenacombo();
+            //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());     
+        sanguineos.setVisible(true);
+        jPanTrabajo.setLayout(new GridLayout(1,1));
+        jPanTrabajo.add(sanguineos);
+        jPanTrabajo.validate();
+        jPanTrabajo.setVisible(true);
+        jPanTrabajo.setEnabled(true);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "No selecciono nada");
+    }//GEN-LAST:event_LabSanguineosMouseClicked
+
     void mostrarTabla1(String var){
         int band = 0;
         Connection cn = con2.conexion();       
@@ -1170,6 +1211,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
     private javax.swing.JLabel Chat;
     private javax.swing.JLabel Heredofamiliar;
     private javax.swing.JMenuItem HistorConsul;
+    private javax.swing.JLabel LabSanguineos;
     public javax.swing.JLabel Paciente;
     private javax.swing.JLabel Pruebas;
     public javax.swing.JLabel RECETAnew;

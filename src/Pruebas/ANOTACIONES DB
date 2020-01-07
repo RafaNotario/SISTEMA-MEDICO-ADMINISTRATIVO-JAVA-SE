@@ -1,5 +1,5 @@
 //RESPALDO DE BASE DE DATOS
-    mysqldump -u root -p --routines=TRUE db_doctores | gzip > respDbDoctores.sql.gz
+    mysqldump -u root -p --routines=TRUE db_doctores | gzip > respDbDoctoresHoraCita.sql.gz
 
 //CARGAR DB EN MYSQL 
     mysql -u root -p admin_tff < respadmin_tff.sql
@@ -31,7 +31,6 @@ ON
 	c_tratamientos.clave = t_recetas.tratamiento;
 
 //QUERY REPORT HEREDOFAMILIARES
-
 SELECT
      h_clinica.expediente,h_clinica.diabetes,h_clinica.hepatopatia,
      h_clinica.asma,h_clinica.endocrinas,h_clinica.hipertension,
@@ -100,3 +99,37 @@ ALTER TABLE `t_consultas` ADD `costo` DECIMAL(6,1) NOT NULL DEFAULT '500' AFTER 
 >SHOW CREATE TABLE nombreTabla
 
 >ALTER TABLE t_cobros DROP FOREIGN KEY t_cobros_ibfk_1;//eliminamos nombre del CONSTRAINT
+
+//CREAR TABLA EXAM_SANGUINEOS
+CREATE TABLE sanguineos(
+    id_sanguineo INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    no_exped DOUBLE,
+    fechExam DATE,
+    hemoglobina VARCHAR(10),
+    hbcm VARCHAR(10),
+    plaquetas VARCHAR(10),
+    leucocitos VARCHAR(10),
+    neutrofilos VARCHAR(10),
+    linfocitos VARCHAR(10),
+    hematocrito VARCHAR(10),
+    glucosa VARCHAR(10),
+    urea VARCHAR(10),
+    creatinina VARCHAR(10),
+    acurico VARCHAR(10),
+    colesterol VARCHAR(10),
+    trigliceridos VARCHAR(10),
+    hbglucosilada VARCHAR(10),
+    bilirrubinas VARCHAR(10),
+    ast VARCHAR(10),
+    alt VARCHAR(10),
+    dhl VARCHAR(10),
+    tp VARCHAR(10),
+    ttp VARCHAR(10),
+    cpk VARCHAR(10),
+    freumatoide VARCHAR(10),
+    tsh VARCHAR(10),
+    t4libre VARCHAR(10),
+    t3libre VARCHAR(10),
+    anotac VARCHAR(100),
+    FOREIGN KEY (no_exped) REFERENCES t_personales (expediente) ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

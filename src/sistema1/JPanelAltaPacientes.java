@@ -47,7 +47,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jDateChooser3.setDate(cargafecha());
         jButton1.setVisible(false);
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 14));
-
+        jLabel14.setVisible(false);
     }
 
     /**
@@ -832,8 +832,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
                         }else{
                             jRadioMen.setSelected(true);
                             jPanelHConsultas.setVisible(false);
-                        }
-                        
+                        }                        
                         txtCel.setText(rs.getString(10));
                         
                         txtGestas.setText(rs.getString(11));

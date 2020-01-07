@@ -547,10 +547,8 @@ private int ultimoRegistroConsulta(){
                     if(i>7 && i<var.length)
                         p3+=var[i];
                 }
-            }
-            
+            }           
             newFech=p3+"/"+p2+"/"+p1;
-            
             return newFech;
         }
         
@@ -564,8 +562,7 @@ private int ultimoRegistroConsulta(){
             if(res.next())
                 bad=true;
              else
-                bad=false;
-                
+                bad=false;               
             pstm.close();
             res.close();
         } catch(SQLException e){
@@ -622,8 +619,7 @@ private int ultimoRegistroConsulta(){
                     }
            }
           }//while         
-            cn.commit();
-            
+            cn.commit();            
         }catch (SQLException ex) {
              System.err.println("ERROR: " + ex.getMessage());
              if(cn!=null)
@@ -733,8 +729,7 @@ private int ultimoRegistroConsulta(){
                         if(Integer.parseInt(arre[x][y]) == 13){
                            cadena+=arre[x][1]+" como anotaciones. \n";                      
                        }//if=8                      
-                   }//if 3 <X<14
-                   
+                   }//if 3 <X<14                 
  //ANTECEDENTES PERSONALES PATOLOGICOS
                     if(Integer.parseInt(arre[x][y]) >=14 && Integer.parseInt(arre[x][y]) < 22){
                       if(Integer.parseInt(arre[x][y]) == 14){
@@ -761,8 +756,7 @@ private int ultimoRegistroConsulta(){
                         if(Integer.parseInt(arre[x][y]) == 21){
                            cadena+="Otros padecimientos: "+arre[x][1]+", ";                      
                        }//if=21                   
-                    }//IF 14 <= X <22
-                    
+                    }//IF 14 <= X <22                    
   //ANTECEDENTES PERSONALES
             if(Integer.parseInt(arre[x][y]) >=26 && Integer.parseInt(arre[x][y]) <= 34 ){
                  if(Integer.parseInt(arre[x][y]) == 26){
@@ -810,8 +804,7 @@ private int ultimoRegistroConsulta(){
 	"Miercoles",
 	"Jueves",
 	"Viernes",
-	"Sabado"};
-            
+	"Sabado"};            
             String[] strMonths =  new String[]{
                 "Enero",
                 "Febrero",
@@ -897,20 +890,36 @@ private int ultimoRegistroConsulta(){
             //arr[lNumeroLineas]=cadena;     
             contentL.add(cadena.trim());
             lNumeroLineas++;
-        }
-        
+        }        
         System.out.println("Lineas: "+lNumeroLineas);
         b.close();
-        
          return contentL;      
     }
      
+//verifica existencia de examenes sanguineos
+public boolean ValidaSanguineoBool(String id) {
+        boolean bad= false;
+        PreparedStatement pstm=null;
+        ResultSet res=null;
+        try{
+            pstm = con2.conexion().prepareStatement("SELECT no_exped FROM sanguineos WHERE no_exped = '" +id+ "'");
+            res = pstm.executeQuery();
+            if(res.next())
+                bad=true;
+             else
+                bad=false;              
+            pstm.close();
+            res.close();
+        } catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    return bad;
+    }
+
 public static void main(String[] args) throws IOException{
-
-  
-//    Funciones fn = new Funciones();
-
-   //     System.out.println("Numero de datos"+indexL.size())
+    Funciones fn = new Funciones();
+ 
+    System.out.println("existe examen sanguneo: "+fn.ValidaSanguineoBool("1"));
   // System.out.println("diferencia"+fn.getDifference(amountOne, amountTwo));
  //System.out.println(fn.calcImc("70","171"));
      //monts = getDiffDates(fn.StringDate(array[0].replace("-", "/") ),fn.StringDate(fn.setDateActual().replace("-", "/")),0)
