@@ -227,13 +227,12 @@ public class interfaz extends javax.swing.JFrame {
 
     private void jLabelverdeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelverdeMouseExited
     jLabelverde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verde.png"))); // TODO add your handling code here:
-             // TODO add your handling code here:
     }//GEN-LAST:event_jLabelverdeMouseExited
 
     private void jButtonIniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarsesionActionPerformed
         String user = jTextFieldUusario.getText();
         String pass = jPasswordField1.getText();
-        if(user.equals("usuario") && pass.equals("123"))
+        if(user.equals("admin1") && pass.equals("1234"))
         {            
            Inicio in =new Inicio();
            RespInicioFrame uno = new RespInicioFrame();
