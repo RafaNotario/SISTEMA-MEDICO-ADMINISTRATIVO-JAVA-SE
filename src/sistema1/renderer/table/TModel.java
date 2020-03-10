@@ -16,9 +16,20 @@ public class TModel extends DefaultTableModel{
    */ 
     public TModel(String[][] mat,String[] cab){//String[][] mat
         //unos valores por default :)
-         super( mat,cab);         
-       
+         super(mat,cab);         
+         isCellEditable(mat.length, mat[0].length+1);
     }
+    
+     
+            @Override
+            public boolean isCellEditable (int fila, int columna) {
+             //   if(fila>1)
+                return false;
+               // else
+                 //   return true;
+            }
+                
+
     
   /*  @Override
     public Class getColumnClass(int columnIndex) {

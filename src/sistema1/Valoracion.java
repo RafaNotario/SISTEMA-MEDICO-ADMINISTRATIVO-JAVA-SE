@@ -94,7 +94,8 @@ public class Valoracion extends javax.swing.JPanel {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 570, 150));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton1.setText("INFORME");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/wordicon.png"))); // NOI18N
+        jButton1.setText("        INFORME");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -185,10 +186,10 @@ r3.setFontSize(12);
 r3.addCarriageReturn();
 
 try {
-    FileOutputStream word = new FileOutputStream(arre[1]+fnVal.setDateActualGuion()+".docx");
+    FileOutputStream word = new FileOutputStream(arre[1]+"-"+fnVal.setDateActualGuion()+".docx");
     documento.write(word);
     word.close();
-    File file = new File(arre[1]+fnVal.setDateActualGuion()+".docx");
+    File file = new File(arre[1]+"-"+fnVal.setDateActualGuion()+".docx");
     Desktop.getDesktop().open(file);
     
 } catch (FileNotFoundException ex) {

@@ -105,6 +105,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jRadioFeminazi = new javax.swing.JRadioButton();
         jRadioMen = new javax.swing.JRadioButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel6 = new javax.swing.JLabel();
 
         MenuTabaDatos.setComponentPopupMenu(MenuTabaDatos);
 
@@ -129,10 +130,10 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(910, 658));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("DATOS DEL PACIENTE");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 30));
+        jLabel1.setText("HISTORIAL DE CONSULTAS:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 250, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel3.setText("FECHA:");
@@ -334,6 +335,11 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
         jDateChooser1.setDateFormatString("dd-MM-yyyy");
         jDateChooser1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 150, 35));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("DATOS DEL PACIENTE");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
@@ -718,7 +724,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
                         System.err.println( ex.getMessage() );    
                     }
                 }
-    }
+    }//Llena combo
             
     private int ultimoRegistro(){
         Connection cn = con2.conexion();
@@ -927,6 +933,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

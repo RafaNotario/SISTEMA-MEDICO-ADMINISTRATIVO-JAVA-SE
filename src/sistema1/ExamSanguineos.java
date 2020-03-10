@@ -22,6 +22,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import sistema1.renderer.table.TModel;
 /**
  *
@@ -33,13 +35,16 @@ ConexionDBOriginal con2 = new ConexionDBOriginal();
 static Funciones func = new Funciones();
 int valExped = 0;
 
+
 public ExamSanguineos(int param) {
         initComponents();
         this.valExped = param;
         jDateChooser1.setDate(cargafecha());
         recExped();
         cargaDatos(Integer.toString(valExped));
-        jTable1.setModel( new TModel(cargaDatos(Integer.toString(valExped)),cabTable(cargaDatos(Integer.toString(valExped)))) );
+      
+        jTable1.setModel( new TModel(func.insertar_col(cargaDatos(Integer.toString(valExped))),cabTable(cargaDatos(Integer.toString(valExped)))) );
+        jLabelActualiza.setVisible(false);
 }
 
     /**
@@ -114,6 +119,8 @@ public ExamSanguineos(int param) {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel31 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
+        txtIdExam = new javax.swing.JTextField();
+        jLabelActualiza = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         labNo = new javax.swing.JLabel();
         jTextFExped = new javax.swing.JTextField();
@@ -128,182 +135,182 @@ public ExamSanguineos(int param) {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Ingrese los resultados obtenidos.");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 14, 380, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 380, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel2.setText("HEMOGLOBINA");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 90, 40));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, 40));
 
         txtHemoglobina.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtHemoglobina, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 100, 40));
+        jPanel1.add(txtHemoglobina, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 100, 40));
 
         txtHbCm.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtHbCm, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 100, 40));
+        jPanel1.add(txtHbCm, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 100, 40));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel3.setText("Hb CM");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, 40));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel5.setText("Plaquetas");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 90, 40));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, 40));
 
         txtPlaquetas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtPlaquetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 100, 40));
+        jPanel1.add(txtPlaquetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 100, 40));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel7.setText("Leucocitos");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 90, 40));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 90, 40));
 
         txtLeucocitos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtLeucocitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 100, 40));
+        jPanel1.add(txtLeucocitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 100, 40));
 
         txtNeutrofilos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtNeutrofilos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 100, 40));
+        jPanel1.add(txtNeutrofilos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 100, 40));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel8.setText("Neutrofilos");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 90, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 90, 40));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel9.setText("Linfocitos");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 90, 40));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 90, 40));
 
         txtLinfocitos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtLinfocitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 100, 40));
+        jPanel1.add(txtLinfocitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 100, 40));
 
         txtHematocrito.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtHematocrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 100, 40));
+        jPanel1.add(txtHematocrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 100, 40));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel10.setText("Hematocrito");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 90, 40));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 90, 40));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel11.setText("GLUCOSA");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 90, 40));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 90, 40));
 
         txtGlucosa.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtGlucosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 100, 40));
+        jPanel1.add(txtGlucosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 100, 40));
 
         txtUrea.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtUrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 100, 40));
+        jPanel1.add(txtUrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 100, 40));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel12.setText("UREA");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 90, 40));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 90, 40));
 
         txtCreatina.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtCreatina, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 100, 40));
+        jPanel1.add(txtCreatina, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 100, 40));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel13.setText("CREATININA");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 90, 40));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 90, 40));
 
         txtAcUrico.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtAcUrico, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 100, 40));
+        jPanel1.add(txtAcUrico, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 100, 40));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel14.setText("AC URICO");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 90, 40));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 90, 40));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel15.setText("COLESTEROL");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 90, 40));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 90, 40));
 
         txtColesterol.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtColesterol, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 100, 40));
+        jPanel1.add(txtColesterol, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 100, 40));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel16.setText("TRIGLICERIDOS");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 90, 40));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 90, 40));
 
         txtTrigliceridos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtTrigliceridos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 100, 40));
+        jPanel1.add(txtTrigliceridos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 100, 40));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel17.setText("Hb Glucosilada");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 90, 40));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 90, 40));
 
         txtHbGlucosilada.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtHbGlucosilada, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 100, 40));
+        jPanel1.add(txtHbGlucosilada, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 100, 40));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel18.setText("BILIRRUBINAS");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 90, 40));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 90, 40));
 
         txtBilirrubinas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtBilirrubinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 100, 40));
+        jPanel1.add(txtBilirrubinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 100, 40));
 
         txtAst.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtAst, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 100, 40));
+        jPanel1.add(txtAst, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 100, 40));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel19.setText("AST");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 90, 40));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 90, 40));
 
         txtAlt.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtAlt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 100, 40));
+        jPanel1.add(txtAlt, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 100, 40));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel20.setText("ALT");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 90, 40));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 90, 40));
 
         txtDhl.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtDhl, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 100, 40));
+        jPanel1.add(txtDhl, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 100, 40));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel21.setText("DHL");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 90, 40));
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 90, 40));
 
         txtTp.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtTp, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 100, 40));
+        jPanel1.add(txtTp, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 100, 40));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel22.setText("TP");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 90, 40));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 90, 40));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel23.setText("TTP");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 90, 40));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 90, 40));
 
         txtTtp.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtTtp, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 100, 40));
+        jPanel1.add(txtTtp, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 100, 40));
 
         txtCpk.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtCpk, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 100, 40));
+        jPanel1.add(txtCpk, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, 100, 40));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel24.setText("CPK");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 90, 40));
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 90, 40));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel25.setText("F. reumatoide");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 90, 40));
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 90, 40));
 
         txtFReumatoide.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtFReumatoide, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, 100, 40));
+        jPanel1.add(txtFReumatoide, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, 100, 40));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel26.setText("TSH");
-        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 90, 40));
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 90, 40));
 
         txtTsh.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtTsh, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 100, 40));
+        jPanel1.add(txtTsh, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 100, 40));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel27.setText("T4 LIBRE");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 90, 40));
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 120, 90, 40));
 
         txtT4Libre.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtT4Libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 160, 100, 40));
+        jPanel1.add(txtT4Libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 100, 40));
 
         txtT3Libre.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jPanel1.add(txtT3Libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 210, 100, 40));
+        jPanel1.add(txtT3Libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, 100, 40));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel28.setText("T3 LIBRE");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 90, 40));
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 90, 40));
 
         jScrollPane2.setToolTipText("NOTA MEDICA");
         jScrollPane2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -320,7 +327,7 @@ public ExamSanguineos(int param) {
         });
         jScrollPane2.setViewportView(textANotaMedica);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 200, 130));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 200, 110));
 
         jLabGuardar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save32x32.png"))); // NOI18N
@@ -330,7 +337,7 @@ public ExamSanguineos(int param) {
                 jLabGuardarMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 410, 60, 50));
+        jPanel1.add(jLabGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 330, 60, 50));
 
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/excelicon.png"))); // NOI18N
@@ -345,7 +352,12 @@ public ExamSanguineos(int param) {
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash32px.png"))); // NOI18N
         jLabel29.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, 60, 50));
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 60, 50));
 
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -360,18 +372,39 @@ public ExamSanguineos(int param) {
             }
         ));
         jTable1.setColumnSelectionAllowed(true);
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable1.setRowHeight(32);
         jTable1.setRowMargin(3);
         jTable1.setRowSelectionAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable1MousePressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 790, 420));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 540, 10));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 790, 490));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 300, 10));
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
         jLabel31.setText("Historial de Estudios");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 190, 20));
-        jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 280, 20));
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 150, 20));
+        jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 280, 20));
+
+        txtIdExam.setEditable(false);
+        txtIdExam.setBackground(new java.awt.Color(255, 255, 255));
+        txtIdExam.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jPanel1.add(txtIdExam, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 40, 40));
+
+        jLabelActualiza.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelActualiza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        jLabelActualiza.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelActualiza.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelActualizaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabelActualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 390, 60, 50));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -387,7 +420,10 @@ public ExamSanguineos(int param) {
         labNo.setText("SIN EXTUDIOS INGRESADOS");
         add(labNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 230, 30));
 
+        jTextFExped.setEditable(false);
+        jTextFExped.setBackground(new java.awt.Color(255, 255, 255));
         jTextFExped.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jTextFExped.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         add(jTextFExped, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 90, 30));
 
         jDateChooser1.setDateFormatString("dd/MM/yyyy");
@@ -595,6 +631,8 @@ public ExamSanguineos(int param) {
                     pps.executeUpdate();
                     cn.commit();
                     JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente.");
+                    limpiarCampos();
+                     jTable1.setModel( new TModel(func.insertar_col(cargaDatos(Integer.toString(valExped))),cabTable(cargaDatos(Integer.toString(valExped)))) );
 
         }catch (SQLException ex) {
            JOptionPane.showMessageDialog(null,"ERROR: " + ex.getMessage());
@@ -618,44 +656,57 @@ public ExamSanguineos(int param) {
              }
             }         
 }        
-                        
+        
     }//GEN-LAST:event_jLabGuardarMouseClicked
 
     private void jLabel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseClicked
-       try{
+       
+        
+        try{
            Thread t = new Thread(){
                public void run(){
+                   String[] arre = func.regresaNombreArch(jTextFExped.getText());
                    XSSFWorkbook workbook = new XSSFWorkbook();
                    XSSFSheet hoja = workbook.createSheet();
-                   
+                   XSSFCellStyle style =workbook.createCellStyle();
                    jProgressBar1.setMaximum(jTable1.getRowCount());
-                   XSSFRow filas;
+                   XSSFRow filas = null;
+                
                    Rectangle rect;
-                   
-                   for(int i=0;i<jTable1.getRowCount();i++){
+                   filas = hoja.createRow(2);
+                   filas.createCell(1).setCellValue("REPORTE DE EXAMENES SANGUINEOS");
+
+                   for(int i=2;i<jTable1.getRowCount();i++){
+                     
                       rect =jTable1.getCellRect(i, 0, true);
                       
                       try{
                           jTable1.scrollRectToVisible(rect);
                           
                       }catch(java.lang.ClassCastException e){ }//try
-                      jTable1.setRowSelectionInterval(i, i);
+                      jTable1.setRowSelectionInterval(i, 0);
                       
-                      jProgressBar1.setValue((i+1));
-                      
-                      filas = hoja.createRow((i+1));
-                      filas.createCell(0).setCellValue(jTable1.getValueAt(i, 0).toString());
-                     // filas.createCell(1).setCellValue(jTable1.getValueAt(i, 1).toString());                  
-                   }
+                      jProgressBar1.setValue((i+1));                     
+                     
+                      filas = hoja.createRow((i+5));
+                       
+                        for(int j = 0;j<jTable1.getColumnCount();j++){
+                      filas.createCell(j).setCellValue(jTable1.getValueAt(i, j).toString());
+                                         
+                      hoja.autoSizeColumn(j);//autoajustar celdas al ancho de los datos
+                     // filas.createCell(1).setCellValue(jTable1.getValueAt(i, 1).toString());   
+                       }
+                       
+                   }//for1
                    jProgressBar1.setValue(0);
                    try{
                       // workbook.write(new FileOutputStream(new File("prueba.xlsx")));
                        //Desktop.getDesktop().open(new File("prueba.xlsx"));
                        
-                       FileOutputStream word = new FileOutputStream(func.setDateActualGuion()+".xlsx");
+                       FileOutputStream word = new FileOutputStream(arre[1]+"-"+func.setDateActualGuion()+".xlsx");
                         workbook.write(word);
                         word.close();
-                        File file = new File(func.setDateActualGuion()+".xlsx");
+                        File file = new File(arre[1]+"-"+func.setDateActualGuion()+".xlsx");
                         Desktop.getDesktop().open(file);
                    }catch (Exception ex){
                        Logger.getLogger(ExamSanguineos.class.getName()).log(Level.SEVERE, null, ex);
@@ -666,6 +717,128 @@ public ExamSanguineos(int param) {
        }catch(Exception e) {JOptionPane.showMessageDialog(null, e);} 
         
     }//GEN-LAST:event_jLabel30MouseClicked
+
+    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
+           if (evt.getClickCount() > 1)
+           {
+                int colum = jTable1.getSelectedColumn();
+                   String val = jTable1.getValueAt(0,colum).toString();
+                if(val.isEmpty() || val.equals("---") || val.equals("NO DATA")){
+                    JOptionPane.showMessageDialog(null, "DATA NO VALIDO");
+                }else{
+                    jLabGuardar.setVisible(false);
+                    cargaEstudio(val);
+                    jLabelActualiza.setVisible(true);
+                    jLabGuardar.setVisible(false);
+                }
+    //            JOptionPane.showMessageDialog(null, "Oprimio: "+val);
+           }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MousePressed
+
+    private void jLabelActualizaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelActualizaMouseClicked
+               Connection cn = con2.conexion();
+               String SQL= "",exped=txtIdExam.getText();
+               
+               String varExp=jTextFExped.getText(),
+                varfech=func.getFecha(jDateChooser1),
+               
+                varHemo=txtHemoglobina.getText(),
+                varHbCm=txtHbCm.getText(),
+                varPlaquetas=txtPlaquetas.getText(),
+                varLeucocitos=txtLeucocitos.getText(),
+                varNeutrofilos=txtNeutrofilos.getText(),
+                varLinfocitos=txtLinfocitos.getText(),
+                varHematocrito=txtHematocrito.getText(),
+                
+                varGlucosa=txtGlucosa.getText(),
+                varUrea=txtUrea.getText(),
+                varCreatina=txtCreatina.getText(),
+                varAcUric=txtAcUrico.getText(),
+                varColester=txtColesterol.getText(),
+                varTrigli=txtTrigliceridos.getText(),
+                varHbGluco=txtHbGlucosilada.getText(),
+                
+                varBilirrubi=txtBilirrubinas.getText(),
+                varAst=txtAst.getText(),
+                varAlt=txtAlt.getText(),
+                varDhl=txtDhl.getText(),
+                varTp=txtTp.getText(),
+                varTtp=txtTtp.getText(),
+                varCpk=txtCpk.getText(),
+                
+                varFReuma=txtFReumatoide.getText(),
+                varTsh=txtTsh.getText(),
+                varT4Libre=txtT4Libre.getText(),
+                varT3Libre=txtT3Libre.getText(),
+                varnota=textANotaMedica.getText() ;
+                       
+               PreparedStatement pps=null;
+                      
+        SQL="UPDATE sanguineos SET hemoglobina='"+varHemo+"' ,hbcm='"+varHbCm+"',plaquetas='"+varPlaquetas+"',leucocitos='"+varLeucocitos+"',neutrofilos='"+
+                varNeutrofilos+"',linfocitos='"+varLinfocitos+"',hematocrito='"+varHematocrito+"',glucosa='"+varGlucosa+"',urea='"+varUrea+"',creatinina='"+varCreatina+"',acurico='"+
+                varAcUric+"',colesterol='"+varColester+"',trigliceridos='"+varTrigli+"',hbglucosilada='"+varHbGluco+"',bilirrubinas='"+varBilirrubi+"',ast='"+varAst+"',alt='"+varAlt+"',dhl='"+varDhl+"',tp='"+varTp+"',ttp='"+varTtp+"',cpk='"+varCpk+"'"
+                + ",freumatoide='"+varFReuma+"',tsh='"+varTsh+"',t4libre='"+varT4Libre+"',t3libre='"+varT3Libre+"',anotac='"+varnota+"' WHERE id_sanguineo = '"+exped+"'";
+            
+                try {
+                        pps = cn.prepareStatement(SQL);
+
+                    pps.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Datos actualizados correctamente");
+                     jTable1.setModel( new TModel(func.insertar_col(cargaDatos(Integer.toString(valExped))),cabTable(cargaDatos(Integer.toString(valExped)))) );
+                   // jLabel20.setVisible(true);
+                    jLabelActualiza.setVisible(false);
+                    limpiarCampos();
+                }catch (SQLException e){
+                    Logger.getLogger(ExamSanguineos.class.getName()).log(Level.SEVERE, null, e);
+                }finally{
+ //                   S.out.println( "cierra conexion a la base de datos" );    
+                    try {
+                        if(pps != null) pps.close();
+                        if(cn != null) cn.close();
+//                        if(cn !=null) cn.close();
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null,ex.getMessage());    
+                    }
+                }        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelActualizaMouseClicked
+
+    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
+        Connection cn = con2.conexion();
+        PreparedStatement preparedStmt = null;
+        String var=txtIdExam.getText();
+        if(!var.isEmpty()){
+
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog (null, "Seguro que desea eliminar el estudio id: "+var,"Borrar",dialogButton);
+            if(dialogResult == JOptionPane.YES_OPTION){
+            try {
+            String query = "DELETE FROM sanguineos WHERE id_sanguineo = '"+var+"' ";
+            preparedStmt = cn.prepareStatement(query);
+            preparedStmt.execute();
+      
+            JOptionPane.showMessageDialog(null, "Eliminado correctamente");
+            
+            limpiarCampos();
+ jTable1.setModel( new TModel(func.insertar_col(cargaDatos(Integer.toString(valExped))),cabTable(cargaDatos(Integer.toString(valExped)))) );
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamSanguineos.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+//            System.out.println("cierra conexion a la base de datos");    
+            try {
+                if(preparedStmt != null) preparedStmt.close();                
+                if(cn !=null) cn.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,ex.getMessage()); 
+//                System.out.println("Error al cerrar la conexon");
+            }//catch
+        }//finally 
+            } else {
+                JOptionPane.showMessageDialog(null,"No se borro el Expediente:"+var);
+            }
+        }else
+            JOptionPane.showMessageDialog(null,"no selecciono nada");        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel29MouseClicked
 
     public String[][] cargaDatos(String param){
         Connection cn = con2.conexion();
@@ -685,7 +858,7 @@ public ExamSanguineos(int param) {
                 cantFilas = rs.getRow();//sacamos la cantidad de filas/registros
                 rs.beforeFirst();//nos posicionamos antes del inicio (como viene por defecto)
             } 
-            System.out.println("filas:"+cantFilas+"\ncolumnas: "+cantColumnas);
+           // System.out.println("filas:"+cantFilas+"\ncolumnas: "+cantColumnas);
             mat = new String[cantFilas][cantColumnas];
             cn.setAutoCommit(false);
            while(rs.next())//tenia 34 antes de quitar lavado dental  && i<=34
@@ -763,22 +936,28 @@ public ExamSanguineos(int param) {
     static String[][] transponer(String[][] matriz){
         int tam=0;
         tam=matriz.length;
-        String[][] resultado =null;
+        String[][] resultado =null, masuna =null;
        if(tam>0){
         resultado=new String[matriz[0].length][matriz.length];//filas=columnas, columnas=filas
         int filas,columnas;
-        
         for (columnas=0 ; columnas < matriz[0].length ; columnas++){
             for (filas=0 ; filas < matriz.length ; filas++){
-                resultado[columnas][filas]=matriz[filas][columnas];
-                
+                resultado[columnas][filas]=matriz[filas][columnas];   
             }
         }
+        
+        
        }else{//if tam
             resultado= new String[1][1];
             resultado[0][0]="NO DATA";
        }
        
+  /*     for (int x=0; x < resultado.length; x++) {
+                for (int y=0; y < resultado[x].length; y++) {
+     
+                    System.out.println(resultado[x][y]);
+                }
+            }*/
         return resultado;
     }
     
@@ -787,24 +966,134 @@ public ExamSanguineos(int param) {
         tam=mat.length;
         String[] arr = null;
        if(tam>0){
-        arr = new String[mat[0].length];
+        arr = new String[mat[0].length+1];
         String fech ="";
             for (int x=0; x < mat.length; x++) {
-                for (int y=0; y < mat[x].length; y++) {
+                for (int y=0; y < mat[x].length; y++) {//dejamos libre la posicion 0 del array
                    if(x==2)
-                    arr[y]=func.volteaFecha(mat[x][y], 1);
+                    arr[y+1]=func.volteaFecha(mat[x][y], 1);//regresamos el puntero a la posisicon 0 de las columnas de la matriz
                 }               
             }
+            arr[0]="----";
              }else{//if tam
             arr=new String[1];
             arr[0]="NO DATA";
        }      
         return arr;        
     }
+
+    public void cargaEstudio(String param){
+        Connection cn = con2.conexion();
+        String sql = "SELECT * FROM sanguineos WHERE id_sanguineo = "+param+"";
+//        System.out.println("sentencia"+sql);
+
+        Statement st = null;
+        ResultSet rs = null;
+        String aux ="";
+        int i = 0;        
+        try {
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
+   
+            cn.setAutoCommit(false);
+           while(rs.next())//tenia 34 antes de quitar lavado dental  && i<=34
+           {    
+               txtIdExam.setText(rs.getString(1));
+               jDateChooser1.setDate(rs.getDate(3));
+                txtHemoglobina.setText(rs.getString(4));
+               txtHbCm.setText(rs.getString(5));
+               txtPlaquetas.setText(rs.getString(6));
+               txtLeucocitos.setText(rs.getString(7));
+               txtNeutrofilos.setText(rs.getString(8));
+               txtLinfocitos.setText(rs.getString(9));
+               txtHematocrito.setText(rs.getString(10));
+
+               txtGlucosa.setText(rs.getString(11));
+               txtUrea.setText(rs.getString(12));
+               txtCreatina.setText(rs.getString(13));
+               txtAcUrico.setText(rs.getString(14));
+               txtColesterol.setText(rs.getString(15));
+               txtTrigliceridos.setText(rs.getString(16));
+               txtHbGlucosilada.setText(rs.getString(17));
+
+               txtBilirrubinas.setText(rs.getString(18));
+               txtAst.setText(rs.getString(19));
+               txtAlt.setText(rs.getString(20));
+               txtDhl.setText(rs.getString(21));
+               txtTp.setText(rs.getString(22));
+               txtTtp.setText(rs.getString(23));
+               txtCpk.setText(rs.getString(24));
+
+               txtFReumatoide.setText(rs.getString(25));
+               txtTsh.setText(rs.getString(26));
+               txtT4Libre.setText(rs.getString(27));
+               txtT3Libre.setText(rs.getString(28));
+               textANotaMedica.setText(rs.getString(29));
+           }
+            cn.commit();
+        }catch (SQLException ex) {
+             System.err.println("ERROR: " + ex.getMessage());
+             if(cn!=null)
+             {
+ //                System.out.println("Rollback");
+                 try {
+                     //deshace todos los cambios realizados en los datos
+                     cn.rollback();
+                 } catch (SQLException ex1) {
+ //                    System.err.println( "No se pudo deshacer" + ex1.getMessage() );    
+                 }
+             }                
+         }finally{
+//             System.out.println( "cierra conexion a la base de datos" );    
+             try {
+                 if(st != null) st.close();                
+                 if(rs != null) rs.close();                
+                 if(cn !=null) cn.close();
+//Letrero se cierran   JOptionPane.showMessageDialog(null, "SEcierran");
+             } catch (SQLException ex) {
+                 System.err.println( ex.getMessage() );    
+             }
+         }
+ 
+    }//CARGA DATOS
+    
+    public void limpiarCampos(){
+        txtIdExam.setText("");      
+            txtHemoglobina.setText("");
+            txtHbCm.setText("");
+            txtPlaquetas.setText("");
+            txtLeucocitos.setText("");
+            txtNeutrofilos.setText("");
+            txtLinfocitos.setText("");
+            txtHematocrito.setText("");
+
+            txtGlucosa.setText("");
+            txtUrea.setText("");
+            txtCreatina.setText("");
+            txtAcUrico.setText("");
+            txtColesterol.setText("");
+            txtTrigliceridos.setText("");
+            txtHbGlucosilada.setText("");
+
+            txtBilirrubinas.setText("");
+            txtAst.setText("");
+            txtAlt.setText("");
+            txtDhl.setText("");
+            txtTp.setText("");
+            txtTtp.setText("");
+            txtCpk.setText("");
+
+            txtFReumatoide.setText("");
+            txtTsh.setText("");
+            txtT4Libre.setText("");
+            txtT3Libre.setText("");
+            textANotaMedica.setText("NOTA MEDICA");
+            jDateChooser1.setDate(cargafecha());
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabGuardar;
+    public javax.swing.JLabel jLabGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -826,7 +1115,7 @@ public ExamSanguineos(int param) {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
+    public javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -836,6 +1125,7 @@ public ExamSanguineos(int param) {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel jLabelActualiza;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -860,6 +1150,7 @@ public ExamSanguineos(int param) {
     private javax.swing.JTextField txtHbGlucosilada;
     private javax.swing.JTextField txtHematocrito;
     private javax.swing.JTextField txtHemoglobina;
+    private javax.swing.JTextField txtIdExam;
     private javax.swing.JTextField txtLeucocitos;
     private javax.swing.JTextField txtLinfocitos;
     private javax.swing.JTextField txtNeutrofilos;

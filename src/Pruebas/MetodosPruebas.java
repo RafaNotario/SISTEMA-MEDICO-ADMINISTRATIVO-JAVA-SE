@@ -37,11 +37,11 @@ public class MetodosPruebas {
         
     }
 
-    /*
+   
 public static void main(String[] argv){
         MetodosPruebas MP =  new MetodosPruebas();
         MP.Resolucion();
     }
-*/
+
 }
 

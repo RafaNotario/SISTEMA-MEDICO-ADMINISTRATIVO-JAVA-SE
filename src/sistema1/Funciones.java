@@ -915,11 +915,82 @@ public boolean ValidaSanguineoBool(String id) {
         }
     return bad;
     }
+//METODO PARA AGREGAR LA PRIMER COLUMNA COMO ENCABEZADO
+public String[][] insertar_col(String[][] matriz) {
+        int colum = matriz[0].length;
+        //System.out.println("Columnas: "+colum);
+        int fil = matriz.length;
+      //System.out.println("Filas: "+fil);
+  String[][] matriz2 = null;
+        if(fil > 1){
+         //Nuevas dimensiones para la matriz
+       matriz2 = new String[matriz.length][matriz[0].length+1];
+        //Insertamos lo que había antes de esta columna
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = 1;j < matriz2[0].length; j++) {
+                matriz2[i][j] = matriz[i][j-1];
+            }
+        }
+        //Insertamos la columna en la columna 0
+//        for (int i=0; i<matriz2.length; i++) {
+            matriz2[0][0]="---";
+  //      }
+            matriz2[1][0]="---";
+            matriz2[2][0]="---";
+            matriz2[3][0]="Hemoglobina";
+            matriz2[4][0]="hb CM";
+            matriz2[5][0]="Plaquetas";
+            matriz2[6][0]="Leucocitos";
+            matriz2[7][0]="Neutrofilos";
+            matriz2[8][0]="Linfocitos";
+            matriz2[9][0]="Hematocrito";
+            
+            matriz2[10][0]="Glucosa";
+            matriz2[11][0]="Urea";
+            matriz2[12][0]="Creatinina";
+            matriz2[13][0]="Ac Urico";
+            matriz2[14][0]="Colesterol";
+            matriz2[15][0]="Trigliceridos";
+            matriz2[16][0]="HbGlucosilada";
+
+            matriz2[17][0]="Bilirrubinas";
+            matriz2[18][0]="AST";
+            matriz2[19][0]="ALT";
+            matriz2[20][0]="DHL";
+            matriz2[21][0]="TP";
+            matriz2[22][0]="TTP";
+            matriz2[23][0]="CPK";
+            
+            matriz2[24][0]="F. Reumatoide";
+            matriz2[25][0]="TSH";
+            matriz2[26][0]="T4 Libre";
+            matriz2[27][0]="T3 Libre";
+            matriz2[28][0]="Notas";
+        }
+        else{
+             matriz2= new String[1][1];
+            matriz2[0][0]="NO DATA";
+        }
+
+return matriz2;
+    }
 
 public static void main(String[] args) throws IOException{
+     String[][] matriz = new String[25][3],mat = null;
     Funciones fn = new Funciones();
- 
-    System.out.println("existe examen sanguneo: "+fn.ValidaSanguineoBool("1"));
+ for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                matriz[i][j] = "ESPE"; 
+            }
+        }
+ mat = fn.insertar_col(matriz);
+         for (int x = 0; x < mat.length; x++) { // muestro matriz de prueba desordenada
+            System.out.println();
+            for (int y = 0; y < mat[0].length; y++) {//col+1
+                System.out.print(mat[x][y] + " ");
+            }
+        }
+//    System.out.println("existe examen sanguneo: "+fn.ValidaSanguineoBool("1"));
   // System.out.println("diferencia"+fn.getDifference(amountOne, amountTwo));
  //System.out.println(fn.calcImc("70","171"));
      //monts = getDiffDates(fn.StringDate(array[0].replace("-", "/") ),fn.StringDate(fn.setDateActual().replace("-", "/")),0)

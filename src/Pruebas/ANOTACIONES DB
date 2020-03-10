@@ -1,5 +1,5 @@
 //RESPALDO DE BASE DE DATOS
-    mysqldump -u root -p --routines=TRUE db_doctores | gzip > respDbDoctoresHoraCita.sql.gz
+    mysqldump -u root -p --routines=TRUE admindcr | gzip > respDCR1.sql.gz
 
 //CARGAR DB EN MYSQL 
     mysql -u root -p admin_tff < respadmin_tff.sql
@@ -100,7 +100,7 @@ ALTER TABLE `t_consultas` ADD `costo` DECIMAL(6,1) NOT NULL DEFAULT '500' AFTER 
 
 >ALTER TABLE t_cobros DROP FOREIGN KEY t_cobros_ibfk_1;//eliminamos nombre del CONSTRAINT
 
-//CREAR TABLA EXAM_SANGUINEOS
+//CREAR TABLA EXAM_SANGUINEOS PARA V2 DE SISTEMA CON EXCEL
 CREATE TABLE sanguineos(
     id_sanguineo INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     no_exped DOUBLE,

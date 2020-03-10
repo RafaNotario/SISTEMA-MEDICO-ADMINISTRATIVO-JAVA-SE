@@ -58,7 +58,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
         initComponents();
         mostrarTabla1("");
         ponLaAyuda();
-        BtnHelp.setVisible(false);
+        //BtnHelp.setVisible(false);
         //jButton3.setVisible(false);
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 14));
 //        jPanelAltaPacientes.setVisible(false);
@@ -81,20 +81,19 @@ public class RespInicioFrame extends javax.swing.JPanel {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPanelBarraMenu = new javax.swing.JPanel();
-        Paciente = new javax.swing.JLabel();
-        RECETAnew = new javax.swing.JLabel();
-        Chat = new javax.swing.JLabel();
-        ALTASmtc = new javax.swing.JLabel();
-        jLabel2CDxFC = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        Pruebas = new javax.swing.JLabel();
-        jLabCobrosConsul = new javax.swing.JLabel();
-        lblHelp = new javax.swing.JLabel();
         BtnHelp = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        txtValoracion = new javax.swing.JLabel();
-        Heredofamiliar = new javax.swing.JLabel();
-        LabSanguineos = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jPanTabla = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         txtConsul = new javax.swing.JTextField();
@@ -139,167 +138,136 @@ public class RespInicioFrame extends javax.swing.JPanel {
         jPanelBarraMenu.setPreferredSize(new java.awt.Dimension(1366, 50));
         jPanelBarraMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Paciente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/addBN.png"))); // NOI18N
-        Paciente.setToolTipText("Nuevo paciente o ver informacion de uno existente.");
-        Paciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Paciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Paciente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PacienteMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(Paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 60, 50));
-
-        RECETAnew.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        RECETAnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consultaBN.png"))); // NOI18N
-        RECETAnew.setToolTipText("Realizar una nueva consulta medica.");
-        RECETAnew.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        RECETAnew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        RECETAnew.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RECETAnewMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(RECETAnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 60, 50));
-
-        Chat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Chat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/chatBN.png"))); // NOI18N
-        Chat.setToolTipText("Muestra ventana de chat del programa.");
-        Chat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Chat.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ChatMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(Chat, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 60, 50));
-
-        ALTASmtc.setBackground(new java.awt.Color(255, 204, 153));
-        ALTASmtc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        ALTASmtc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ALTASmtc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/optionsBN.png"))); // NOI18N
-        ALTASmtc.setToolTipText("Agregar nuevas opciones de Medicamento, tratamiento, estado civil y familiares.");
-        ALTASmtc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ALTASmtc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ALTASmtcMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(ALTASmtc, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 60, 50));
-
-        jLabel2CDxFC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2CDxFC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2CDxFC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/citaBN.png"))); // NOI18N
-        jLabel2CDxFC.setToolTipText("Consultar las proximas citas por dia.");
-        jLabel2CDxFC.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel2CDxFC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2CDxFCMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(jLabel2CDxFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 60, 50));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
-        jLabel1.setToolTipText("Recargar la lista de pacientes.");
-        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 60, 50));
-
-        Pruebas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Pruebas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Pruebas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clearBN.png"))); // NOI18N
-        Pruebas.setToolTipText("Limpiar ventana.");
-        Pruebas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Pruebas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PruebasMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(Pruebas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 60, 50));
-
-        jLabCobrosConsul.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabCobrosConsul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabCobrosConsul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/payMethod.png"))); // NOI18N
-        jLabCobrosConsul.setToolTipText("Realizar o consultar los cobros pendientes o realizados.");
-        jLabCobrosConsul.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabCobrosConsul.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabCobrosConsulMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(jLabCobrosConsul, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 60, 50));
-
-        lblHelp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblHelp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/helpBN.png"))); // NOI18N
-        lblHelp.setToolTipText("Ventana de ayuda del sistema.");
-        lblHelp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblHelp.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblHelpMouseClicked(evt);
-            }
-        });
-        jPanelBarraMenu.add(lblHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 60, 50));
-
-        BtnHelp.setText("HELP");
+        BtnHelp.setBackground(new java.awt.Color(255, 255, 255));
+        BtnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/helpBN.png"))); // NOI18N
+        BtnHelp.setToolTipText("Muestra la ventana de ayuda.");
         BtnHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnHelpActionPerformed(evt);
             }
         });
-        jPanelBarraMenu.add(BtnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jPanelBarraMenu.add(BtnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 60, 50));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exitBN.png"))); // NOI18N
-        jLabel3.setToolTipText("Salir del sistema.");
-        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/modifyBN.png"))); // NOI18N
+        jButton1.setToolTipText("Crea o visualiza una nota medica.");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanelBarraMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 60, 50));
+        jPanelBarraMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 60, 50));
 
-        txtValoracion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        txtValoracion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtValoracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/stethoscope.png"))); // NOI18N
-        txtValoracion.setToolTipText("Valoración del paciente");
-        txtValoracion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtValoracion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtValoracionMouseClicked(evt);
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/stethoscope.png"))); // NOI18N
+        jButton2.setToolTipText("Muestra antecedente heredofamiliar del paciente.");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanelBarraMenu.add(txtValoracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 60, 50));
+        jPanelBarraMenu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 60, 50));
 
-        Heredofamiliar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Heredofamiliar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Heredofamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/modifyBN.png"))); // NOI18N
-        Heredofamiliar.setToolTipText("Consultar, modificar o ver Antecedentes Heredo Familiares de algun paciente.");
-        Heredofamiliar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Heredofamiliar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HeredofamiliarMouseClicked(evt);
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exam_blood32px.png"))); // NOI18N
+        jButton3.setToolTipText("Guarda o visualiza resultado de analisis sanguineos.");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
-        jPanelBarraMenu.add(Heredofamiliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 60, 50));
+        jPanelBarraMenu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 60, 50));
 
-        LabSanguineos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        LabSanguineos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabSanguineos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exam_blood32px.png"))); // NOI18N
-        LabSanguineos.setToolTipText("ANALISIS SANGUINEOS");
-        LabSanguineos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        LabSanguineos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LabSanguineosMouseClicked(evt);
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/payMethod.png"))); // NOI18N
+        jButton4.setToolTipText("Realizar o consultar los cobros pendientes o realizados.");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
-        jPanelBarraMenu.add(LabSanguineos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 60, 50));
+        jPanelBarraMenu.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 60, 50));
+
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        jButton5.setToolTipText("Recargar la lista de pacientes.");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanelBarraMenu.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 60, 50));
+
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/addBN.png"))); // NOI18N
+        jButton6.setToolTipText("Nuevo paciente o ver informacion de uno existente.");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanelBarraMenu.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 60, 50));
+
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/citaBN.png"))); // NOI18N
+        jButton7.setToolTipText("Consultar las proximas citas por dia.");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanelBarraMenu.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 60, 50));
+
+        jButton8.setBackground(new java.awt.Color(255, 255, 255));
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consultaBN.png"))); // NOI18N
+        jButton8.setToolTipText("Realizar una nueva consulta medica.");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanelBarraMenu.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 60, 50));
+
+        jButton9.setBackground(new java.awt.Color(255, 255, 255));
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/optionsBN.png"))); // NOI18N
+        jButton9.setToolTipText("Agregar nuevas opciones de Medicamento, tratamiento, estado civil y familiares.");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanelBarraMenu.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 60, 50));
+
+        jButton10.setBackground(new java.awt.Color(255, 255, 255));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/chatBN.png"))); // NOI18N
+        jButton10.setToolTipText("Muestra ventana de chat del programa.");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanelBarraMenu.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 60, 50));
+
+        jButton11.setBackground(new java.awt.Color(255, 255, 255));
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clearBN.png"))); // NOI18N
+        jButton11.setToolTipText("Limpiar ventana.");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanelBarraMenu.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 60, 50));
+
+        jButton12.setBackground(new java.awt.Color(255, 255, 255));
+        jButton12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exitBN.png"))); // NOI18N
+        jButton12.setToolTipText("Salir del sistema.");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanelBarraMenu.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 60, 50));
 
         add(jPanelBarraMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -374,12 +342,280 @@ public class RespInicioFrame extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtConsulKeyPressed
 
-    private void PacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PacienteMouseClicked
+    private void HistorConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorConsulActionPerformed
+        int fila = jTable1.getSelectedRow();
+        String var="";
+        
+        if(fila >= 0)
+        {
+            limpiar(jPanTrabajo);
+            jPanel1.setVisible(true);
+            jPanel2.setVisible(true);
+        
+            jPanTrabajo.setLayout(new GridLayout(1,2));
+            jPanTrabajo.add(jPanel1);
+            jPanTrabajo.add(jPanel2);
+            jPanTrabajo.validate();
+            jPanTrabajo.setVisible(true);
+            jPanTrabajo.setEnabled(true);
+            
+            var=jTable1.getValueAt(fila, 0).toString();
+            HC.setEnabled(true);
+            HC.setVisible(true);
+            
+            limpiar(jPanel1);
+            
+            jPanel1.setLayout(new GridLayout(1,1));
+            jPanel1.add(HC);
+            jPanel1.validate();
+            jPanel1.setVisible(true);
+            jPanel1.setEnabled(true);            
+            HC.txtExped.setText(var);
+            HC.txtNombre.setText(jTable1.getValueAt(fila, 1).toString());
+            HC.txtApPater.setText(jTable1.getValueAt(fila, 2).toString());
+        }else{
+            JOptionPane.showMessageDialog(null,"Seleccione un paciente.");
+        }
+    }//GEN-LAST:event_HistorConsulActionPerformed
+
+    private void TodasConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodasConsulActionPerformed
+        int fila = jTable1.getSelectedRow();
+        String var="";
+        
+        if(fila >= 0 && jPanel1.isVisible())
+        {
+            limpiar(jPanel1);
+            var=jTable1.getValueAt(fila, 0).toString();
+            HC.setEnabled(true);
+            HC.setVisible(true);
+            jPanel1.setLayout(new GridLayout(1,1));
+            jPanel1.add(HC);
+            jPanel1.validate();
+            jPanel1.setVisible(true);
+            jPanel1.setEnabled(true);
+            
+            HC.txtExped.setText("/");
+            HC.txtNombre.setText("/");
+            HC.txtApPater.setText("/");
+        }else{
+            JOptionPane.showMessageDialog(null,"Seleccione un paciente.");
+        }
+    }//GEN-LAST:event_TodasConsulActionPerformed
+
+    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
+        if (evt.getClickCount() > 1)
+           {
+           Connection cn = con2.conexion();
+           String[] arr = null;
+           String param="",sex="";
+           limpiar(jPanTrabajo);
+           jPanel1.setVisible(true);
+//            jPanel2.setVisible(true);
+        
+            jPanTrabajo.setLayout(new GridLayout(1,1));
+            jPanTrabajo.add(jPanel1);
+//            jPanTrabajo.add(jPanel2);
+            jPanTrabajo.validate();
+            jPanTrabajo.setVisible(true);
+            jPanTrabajo.setEnabled(true);
+
+            int fila = jTable1.getSelectedRow();
+            String val = jTable1.getValueAt(fila,0).toString();
+            
+            String sql = "SELECT * FROM t_personales WHERE expediente = '"+val+"'";
+            Statement st = null;
+            ResultSet rs = null;
+            
+            limpiar(jPanel1);
+            
+            AP.setVisible(true);
+            AP.jPanelHConsultas.setVisible(true);
+            AP.jLabel20.setVisible(true);
+            fn.limpiar(AP.jPaneDatosMedicine);
+            
+            jPanel1.setLayout(new GridLayout(1,1));
+            jPanel1.add(AP);
+            jPanel1.validate();
+            jPanel1.setVisible(true);
+            jPanel1.setEnabled(true);
+
+            try {
+                st = cn.createStatement();
+                rs = st.executeQuery(sql);
+                while(rs.next())
+                {
+                    param=rs.getString(1);
+                        AP.txtExped.setText(param);
+//                        JOptionPane.showMessageDialog(null, "FECHA"+rs.getDate(2), sql, HEIGHT);
+                        AP.jDateChooser1.setDate(rs.getDate(2));
+                        AP.txtNombre.setText(rs.getString(3));
+                        AP.txtApes.setText(rs.getString(4));
+                        //AP.txtEdad.setText(rs.getString(5));
+                        AP.jDateChooser3.setDate(rs.getDate(5));
+                        arr = fn.DevuelveID(0, rs.getString((6)), 1);
+                        AP.jComboBox1.setSelectedItem(arr[1]);
+                        AP.txtCalle.setText(rs.getString(7));
+                        AP.txtpoblacion.setText(rs.getString(8));
+                        sex = rs.getString(9);
+                        
+                        if(sex.equals("F")){
+                            AP.jRadioFeminazi.setSelected(true);
+                            AP.jPanelHConsultas.setVisible(true);
+                        }else{
+                            AP.jRadioMen.setSelected(true);
+                            AP.jPanelHConsultas.setVisible(false);
+                        } 
+                        AP.txtCel.setText(rs.getString(10));
+                        
+                        AP.txtGestas.setText(rs.getString(11));
+                        AP.txtPartos.setText(rs.getString(12));
+                        AP.txtAbortos.setText(rs.getString(13));
+                        AP.txtCesareas.setText(rs.getString(14));
+
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(RespInicioFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{               
+//             System.out.println("cierra conexion a la base de datos");    
+             try {        
+                 if(st != null) st.close();                
+                 if(cn !=null) cn.close();
+             } catch (SQLException ex) {
+                 System.err.println(ex.getMessage()); 
+//                 System.out.println("Error al cerrar la conexon");
+             }
+         }       
+            AP.mostrarTabla2(param);
+           }
+    }//GEN-LAST:event_jTable1MousePressed
+
+    private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnHelpActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int fila = jTable1.getSelectedRow();
+        String var="";        
+        if(fila >= 0)
+        {
+        var=jTable1.getValueAt(fila, 0).toString();
+        diez = new JPanelHistoriaClinica(Integer.parseInt(var));
+        
+        if(fn.ValidaHeredofamiliarBool(var))
+            diez.jLabel16.setVisible(false);        
+        diez.txtexpediente.setText(var);
+        limpiar(jPanTrabajo);//limpiamos pane principal
+        diez.llenacombo();
+        diez.cargaDatos();
+ 
+            //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());
+        
+        diez.setVisible(true);
+        jPanTrabajo.setLayout(new GridLayout(1,1));
+        jPanTrabajo.add(diez);
+        jPanTrabajo.validate();
+        jPanTrabajo.setVisible(true);
+        jPanTrabajo.setEnabled(true);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "No selecciono nada");
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        int fila = jTable1.getSelectedRow();////txtValoracion
+        String var="";        
+        if(fila >= 0)
+        {
+        var=jTable1.getValueAt(fila, 0).toString();
+        jPanValoracion = new Valoracion(Integer.parseInt(var));     
+//        if(fn.ValidaHeredofamiliarBool(var))
+  //          diez.jLabel16.setVisible(false);           
+        //diez.txtexpediente.setText(var);
+        limpiar(jPanTrabajo);//limpiamos pane principal
+        //diez.cargaDatos();
+        //diez.llenacombo();
+            //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());     
+        jPanValoracion.setVisible(true);
+        jPanTrabajo.setLayout(new GridLayout(1,1));
+        jPanTrabajo.add(jPanValoracion);
+        jPanTrabajo.validate();
+        jPanTrabajo.setVisible(true);
+        jPanTrabajo.setEnabled(true);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "No selecciono nada");
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int fila = jTable1.getSelectedRow();////txtValoracion
+        String var="";        
+        if(fila >= 0)
+        {
+        var=jTable1.getValueAt(fila, 0).toString();
+        //System.out.println("Param: "+var);
+        sanguineos = new ExamSanguineos(Integer.parseInt(var));     
+//        if(fn.ValidaHeredofamiliarBool(var))
+  //          diez.jLabel16.setVisible(false);           
+        //diez.txtexpediente.setText(var);
+        limpiar(jPanTrabajo);//limpiamos pane principal
+        //diez.cargaDatos();
+        //diez.llenacombo();
+            //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());     
+        sanguineos.setVisible(true);
+        jPanTrabajo.setLayout(new GridLayout(1,1));
+        jPanTrabajo.add(sanguineos);
+        jPanTrabajo.validate();
+        jPanTrabajo.setVisible(true);
+        jPanTrabajo.setEnabled(true);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "No selecciono nada");
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    
+    int fila = jTable1.getSelectedRow();
+    String var="";        
+    if(fila >= 0)
+    {
+        var=jTable1.getValueAt(fila, 0).toString();
+//        diez = new JPanelHistoriaClinica(Integer.parseInt(var));
+//        diez.txtexpediente.setText(var);
+        Cobros.txtBuscar.setText(var);
+      //  Cobros.JRBExped.setSelected(true);
+        limpiar(jPanTrabajo);
+//diez.cargaDatos();
+//diez.llenacombo();
+//diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());
+        Cobros.setVisible(true);
+        limpiar(Cobros.PanelMedicine);
+        jPanTrabajo.setLayout(new GridLayout(1,1));
+        jPanTrabajo.add(Cobros);
+        jPanTrabajo.validate();
+        jPanTrabajo.setVisible(true);
+        jPanTrabajo.setEnabled(true);
+    }else
+        JOptionPane.showMessageDialog(null, "No selecciono nada");
+    
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        txtConsul.setText("");
+        atributo = "nombre";
+        mostrarTabla1("");
+        jRadioApellido.setSelected(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         Connection cn = con2.conexion();    
         int fila = jTable1.getSelectedRow();
         String param = "",sex="";
         
-        if(evt.getClickCount() > 1){
+        if(evt.ACTION_PERFORMED > 1){
             limpiar(jPanTrabajo);
             jPanel1.setVisible(true);
         //    jPanel2.setVisible(true);
@@ -417,7 +653,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
             jRadioApellido.setSelected(false);
         }
                     
-            if(fila >= 0 && evt.getClickCount() == 1)
+            if(fila >= 0 && evt.ACTION_PERFORMED == 1)
             {
 //codigo para preparar el paneltrabajo
                 String[] var=null;
@@ -542,9 +778,33 @@ public class RespInicioFrame extends javax.swing.JPanel {
             jPanel1.setVisible(true);
             jPanel1.setEnabled(true);  
             }
-    }//GEN-LAST:event_PacienteMouseClicked
 
-    private void RECETAnewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RECETAnewMouseClicked
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        uno.setVisible(true);
+        
+        limpiar(jPanTrabajo);
+        jPanel1.setVisible(true);
+        limpiar(jPanel1);
+        jPanel2.setVisible(true);
+
+        jPanel1.setLayout(new GridLayout(1,1));
+        jPanel1.add(uno);
+        jPanel1.validate();
+        jPanel1.setVisible(true);
+        jPanel1.setEnabled(true);
+        
+        jPanTrabajo.setLayout(new GridLayout(1,2));
+        jPanTrabajo.add(jPanel1);
+        jPanTrabajo.add(jPanel2);
+        jPanTrabajo.validate();
+        jPanTrabajo.setVisible(true);
+        jPanTrabajo.setEnabled(true);
+
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         int fila = jTable1.getSelectedRow();
         if(fila >= 0)// && (!jPanel2.isVisible()
         {
@@ -568,15 +828,10 @@ public class RespInicioFrame extends javax.swing.JPanel {
             ocho.limpiaCampos();
         }else
             JOptionPane.showMessageDialog(null,"Seleccione un paciente por favor.");
-    }//GEN-LAST:event_RECETAnewMouseClicked
 
-    private void ChatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChatMouseClicked
-        LectorEscritor Le = new LectorEscritor();
-        Le.setEnabled(true);
-        Le.setVisible(true);
-    }//GEN-LAST:event_ChatMouseClicked
+    }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void ALTASmtcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ALTASmtcMouseClicked
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         AMedicine.setVisible(true);
         
         if(jPanel1.isVisible() || jPanel2.isVisible())
@@ -614,62 +869,16 @@ public class RespInicioFrame extends javax.swing.JPanel {
         jPanel460x640P.validate();
         jPanel460x640P.setVisible(true);
         jPanel460x640P.setEnabled(true);
-*/// TODO add your handling code here:
-    }//GEN-LAST:event_ALTASmtcMouseClicked
+*/
+    }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jLabel2CDxFCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2CDxFCMouseClicked
-        uno.setVisible(true);
-        
-        limpiar(jPanTrabajo);
-        jPanel1.setVisible(true);
-        limpiar(jPanel1);
-        jPanel2.setVisible(true);
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        LectorEscritor Le = new LectorEscritor();
+        Le.setEnabled(true);
+        Le.setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
-        jPanel1.setLayout(new GridLayout(1,1));
-        jPanel1.add(uno);
-        jPanel1.validate();
-        jPanel1.setVisible(true);
-        jPanel1.setEnabled(true);
-        
-        jPanTrabajo.setLayout(new GridLayout(1,2));
-        jPanTrabajo.add(jPanel1);
-        jPanTrabajo.add(jPanel2);
-        jPanTrabajo.validate();
-        jPanTrabajo.setVisible(true);
-        jPanTrabajo.setEnabled(true);
-        
-    }//GEN-LAST:event_jLabel2CDxFCMouseClicked
-
-    private void HeredofamiliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeredofamiliarMouseClicked
-        int fila = jTable1.getSelectedRow();
-        String var="";        
-        if(fila >= 0)
-        {
-        var=jTable1.getValueAt(fila, 0).toString();
-        diez = new JPanelHistoriaClinica(Integer.parseInt(var));
-        
-        if(fn.ValidaHeredofamiliarBool(var))
-            diez.jLabel16.setVisible(false);        
-        diez.txtexpediente.setText(var);
-        limpiar(jPanTrabajo);//limpiamos pane principal
-        diez.llenacombo();
-        diez.cargaDatos();
- 
-            //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());
-        
-        diez.setVisible(true);
-        jPanTrabajo.setLayout(new GridLayout(1,1));
-        jPanTrabajo.add(diez);
-        jPanTrabajo.validate();
-        jPanTrabajo.setVisible(true);
-        jPanTrabajo.setEnabled(true);
-        }
-        else
-            JOptionPane.showMessageDialog(null, "No selecciono nada");
-        
-    }//GEN-LAST:event_HeredofamiliarMouseClicked
-
-    private void PruebasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PruebasMouseClicked
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         limpiar(jPanTrabajo);
     //    limpiar(jPanHeredo);
         limpiar(jPanel1);
@@ -690,252 +899,11 @@ public class RespInicioFrame extends javax.swing.JPanel {
         atributo = "nombre";
         mostrarTabla1("");
         jRadioApellido.setSelected(false);
-        
-    }//GEN-LAST:event_PruebasMouseClicked
+    }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-    //    jRadioApellido.isSelected();
-        txtConsul.setText("");
-        atributo = "nombre";
-        mostrarTabla1("");
-        jRadioApellido.setSelected(false);
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void HistorConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorConsulActionPerformed
-        int fila = jTable1.getSelectedRow();
-        String var="";
-        
-        if(fila >= 0)
-        {
-            limpiar(jPanTrabajo);
-            jPanel1.setVisible(true);
-            jPanel2.setVisible(true);
-        
-            jPanTrabajo.setLayout(new GridLayout(1,2));
-            jPanTrabajo.add(jPanel1);
-            jPanTrabajo.add(jPanel2);
-            jPanTrabajo.validate();
-            jPanTrabajo.setVisible(true);
-            jPanTrabajo.setEnabled(true);
-            
-            var=jTable1.getValueAt(fila, 0).toString();
-            HC.setEnabled(true);
-            HC.setVisible(true);
-            
-            limpiar(jPanel1);
-            
-            jPanel1.setLayout(new GridLayout(1,1));
-            jPanel1.add(HC);
-            jPanel1.validate();
-            jPanel1.setVisible(true);
-            jPanel1.setEnabled(true);            
-            HC.txtExped.setText(var);
-            HC.txtNombre.setText(jTable1.getValueAt(fila, 1).toString());
-            HC.txtApPater.setText(jTable1.getValueAt(fila, 2).toString());
-        }else{
-            JOptionPane.showMessageDialog(null,"Seleccione un paciente.");
-        }
-    }//GEN-LAST:event_HistorConsulActionPerformed
-
-    private void TodasConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodasConsulActionPerformed
-        int fila = jTable1.getSelectedRow();
-        String var="";
-        
-        if(fila >= 0 && jPanel1.isVisible())
-        {
-            limpiar(jPanel1);
-            var=jTable1.getValueAt(fila, 0).toString();
-            HC.setEnabled(true);
-            HC.setVisible(true);
-            jPanel1.setLayout(new GridLayout(1,1));
-            jPanel1.add(HC);
-            jPanel1.validate();
-            jPanel1.setVisible(true);
-            jPanel1.setEnabled(true);
-            
-            HC.txtExped.setText("/");
-            HC.txtNombre.setText("/");
-            HC.txtApPater.setText("/");
-        }else{
-            JOptionPane.showMessageDialog(null,"Seleccione un paciente.");
-        }
-    }//GEN-LAST:event_TodasConsulActionPerformed
-
-    private void jLabCobrosConsulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabCobrosConsulMouseClicked
-    int fila = jTable1.getSelectedRow();
-    String var="";        
-    if(fila >= 0)
-    {
-        var=jTable1.getValueAt(fila, 0).toString();
-//        diez = new JPanelHistoriaClinica(Integer.parseInt(var));
-//        diez.txtexpediente.setText(var);
-        Cobros.txtBuscar.setText(var);
-      //  Cobros.JRBExped.setSelected(true);
-        limpiar(jPanTrabajo);
-//diez.cargaDatos();
-//diez.llenacombo();
-//diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());
-        Cobros.setVisible(true);
-        limpiar(Cobros.PanelMedicine);
-        jPanTrabajo.setLayout(new GridLayout(1,1));
-        jPanTrabajo.add(Cobros);
-        jPanTrabajo.validate();
-        jPanTrabajo.setVisible(true);
-        jPanTrabajo.setEnabled(true);
-    }else
-        JOptionPane.showMessageDialog(null, "No selecciono nada");
-    }//GEN-LAST:event_jLabCobrosConsulMouseClicked
-
-    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
-        if (evt.getClickCount() > 1)
-           {
-           Connection cn = con2.conexion();
-           String[] arr = null;
-           String param="",sex="";
-           limpiar(jPanTrabajo);
-           jPanel1.setVisible(true);
-//            jPanel2.setVisible(true);
-        
-            jPanTrabajo.setLayout(new GridLayout(1,1));
-            jPanTrabajo.add(jPanel1);
-//            jPanTrabajo.add(jPanel2);
-            jPanTrabajo.validate();
-            jPanTrabajo.setVisible(true);
-            jPanTrabajo.setEnabled(true);
-
-            int fila = jTable1.getSelectedRow();
-            String val = jTable1.getValueAt(fila,0).toString();
-            
-            String sql = "SELECT * FROM t_personales WHERE expediente = '"+val+"'";
-            Statement st = null;
-            ResultSet rs = null;
-            
-            limpiar(jPanel1);
-            
-            AP.setVisible(true);
-            AP.jPanelHConsultas.setVisible(true);
-            AP.jLabel20.setVisible(true);
-            fn.limpiar(AP.jPaneDatosMedicine);
-            
-            jPanel1.setLayout(new GridLayout(1,1));
-            jPanel1.add(AP);
-            jPanel1.validate();
-            jPanel1.setVisible(true);
-            jPanel1.setEnabled(true);
-
-            try {
-                st = cn.createStatement();
-                rs = st.executeQuery(sql);
-                while(rs.next())
-                {
-                    param=rs.getString(1);
-                        AP.txtExped.setText(param);
-//                        JOptionPane.showMessageDialog(null, "FECHA"+rs.getDate(2), sql, HEIGHT);
-                        AP.jDateChooser1.setDate(rs.getDate(2));
-                        AP.txtNombre.setText(rs.getString(3));
-                        AP.txtApes.setText(rs.getString(4));
-                        //AP.txtEdad.setText(rs.getString(5));
-                        AP.jDateChooser3.setDate(rs.getDate(5));
-                        arr = fn.DevuelveID(0, rs.getString((6)), 1);
-                        AP.jComboBox1.setSelectedItem(arr[1]);
-                        AP.txtCalle.setText(rs.getString(7));
-                        AP.txtpoblacion.setText(rs.getString(8));
-                        sex = rs.getString(9);
-                        
-                        if(sex.equals("F")){
-                            AP.jRadioFeminazi.setSelected(true);
-                            AP.jPanelHConsultas.setVisible(true);
-                        }else{
-                            AP.jRadioMen.setSelected(true);
-                            AP.jPanelHConsultas.setVisible(false);
-                        } 
-                        AP.txtCel.setText(rs.getString(10));
-                        
-                        AP.txtGestas.setText(rs.getString(11));
-                        AP.txtPartos.setText(rs.getString(12));
-                        AP.txtAbortos.setText(rs.getString(13));
-                        AP.txtCesareas.setText(rs.getString(14));
-
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(RespInicioFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }finally{               
-//             System.out.println("cierra conexion a la base de datos");    
-             try {        
-                 if(st != null) st.close();                
-                 if(cn !=null) cn.close();
-             } catch (SQLException ex) {
-                 System.err.println(ex.getMessage()); 
-//                 System.out.println("Error al cerrar la conexon");
-             }
-         }       
-            AP.mostrarTabla2(param);
-           }
-    }//GEN-LAST:event_jTable1MousePressed
-
-    private void lblHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelpMouseClicked
-        BtnHelp.doClick();
-    }//GEN-LAST:event_lblHelpMouseClicked
-
-    private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnHelpActionPerformed
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         System.exit(0);            
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void txtValoracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtValoracionMouseClicked
-        int fila = jTable1.getSelectedRow();////txtValoracion
-        String var="";        
-        if(fila >= 0)
-        {
-        var=jTable1.getValueAt(fila, 0).toString();
-        jPanValoracion = new Valoracion(Integer.parseInt(var));     
-//        if(fn.ValidaHeredofamiliarBool(var))
-  //          diez.jLabel16.setVisible(false);           
-        //diez.txtexpediente.setText(var);
-        limpiar(jPanTrabajo);//limpiamos pane principal
-        //diez.cargaDatos();
-        //diez.llenacombo();
-            //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());     
-        jPanValoracion.setVisible(true);
-        jPanTrabajo.setLayout(new GridLayout(1,1));
-        jPanTrabajo.add(jPanValoracion);
-        jPanTrabajo.validate();
-        jPanTrabajo.setVisible(true);
-        jPanTrabajo.setEnabled(true);
-        }
-        else
-            JOptionPane.showMessageDialog(null, "No selecciono nada");
-        
-    }//GEN-LAST:event_txtValoracionMouseClicked
-
-    private void LabSanguineosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabSanguineosMouseClicked
-        int fila = jTable1.getSelectedRow();////txtValoracion
-        String var="";        
-        if(fila >= 0)
-        {
-        var=jTable1.getValueAt(fila, 0).toString();
-        System.out.println("Param: "+var);
-        sanguineos = new ExamSanguineos(Integer.parseInt(var));     
-//        if(fn.ValidaHeredofamiliarBool(var))
-  //          diez.jLabel16.setVisible(false);           
-        //diez.txtexpediente.setText(var);
-        limpiar(jPanTrabajo);//limpiamos pane principal
-        //diez.cargaDatos();
-        //diez.llenacombo();
-            //diez.txtexpediente.setText(jTable1.getValueAt(fila, 0).toString());     
-        sanguineos.setVisible(true);
-        jPanTrabajo.setLayout(new GridLayout(1,1));
-        jPanTrabajo.add(sanguineos);
-        jPanTrabajo.validate();
-        jPanTrabajo.setVisible(true);
-        jPanTrabajo.setEnabled(true);
-        }
-        else
-            JOptionPane.showMessageDialog(null, "No selecciono nada");
-    }//GEN-LAST:event_LabSanguineosMouseClicked
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     void mostrarTabla1(String var){
         int band = 0;
@@ -1206,21 +1174,22 @@ public class RespInicioFrame extends javax.swing.JPanel {
     }
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ALTASmtc;
     public javax.swing.JButton BtnHelp;
-    private javax.swing.JLabel Chat;
-    private javax.swing.JLabel Heredofamiliar;
     private javax.swing.JMenuItem HistorConsul;
-    private javax.swing.JLabel LabSanguineos;
-    public javax.swing.JLabel Paciente;
-    private javax.swing.JLabel Pruebas;
-    public javax.swing.JLabel RECETAnew;
     private javax.swing.JMenuItem TodasConsul;
-    private javax.swing.JLabel jLabCobrosConsul;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2CDxFC;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -1235,9 +1204,7 @@ public class RespInicioFrame extends javax.swing.JPanel {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblHelp;
     private javax.swing.JTextField txtConsul;
-    private javax.swing.JLabel txtValoracion;
     // End of variables declaration//GEN-END:variables
 }
 
