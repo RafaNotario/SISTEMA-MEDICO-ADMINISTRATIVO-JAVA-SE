@@ -5,12 +5,14 @@
  */
 package Reportes;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -32,7 +34,8 @@ public class Reportes {
     
     public void ReportePaciente(String param){
     Connection cn = con2.conexion();
-    String  var = "C:/SistemaMedico1366-768/src/Reportes/pacienteInfo.jasper";
+    //imprimeRuta();
+    String  var = "C://SistemaMedico1366-768/src/Reportes/pacienteInfo.jasper";
 //C:\Sistema Medico\SistemaMedico\src\Reportes
 
     JasperReport reporte = null;
@@ -64,8 +67,10 @@ public class Reportes {
     
     public void RecetaParam(String var){
         Connection cn = con2.conexion();
-        String  ruta = "C:/SistemaMedico1366-768/src/Reportes/reportParameter.jasper";
-//        String  ruta = "C:/Sistema Medico1920/SistemaMedico1920-1080/src/Reportes/ReportParameter.jasper";
+       // imprimeRuta(); RUTA PARA MAC
+     //   String  ruta = "/Users/JOGUA/Applications/SistemaMedico1366-768/src/Reportes/reportParameter.jasper";
+       // imprimeRuta();
+       String  ruta = "C:\\SistemaMedico1366-768/src/Reportes/ReportParameter.jasper";
         JasperReport reporte = null;
         try {
             Map parametro = new HashMap();
@@ -97,7 +102,9 @@ public class Reportes {
     //REPORTE HEREDOFAMILIAR
         public void reporteHeredofam(String param){
     Connection cn = con2.conexion();
-    String  var = "C:/SistemaMedico1366-768/src/Reportes/reportHeredoFam.jasper";
+   // imprimeRuta();
+   //ruta mac: /Users/JOGUA/Applications/SistemaMedico1366-768/src/Reportes/reportHeredoFam.jasper
+   String  var = "C://SistemaMedico1366-768/src/Reportes/reportHeredoFam.jasper";
 //C:\Sistema Medico\SistemaMedico\src\Reportes
 
     JasperReport reporte = null;
@@ -127,4 +134,14 @@ public class Reportes {
                 }
     }
     
+        public void imprimeRuta(){
+            File miDir = new File (".");
+     try {
+         JOptionPane.showMessageDialog (null,"Directorio actual: \n" + miDir.getAbsolutePath());
+         
+       }
+     catch(Exception e) {
+       e.printStackTrace();
+       }
+        }
 }
