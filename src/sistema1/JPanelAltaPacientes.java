@@ -42,7 +42,7 @@ public class JPanelAltaPacientes extends javax.swing.JPanel {
     public JPanelAltaPacientes() {
         initComponents();
         llenacombo();
-        txtExped.setText(Integer.toString(ultimoRegistro()));
+       // txtExped.setText(Integer.toString(ultimoRegistro()));
         jDateChooser1.setDate(cargafecha());
         jDateChooser3.setDate(cargafecha());
         jButton1.setVisible(false);

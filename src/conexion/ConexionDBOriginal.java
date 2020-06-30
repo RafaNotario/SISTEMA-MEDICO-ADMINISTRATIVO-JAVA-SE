@@ -1,6 +1,6 @@
 
 
-package sistema1;
+package conexion;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,21 +18,18 @@ import javax.swing.JOptionPane;
 public class ConexionDBOriginal {
 
     Connection cn;
-    Funciones fn = new Funciones();
     
     public Connection conexion() {
-    //JOptionPane.showMessageDialog(null, cargaConfig()+", tam = "+cargaConfig().length());
-        
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");//com.mysql.jdbc.Driver 
 // cn = DriverManager.getConnection("jdbc:mysql://"+cargaConfig()+"/admindcr?","root","0ehn4TNU5I");//Version de conector 5.1.24 DrNuño
 //NUEVA VERSION DE CONECTOR PA MYSQLSERVER MAMALON POWER+++ 8.0.17 FUCKK
-cn = DriverManager.getConnection("jdbc:mysql://"+cargaConfig()+"/db_doctores?useSSL=false&useTimezone=true&serverTimezone=UTC","prueba","passo12345");//prueba,,0ehn4TNU5I +cargaConfig()+
+cn = DriverManager.getConnection("jdbc:mysql://"+cargaConfig()+"/central?useSSL=false&useTimezone=true&serverTimezone=UTC","prueba","passo12345");//prueba,,0ehn4TNU5I +cargaConfig()+
   //  System.out.println("CONEXION EXITOSA ConexionDBOriginal");
         } catch (Exception ex) {
+            System.out.println("ERROR EN CONEXION");
             JOptionPane.showMessageDialog(null,ex.getMessage());
-        }
-        
+        }      
         return cn;
     }
             
@@ -40,11 +37,12 @@ cn = DriverManager.getConnection("jdbc:mysql://"+cargaConfig()+"/db_doctores?use
         throw new UnsupportedOperationException("No soportado");
     }
     
+    
     private String cargaConfig() {//List
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
-         String ruta="C:/SistemaMedico1366-768/config.txt";//2700 los 4; solo dos: 1850del, 1450traseros, 
+         String ruta="C:/central/config.txt";//2700 los 4; solo dos: 1850del, 1450traseros, 
          //List<String> contentL=new ArrayList<String>();
          String cadena="",rgresa="";  
         try {

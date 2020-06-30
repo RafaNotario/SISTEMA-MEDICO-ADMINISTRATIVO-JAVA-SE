@@ -16,13 +16,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import static org.apache.poi.hssf.usermodel.HSSFShapeTypes.Rectangle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import sistema1.renderer.table.TModel;
 /**
@@ -660,8 +658,6 @@ public ExamSanguineos(int param) {
     }//GEN-LAST:event_jLabGuardarMouseClicked
 
     private void jLabel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseClicked
-       
-        
         try{
            Thread t = new Thread(){
                public void run(){
