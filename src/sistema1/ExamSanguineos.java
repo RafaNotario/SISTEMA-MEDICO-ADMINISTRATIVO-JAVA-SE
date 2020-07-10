@@ -995,6 +995,7 @@ public ExamSanguineos(int param) {
            while(rs.next())//tenia 34 antes de quitar lavado dental  && i<=34
            {    
                txtIdExam.setText(rs.getString(1));
+               System.err.println("regresa Date :"+rs.getString(3));
                jDateChooser1.setDate(rs.getDate(3));
                 txtHemoglobina.setText(rs.getString(4));
                txtHbCm.setText(rs.getString(5));

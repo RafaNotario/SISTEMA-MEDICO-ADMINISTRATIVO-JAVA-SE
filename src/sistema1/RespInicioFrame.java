@@ -132,7 +132,6 @@ public class RespInicioFrame extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 204));
         setMinimumSize(new java.awt.Dimension(1350, 700));
         setPreferredSize(new java.awt.Dimension(1920, 975));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelBarraMenu.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBarraMenu.setPreferredSize(new java.awt.Dimension(1366, 50));
@@ -269,15 +268,11 @@ public class RespInicioFrame extends javax.swing.JPanel {
         });
         jPanelBarraMenu.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 60, 50));
 
-        add(jPanelBarraMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         jPanTabla.setBackground(new java.awt.Color(245, 244, 243));
         jPanTabla.setPreferredSize(new java.awt.Dimension(460, 658));
-        jPanTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("CONSULTAR POR:");
-        jPanTabla.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 30));
 
         txtConsul.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtConsul.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -285,11 +280,9 @@ public class RespInicioFrame extends javax.swing.JPanel {
                 txtConsulKeyPressed(evt);
             }
         });
-        jPanTabla.add(txtConsul, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, 40));
 
         jRadioApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jRadioApellido.setText("APELLIDO");
-        jPanTabla.add(jRadioApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 100, 30));
 
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -310,9 +303,34 @@ public class RespInicioFrame extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jPanTabla.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 440, 550));
-
-        add(jPanTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        javax.swing.GroupLayout jPanTablaLayout = new javax.swing.GroupLayout(jPanTabla);
+        jPanTabla.setLayout(jPanTablaLayout);
+        jPanTablaLayout.setHorizontalGroup(
+            jPanTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanTablaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jRadioApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanTablaLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(txtConsul, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanTablaLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanTablaLayout.setVerticalGroup(
+            jPanTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanTablaLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioApellido))
+                .addGap(5, 5, 5)
+                .addComponent(txtConsul, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         jPanTrabajo.setPreferredSize(new java.awt.Dimension(910, 658));
         jPanTrabajo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -326,7 +344,24 @@ public class RespInicioFrame extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanTrabajo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1, -1));
 
-        add(jPanTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelBarraMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelBarraMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtConsulKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConsulKeyPressed

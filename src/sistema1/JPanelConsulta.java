@@ -149,7 +149,7 @@ public class JPanelConsulta extends javax.swing.JPanel {
         add(txtfecConsultaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 80, 30));
 
         jComboConsulta.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jComboConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendiente", "Cita", "Al reglar" }));
+        jComboConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendiente", "Cita" }));
         jComboConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboConsultaActionPerformed(evt);

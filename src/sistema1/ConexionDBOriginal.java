@@ -25,10 +25,8 @@ public class ConexionDBOriginal {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");//com.mysql.jdbc.Driver 
-// cn = DriverManager.getConnection("jdbc:mysql://"+cargaConfig()+"/admindcr?","root","0ehn4TNU5I");//Version de conector 5.1.24 DrNuño
-//NUEVA VERSION DE CONECTOR PA MYSQLSERVER MAMALON POWER+++ 8.0.17 FUCKK
-cn = DriverManager.getConnection("jdbc:mysql://"+cargaConfig()+"/db_doctores?useSSL=false&useTimezone=true&serverTimezone=UTC","prueba","passo12345");//prueba,,0ehn4TNU5I +cargaConfig()+
-  //  System.out.println("CONEXION EXITOSA ConexionDBOriginal");
+cn = DriverManager.getConnection("jdbc:mysql://"+cargaConfig()+"/db_doctores?useSSL=false&useTimezone=true&serverTimezone=America/Mexico_City","prueba","passo12345");//prueba,,0ehn4TNU5I +cargaConfig()+
+   // System.out.println("CONEXION EXITOSA sistema1 ConexionDBOriginal");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null,ex.getMessage());
         }

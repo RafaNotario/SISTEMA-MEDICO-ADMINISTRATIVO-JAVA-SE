@@ -35,7 +35,7 @@ public class Reportes {
     public void ReportePaciente(String param){
     Connection cn = con2.conexion();
     //imprimeRuta();
-    String  var = "C://SistemaMedico1366-768/src/Reportes/pacienteInfo.jasper";
+    String  var = "C:/SistemaMedico1366-768/src/Reportes/pacienteInfo.jasper";
 //C:\Sistema Medico\SistemaMedico\src\Reportes
 
     JasperReport reporte = null;
@@ -70,7 +70,7 @@ public class Reportes {
        // imprimeRuta(); RUTA PARA MAC
      //   String  ruta = "/Users/JOGUA/Applications/SistemaMedico1366-768/src/Reportes/reportParameter.jasper";
        // imprimeRuta();
-       String  ruta = "C:\\SistemaMedico1366-768/src/Reportes/ReportParameter.jasper";
+       String  ruta = "C:/SistemaMedico1366-768/src/Reportes/ReportParameter.jasper";
         JasperReport reporte = null;
         try {
             Map parametro = new HashMap();
@@ -104,7 +104,7 @@ public class Reportes {
     Connection cn = con2.conexion();
    // imprimeRuta();
    //ruta mac: /Users/JOGUA/Applications/SistemaMedico1366-768/src/Reportes/reportHeredoFam.jasper
-   String  var = "C://SistemaMedico1366-768/src/Reportes/reportHeredoFam.jasper";
+   String  var = "C:/SistemaMedico1366-768/src/Reportes/reportHeredoFam.jasper";
 //C:\Sistema Medico\SistemaMedico\src\Reportes
 
     JasperReport reporte = null;

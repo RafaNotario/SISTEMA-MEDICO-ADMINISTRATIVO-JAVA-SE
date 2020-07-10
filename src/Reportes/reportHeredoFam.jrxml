@@ -2,47 +2,49 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="heredofamiliar" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="58834dd7-b35f-4a00-8148-41f96777bc8a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="253"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="parameter1" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
-     CAST(h_clinica.expediente AS INT),h_clinica.diabetes,h_clinica.hepatopatia,
-     h_clinica.asma,h_clinica.endocrinas,h_clinica.hipertension,
-     h_clinica.nefropatia,h_clinica.cancer,h_clinica.cardiopatia,
-     h_clinica.mentales,h_clinica.alergicas,h_clinica.otrosHF,
-     h_clinica.actuales,
-     h_clinica.quirurgicas,
-     h_clinica.transfusionales,
-     h_clinica.alergias,
-     h_clinica.traumaticas,
-     h_clinica.hospitalizaciones,
-     h_clinica.adicciones,
-     h_clinica.otrosPer,
-     h_clinica.baño,
-     h_clinica.habitacion,
-     h_clinica.alimentacion,
-     h_clinica.deportes,
-     h_clinica.inmunizaciones,
-     h_clinica.descinmunizaciones,
-     h_clinica.alcoholismo,
-     h_clinica.frecuencia,
-     h_clinica.añosAlc,
-     h_clinica.tabaquismo,
-     h_clinica.cigdia,
-     h_clinica.añosTabaq,
-     h_clinica.anotacion,
-     CAST(t_personales.expediente AS INT),
-     t_personales.nombre,
-     t_personales.apellidos,
-     t_personales.edad
+     db_doctores.h_clinica.expediente,db_doctores.h_clinica.diabetes,db_doctores.h_clinica.hepatopatia,
+     db_doctores.h_clinica.asma,db_doctores.h_clinica.endocrinas,db_doctores.h_clinica.hipertension,
+     db_doctores.h_clinica.nefropatia,db_doctores.h_clinica.cancer,db_doctores.h_clinica.cardiopatia,
+     db_doctores.h_clinica.mentales,db_doctores.h_clinica.alergicas,db_doctores.h_clinica.otrosHF,
+     db_doctores.h_clinica.actuales,
+     db_doctores.h_clinica.quirurgicas,
+     db_doctores.h_clinica.transfusionales,
+     db_doctores.h_clinica.alergias,
+     db_doctores.h_clinica.traumaticas,
+     db_doctores.h_clinica.hospitalizaciones,
+     db_doctores.h_clinica.adicciones,
+     db_doctores.h_clinica.otrosPer,
+     db_doctores.h_clinica.baño,
+     db_doctores.h_clinica.habitacion,
+     db_doctores.h_clinica.alimentacion,
+     db_doctores.h_clinica.deportes,
+     db_doctores.h_clinica.inmunizaciones,
+     db_doctores.h_clinica.descinmunizaciones,
+     db_doctores.h_clinica.alcoholismo,
+     db_doctores.h_clinica.frecuencia,
+     db_doctores.h_clinica.añosAlc,
+     db_doctores.h_clinica.tabaquismo,
+     db_doctores.h_clinica.cigdia,
+     db_doctores.h_clinica.añosTabaq,
+     db_doctores.h_clinica.anotacion,
+     db_doctores.t_personales.expediente,
+     db_doctores.t_personales.nombre,
+     db_doctores.t_personales.apellidos,
+     db_doctores.t_personales.edad
 FROM
-	h_clinica
+	db_doctores.h_clinica
 INNER JOIN
-	t_personales 
+	db_doctores.t_personales 
 ON
-	h_clinica.expediente = t_personales.expediente AND h_clinica.expediente =$P{parameter1}]]>
+	db_doctores.h_clinica.expediente = db_doctores.t_personales.expediente AND db_doctores.h_clinica.expediente =$P{parameter1}]]>
 	</queryString>
-	<field name="CAST(h_clinica.expediente AS INT)" class="java.lang.Long"/>
+	<field name="expediente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="diabetes" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -139,14 +141,13 @@ ON
 	<field name="anotacion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="CAST(t_personales.expediente AS INT)" class="java.lang.Long"/>
 	<field name="nombre" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="apellidos" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="edad" class="java.lang.Integer">
+	<field name="edad" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
@@ -197,13 +198,6 @@ ON
 				</textElement>
 				<text><![CDATA[No. Expediente:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="493" y="0" width="82" height="34" uuid="e987b8e8-9095-45e4-9216-5195a2487766"/>
-				<textElement>
-					<font size="13" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{CAST(t_personales.expediente AS INT)}]]></textFieldExpression>
-			</textField>
 			<line>
 				<reportElement x="89" y="34" width="384" height="1" uuid="a2725ea7-1579-4b4d-ba48-2c23aebb8ad0"/>
 			</line>
@@ -554,6 +548,13 @@ ON
 				</textElement>
 				<text><![CDATA[d) ANOTACIONES Ú OBSERVASIONES]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="493" y="0" width="62" height="30" uuid="54831819-8be0-45cf-acb5-f9ad8340fc61"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expediente}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnFooter>
@@ -569,10 +570,6 @@ ON
 			<textField evaluationTime="Report">
 				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="3197167f-dab1-4c0a-b15c-b6c0e0c3a096"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="0" y="4" width="100" height="13" uuid="96a590cb-2892-4a7c-b435-e2f03193eeb3"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>

@@ -12,23 +12,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.TextAlignment;
-import org.apache.poi.xwpf.usermodel.UnderlinePatterns;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-/**
- *
- * @author monit
- */
+
 
 public class Valoracion extends javax.swing.JPanel {
 
     Funciones fnVal = new Funciones();
-    /**
-     * Creates new form Valoracion
-     */
+
     int valExped = 0;
     
     public Valoracion(int param) {
@@ -161,7 +156,7 @@ r4.setFontSize(13);
 
 //Para el titulo
 XWPFRun r1 = fech_up.createRun();
-r1.setText("Tecamachalco Pue. "+fnVal.fechLetra());
+r1.setText("Puebla Pue. "+fnVal.fechLetra());
 r1.setFontFamily("Arial");
 r1.setFontSize(11);
 r1.setTextPosition(10);
@@ -193,11 +188,11 @@ try {
     Desktop.getDesktop().open(file);
     
 } catch (FileNotFoundException ex) {
-    //Logger.getLogger(JF_Validar.class.getName()).log(Level.SEVERE, null, ex);
-    System.out.println("filenotfoundexception");
+    Logger.getLogger(Valoracion.class.getName()).log(Level.SEVERE, null, ex);
+    JOptionPane.showMessageDialog(null,ex);
 } catch (IOException ex) {
-   // Logger.getLogger(JF_Validar.class.getName()).log(Level.SEVERE, null, ex);
-   System.out.println("ioexception");
+   Logger.getLogger(Valoracion.class.getName()).log(Level.SEVERE, null, ex);
+   JOptionPane.showMessageDialog(null,ex);
 }
     }//GEN-LAST:event_jButton1ActionPerformed
    

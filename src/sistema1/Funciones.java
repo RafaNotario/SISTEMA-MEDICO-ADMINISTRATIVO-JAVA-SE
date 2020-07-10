@@ -621,7 +621,7 @@ private int ultimoRegistroConsulta(){
           }//while         
             cn.commit();            
         }catch (SQLException ex) {
-             System.err.println("ERROR: " + ex.getMessage());
+             JOptionPane.showMessageDialog(null,"ERROR: " + ex.getMessage());
              if(cn!=null)
              {
                  System.out.println("Rollback");
@@ -629,7 +629,7 @@ private int ultimoRegistroConsulta(){
                      //deshace todos los cambios realizados en los datos
                      cn.rollback();
                  } catch (SQLException ex1) {
-                     System.err.println( "No se pudo deshacer" + ex1.getMessage() );    
+                     JOptionPane.showMessageDialog(null, "Funciones" + ex1.getMessage() );    
                  }
              }                
          }finally{
